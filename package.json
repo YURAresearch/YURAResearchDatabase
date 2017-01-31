@@ -1,11 +1,22 @@
 {
   "name": "yuradb",
   "version": "2.0.0",
-  "description": "Research Listings",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "description": "version 2 of YURA Research Database",
+  "main": "app.js",
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrdutta27/YURAResearchDatabase.git"
@@ -22,8 +33,5 @@
   "bugs": {
     "url": "https://github.com/mrdutta27/YURAResearchDatabase/issues"
   },
-  "homepage": "https://github.com/mrdutta27/YURAResearchDatabase#readme",
-  "dependencies": {
-    "express": "^4.14.1"
-  }
+  "homepage": "https://github.com/mrdutta27/YURAResearchDatabase#readme"
 }
