@@ -1,0 +1,138 @@
+/* General CSS for entire database site */
+
+/*--------------------------------------------------------------------------
+GPL statement:
+This file is part of RDB.
+
+RDB is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+RDB is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------*/
+
+/* Material Design */
+.btn:after {
+    content:none;
+}
+.btn {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    border-radius: 2px;
+    -webkit-transition: box-shadow 0.15s linear;
+    -o-transition: box-shadow 0.15s linear;
+    transition: box-shadow 0.15s linear;
+}
+.btn:active, .btn:hover {
+    box-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+.fullwidthMD, .footer-top, .footer-bottom,.document-title {
+    box-shadow: 0 1.5px 6px rgba(0,0,0,0.9);
+}
+.boxMD {
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.boxMD, .boxMD .card-row-inner, .boxMD .card-row {
+    border-radius: 3px;
+}
+.contact-info .fa {
+    background-color: #1290d3;
+    color: #fff;
+    border: none;
+    box-shadow: 0 1.25px 5px rgba(0,0,0,0.4);
+    -webkit-transition: box-shadow 0.15s linear;
+    -o-transition: box-shadow 0.15s linear;
+    transition: box-shadow 0.15s linear;
+}
+.contact-info a:hover .fa {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+#mce-EMAIL {
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0.15);
+    color: #fafafa;
+}
+#feedback-form .form-group input, #feedback-form .form-group textarea {
+    border: none !important;
+    background-color: #f1f1f1;
+    margin-top: 5px;
+    border-radius: 3px;
+    color: #555555;
+    box-shadow: none;
+}
+#feedback-form .form-group input:focus, #feedback-form .form-group textarea:focus {
+    background-color: #f6f6f6;
+}
+
+/* Head */
+.document-title {
+    -webkit-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+.document-title h1 {
+    text-shadow: none !important;
+}
+.document-title .breadcrumb a {
+    font-size: 24px;
+    color: #ccc;
+    white-space: nowrap;
+}
+.document-title a {
+    padding: 7px;
+}
+.headback-chev {
+    font-size: 70%;
+}
+@media (max-width: 767px) {
+    .document-title>h1 {
+        font-size: 32px;
+    }
+    .document-title>.breadcrumb>li>a {
+        font-size: 22px;
+    }
+}
+@media (max-width: 450px) {
+    .document-title>h1 {
+        font-size: 28px;
+    }
+    .document-title>.breadcrumb>li>a {
+        font-size: 20px;
+    }
+}
+.document-title li a:hover, .document-title li a:active {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+/* Body */
+#invitefeedback {
+    font-size: 25px;
+    color: #0f74aa;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Bottom nav */
+.footer-bottom .nav>li {
+    border: none;
+    -webkit-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+@media (max-width: 767px) {
+    .footer-bottom .nav>li:hover {
+        background-color: rgba(0,0,0,0.1);
+        color: #fff;
+    }
+}
+.nav>li>a:focus {
+    background-color: transparent;
+}

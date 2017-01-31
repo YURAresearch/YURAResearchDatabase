@@ -1,0 +1,244 @@
+/* Custom additional CSS for homepage */
+
+/*--------------------------------------------------------------------------
+GPL statement:
+This file is part of RDB.
+
+RDB is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+RDB is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------*/
+
+/* General layout */
+@media (max-width: 330px) {
+    .hero-image-content {
+        top: 75px !important;
+    }
+}
+.hero-image-inner {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+/* General text */
+body {
+    font-size: 18px;
+    background-color: #f2f2f2;
+}
+.page-wrapper {
+    background-color: transparent;
+}
+p {
+    line-height: 30px;
+}
+h1 {
+    font-size: 34px;
+}
+h2 {
+    font-size: 28px;
+}
+h3 {
+    font-size: 24px;
+    font-weight: 500;
+}
+h4 {
+    font-size: 22px;
+}
+h5 {
+    font-size: 21px;
+}
+h6 {
+    font-size: 20px;
+}
+#learnmore p {
+    font-size: 16px;
+}
+.page-header p {
+    font-size: 18px;
+}
+#maintext {
+    padding-bottom: 50px;
+}
+.post-info-rdb p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+@media (max-width: 600px) {
+    .post-info-rdb p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}
+
+/* Buttons */
+.btn {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.btn-secondary {
+    background-color: #1080bc !important;
+}
+.background-secondary, .faq-item:before {
+    background-color: #0f74aa;
+}
+
+/* Testimonials block */
+#testimonial-page {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#testimonials blockquote {
+    height: 150px;
+    background: #fff;
+    margin: 25px auto;
+    padding: 20px;
+    width: 60%;
+}
+#testimonial-page>.page-header {
+    margin-bottom: 0px;
+}
+#testimonial-page footer {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#testimonial-page footer p {
+    color: #1080bc;
+    font-size: 18px;
+    line-height: 1.3;
+}
+#testimonial-page cite {
+    margin-top: 5px;
+    font-size: 15px;
+    color: #a8a8a8;
+}
+@media (max-width: 500px) {
+    #testimonials blockquote {
+        height: 260px;
+    }
+    #testimonials footer p {
+        font-size: 15px !important;
+    }
+    #testimonials footer cite{
+        font-size: 12px !important;
+    }
+}
+
+/* Awesomeness block */
+#sellingblock .box-content h2, #sellingblock .box-content p {
+    color: #eee;
+}
+/* The following 3 pieces are to adjust the responsive layout of the block
+   to only expand at 992px instead of 768px width; the layout was off originally */
+@media (max-width: 992px) {
+    #sellingblock .box {
+        margin-bottom: 30px;
+    }
+}
+@media (min-width: 768px) {
+    #sellingblock .col-sm-4, .categories > ul > li {
+        width: 750px;
+    }
+    #sellingblock .col-sm-4{
+        float: none;
+    }
+}
+@media (min-width: 992px) {
+    #sellingblock .col-sm-4, .categories > ul > li {
+        width: 33.33333%;
+    }
+    #sellingblock .col-sm-4 {
+        float: left;
+    }
+}
+
+/* Feedback block */
+.box .box-icon {
+    background-color: #0f649a;
+    color: #fff;
+    border: none;
+    box-shadow: 0 1.25px 5px rgba(0,0,0,0.4);
+}
+
+/* FAQs block */
+.faq-item {
+    margin: 20px 0;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.faq-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-width: 24px 24px 0 0;
+  border-style: solid;
+  border-color: #009f8b #fff;
+}
+.faq-item:after {
+    content: none; /* Get rid of little box */
+}
+.faq-item-question h3 {
+    font-size: 25px;
+    margin: 0px;
+    padding: 0px;
+    color: #181818;
+}
+.faq-item-question {
+    margin: 0 0 30px 0;
+}
+@media (max-width: 600px) {
+    .faq-item p {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+    .faq-item h3 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+}
+
+/* Back-to-top button */
+#back-top {
+    height: 60px;
+    width: 175px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2f84aa;
+    display: block;
+    z-index: 999;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+#back-top span {
+    color: #fff;
+    font-size: 18px;
+    text-align: left;
+    line-height: 60px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+#back-top i {
+    color: #fff;
+    margin: 0 10px 0 0;
+    position: relative;
+    top: -2px;
+    font-size: 15px;
+    display: inline-block;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}

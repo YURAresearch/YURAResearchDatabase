@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://yura.undergradresearch.org/database/</loc>
+  <lastmod>2016-10-28T05:02:10+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://yura.undergradresearch.org/database/feedback.html</loc>
+  <lastmod>2016-10-26T19:56:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://yura.undergradresearch.org/database/terms.html</loc>
+  <lastmod>2016-10-28T05:00:18+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://yura.undergradresearch.org/database/index.html</loc>
+  <lastmod>2016-10-28T05:02:10+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

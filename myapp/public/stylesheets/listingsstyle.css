@@ -1,0 +1,295 @@
+/* Custom additional CSS for listings page */
+
+/*--------------------------------------------------------------------------
+GPL statement:
+This file is part of RDB.
+
+RDB is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+RDB is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------*/
+
+/* General layout and appearance */
+.background-secondary, .faq-item:before {
+    background-color: #0f74aa;
+}
+a:focus {
+	text-decoration: none;
+}
+
+/* Loading and warning */
+#loader p {
+	font-size: 26px;
+	font-weight: 400;
+	color: #009f8b;
+	text-align: center;
+	line-height: 60px;
+}
+#login-warning {
+	font-size: 120%;
+	text-align: center;
+}
+
+/* Head */
+#home>a {
+	color: #fff;
+}
+
+/* Listings (general) */
+.list {
+    padding: 0;
+    list-style-type: none;
+}
+.list li {
+    margin-bottom: 5px;
+}
+.list div:hover {
+	background-color: #FAFDFE;
+}
+.list div {
+	-webkit-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+}
+#databaseitem {
+	/* Hide template */
+	display: none;
+}
+.card-row-title {
+	font-weight: 600;
+}
+
+/* Listing items */
+.card-row-properties dd {
+	margin-right: 8px;
+}
+a.website:focus {
+	color: #008675;
+}
+.website, .email {
+	word-wrap: break-word;
+	word-break: break-all;
+}
+dt span.departments, .email, .website {
+	line-height: 1.42857;
+}
+dt span.departments > span, .email, .website {
+	display: block;
+	padding-top: 9.5px;
+	padding-bottom: 9.5px;
+}
+.headout-chev {
+	font-size: 80%;
+}
+mark {
+  background-color: #a0f6fa;
+  color: inherit;
+  border: none;
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Buttons and filters */
+#searchbox, #deptDropdown .selectize-input {
+	border: none;
+	background-color: #eeeeee;
+	margin-top: 5px;
+	border-radius: 3px;
+	color: #555555;
+	box-shadow: none;
+}
+#searchbox:focus {
+	background-color: #f6f6f6;
+}
+#deptDropdown .selectize-input {
+	line-height: 28px;
+}
+#deptDropdown .selectize-dropdown, #deptDropdown .selectize-dropdown .optgroup-header {
+	border: none;
+	background-color: #fcfcfc;
+}
+.filter-actions {
+	height: 37px;
+}
+.sort.btn {
+	margin-left: 8px;
+	background-color: #777;
+	margin-top: 5px;
+	color: #fff;
+	width: 125px;
+}
+#reset-button-id {
+	background-color: #205699;
+	color: #fff;
+	padding: 9px 15px;
+	border-radius: 18.6px;
+	text-align: center;
+	margin-top: 3px;
+	margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: visible;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    -webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}
+#reset-button-id .fa, #reset-button-id:hover, #reset-button-id::selection {
+	color: #fff !important;
+}
+#reset-button-id:hover {
+	box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+#reset-button-id::selection {
+	background-color: transparent;
+}
+
+/* Pure CSS truncation with toggle */
+.truncateme .desc-text {
+	line-height: 1.6em;
+	display: block;
+	overflow: hidden;
+}
+.hiddentrig ~ .desc-text {
+	max-height: 6.4em;
+}
+.hiddentrig:checked ~ .desc-text {
+	max-height: 999em;
+}
+.hiddentrig ~ .show-text:before {
+	content: 'Show more';
+}
+.hiddentrig:checked ~ .show-text:before {
+	content: 'Show less';
+}
+.show-text {
+	cursor: pointer;
+	display: block;
+	background-color: #6EB39B;
+	width: 100px;
+	line-height: 25px;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-align: center;
+	margin: 10px 0 10px auto;
+	color: #fff;
+	border-radius: 1.5px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+	-webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}
+.hiddentrig:checked ~ .show-text {
+	background-color: #81A6BC;
+}
+
+
+/* Pagination nav bar */
+.pager {
+	margin-top: 30px;
+	margin-bottom: 60px;
+	padding: 20px 0;
+}
+@media (max-width: 490px) {
+	.pager ul {
+		display: block;
+		margin-top: 6px;
+		margin-bottom: 6px;
+	}
+}
+.pager li {
+	margin: 0;
+	display: inline-block;
+}
+.pager .pagination li a {
+	padding: 4px 6px;
+	width: 28px;
+	border: none;
+	border-radius: 2px !important;
+	margin: 2px;
+    float: none !important; /* Fix pagination weird spacing */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
+}
+@media (min-width: 650px) {
+	.pager .pagination li > a {
+		padding: 8px 10px;
+		width: 45px;
+		font-size: 120%;
+	}
+}
+.pager .disabled, .pager .disabled a, .pager .disabled a:hover {
+	cursor: default !important;
+	background: transparent;
+}
+.pager a::selection, .pager span::selection, #prev::selection, #next::selection, .pager::selection {
+	background: transparent !important;
+	color: inherit;
+}
+#prev, #next {
+	width: 60px;
+	margin: 3px auto;
+	height: 35px;
+	background-color: #008675;
+	border-radius: 17.5px;
+	cursor: pointer;
+	color: #fff;
+	display: inline-block;
+	-webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+	text-align: center;
+	white-space: nowrap;
+	box-shadow: 0 1.25px 5px rgba(0,0,0,0.4);
+}
+#prev .fa, #next .fa {
+	color: #fff;
+	font-size: 15px;
+	padding: 10px;
+}
+@media (min-width: 490px) {
+	span#prev {
+		margin-right: 3%;
+	}
+	span#next {
+		margin-left: 3%;
+	}
+}
+span#prev:hover, span#next:hover {
+	box-shadow: 0 1.5px 6px rgba(0,0,0,0.4);
+}
+
+/* Back-to-top button */
+#back-top {
+	height: 60px;
+	width: 60px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #2f84aa;
+	display: block;
+	z-index: 999;
+	text-align: center;
+	border-radius: 30px;
+	box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+#back-top i {
+	color: #fff;
+	margin: 0;
+	position: relative;
+	top: 20px;
+	font-size: 15px;
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "yuradb",
+  "version": "2.0.0",
+  "description": "Research Listings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrdutta27/YURAResearchDatabase.git"
+  },
+  "keywords": [
+    "YURA",
+    "Research",
+    "Database",
+    "Undergraduate",
+    "Yale"
+  ],
+  "author": "Surya Dutta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrdutta27/YURAResearchDatabase/issues"
+  },
+  "homepage": "https://github.com/mrdutta27/YURAResearchDatabase#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
