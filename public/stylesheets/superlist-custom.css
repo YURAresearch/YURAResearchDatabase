@@ -6388,7 +6388,7 @@ button.close {
     color: #fff; }
 
 .background-transparent-image {
-  /*background-image: url("../img/tmp/bg-transparent.jpg");*/
+  /*background-image: url("../images/tmp/bg-transparent.jpg");*/
   background-color:#f2f2f2;
   background-size: cover;
   background-position: center center; }
@@ -6764,7 +6764,7 @@ blockquote {
 
 .document-title {
   background-repeat: no-repeat;
-  background-image: url("../img/background.jpg");
+  background-image: url("../images/background.jpg");
   background-position: 50% calc(50% + 110px);
   margin: -80px -750px 80px -750px;
   padding: 70px 750px;
@@ -10744,7 +10744,7 @@ ol li {
     text-transform: uppercase; }
 
 .special {
-  background-image: url("../img/tmp/product-4.jpg");
+  background-image: url("../images/tmp/product-4.jpg");
   background-size: cover;
   background-position: center center;
   bottom: 0px;
