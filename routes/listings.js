@@ -3,7 +3,13 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  var CASticket = req.query.ticket;
+  if (CASticket.length!=46){
+    res.send("Boo no ticket!");
+  }
+  else{
+    res.send("Yay ticket!");
+  }
 });
 
 module.exports = router;
