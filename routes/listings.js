@@ -1,15 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  var CASticket = req.query.ticket;
-  if (CASticket.length!=46){
-    res.send("Boo no ticket!");
-  }
-  else{
-    res.send("Yay ticket!");
-  }
+  res.render('index', { title: 'Hello' });
 });
 
 module.exports = router;
