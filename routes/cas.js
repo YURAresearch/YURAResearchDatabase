@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
     res.send("Boo no ticket!");
   }
   else{
-    res.redirect('/listings');
+    console.log(req.query.ticket);
+    res.redirect('https://secure.its.yale.edu/cas/validate?service=https://yura-rdb.herokuapp.com/cas&ticket='+req.query.ticket);
   }
 });
 
