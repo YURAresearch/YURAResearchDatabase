@@ -1,0 +1,397 @@
+<div id="RDB">
+    <div class="page-wrapper">
+        <div class="main">
+            <div class="main-inner">
+                <div class="container">
+                    <div class="content">
+                        <!-- Header -->
+                        <div class="document-title">
+                            <h1 id="home"><a href="/">YURA Research Database</a></h1>
+                        </div><!-- /.document-title -->
+                        <!-- Logged in -->
+                        <div>
+                            <!-- Filter/Search bar -->
+                            <div class="filter boxMD">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                            <div class="form-group">
+                                                <div>
+                                                    <input placeholder="Search" class="form-control" id="searchbox" autofocus>
+                                                </div>
+                                            </div><!-- /.form-group -->
+                                    </div><!-- /.col-* -->
+                                    <div class="col-sm-12 col-md-6">
+                                        <div id="deptDropdown">
+                                            <select id="categories" class="form-control">
+                                                <option value="">Departments</option>
+                                                <optgroup label="Sciences">
+                                                    <option value="Applied Physics">Applied Physics</option>
+                                                    <option value="Astronomy">Astronomy</option>
+                                                    <option value="Chemistry">Chemistry</option>
+                                                    <option value="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</option>
+                                                    <option value="Geology and Geophysics">Geology and Geophysics</option>
+                                                    <option value="Molecular Biophysics and Biochemistry">Molecular Biophysics and Biochemistry</option>
+                                                    <option value="Molecular, Cellular and Developmental Biology">Molecular, Cellular and Developmental Biology</option>
+                                                    <option value="Physics">Physics</option>
+                                                </optgroup>
+                                                <optgroup label="Mathematics and Engineering">
+                                                    <option value="Applied Mathematics">Applied Mathematics</option>
+                                                    <option value="Biomedical Engineering">Biomedical Engineering</option>
+                                                    <option value="Chemical and Environmental Engineering">Chemical and Environmental Engineering</option>
+                                                    <option value="Computer Science">Computer Science</option>
+                                                    <option value="Electrical Engineering">Electrical Engineering</option>
+                                                    <option value="Mathematics">Mathematics</option>
+                                                    <option value="Mechanical Engineering and Materials Science">Mechanical Engineering and Materials Science</option>
+                                                    <option value="Statistics">Statistics</option>
+                                                </optgroup>
+                                                <optgroup label="Social Sciences">
+
+                                                    <option value="Anthropology">Anthropology</option>
+
+                                                    <option value="Cognitive Science">Cognitive Science</option>
+
+                                                    <option value="Economics">Economics</option>
+
+                                                    <option value="Environmental Studies">Environmental Studies</option>
+
+                                                    <option value="Ethics, Politics and Economics">Ethics, Politics and Economics</option>
+
+                                                    <option value="Global Affairs">Global Affairs</option>
+
+                                                    <option value="Linguistics">Linguistics</option>
+
+                                                    <option value="Political Science">Political Science</option>
+
+                                                    <option value="Psychology">Psychology</option>
+
+                                                    <option value="Sociology">Sociology</option>
+
+                                                    <option value="Women’s, Gender, and Sexuality Studies">Women’s, Gender, and Sexuality Studies</option>
+
+                                                </optgroup>
+
+                                                <optgroup label="Humanities">
+
+                                                    <option value="African American Studies">African American Studies</option>
+
+                                                    <option value="American Studies">American Studies</option>
+
+                                                    <option value="Archaeological Studies">Archaeological Studies</option>
+
+                                                    <option value="Classics">Classics</option>
+
+                                                    <option value="Ethnicity, Race and Migration">Ethnicity, Race and Migration</option>
+
+                                                    <option value="History">History</option>
+
+                                                    <option value="Humanities">Humanities</option>
+
+                                                    <option value="Philosophy">Philosophy</option>
+
+                                                    <option value="Religious Studies">Religious Studies</option>
+
+                                                </optgroup>
+
+                                                <optgroup label="Languages and Cultures">
+
+                                                    <option value="African Studies">African Studies</option>
+
+                                                    <option value="Comparative Literature">Comparative Literature</option>
+
+                                                    <option value="East Asian Languages and Literatures">East Asian Languages and Literatures</option>
+
+                                                    <option value="English">English</option>
+
+                                                    <option value="French">French</option>
+
+                                                    <option value="Germanic Languages and Literature">Germanic Languages and Literature</option>
+
+                                                    <option value="Hellenic Studies">Hellenic Studies</option>
+
+                                                    <option value="Italian">Italian</option>
+
+                                                    <option value="Judaic Studies">Judaic Studies</option>
+
+                                                    <option value="Latin American Studies">Latin American Studies</option>
+
+                                                    <option value="Modern Middle East Studies">Modern Middle East Studies</option>
+
+                                                    <option value="Near Eastern Langauges and Civilizations">Near Eastern Langauges and Civilizations</option>
+
+                                                    <option value="Slavic Languages and Literatures">Slavic Languages and Literatures</option>
+
+                                                    <option value="South Asian Studies">South Asian Studies</option>
+
+                                                    <option value="Spanish and Portuguese">Spanish and Portuguese</option>
+
+                                                </optgroup>
+
+                                                <optgroup label="Arts and Design">
+
+                                                    <option value="Architecture">Architecture</option>
+
+                                                    <option value="Art">Art</option>
+
+                                                    <option value="Film and Media Studies">Film and Media Studies</option>
+
+                                                    <option value="History of Art">History of Art</option>
+
+                                                    <option value="Music">Music</option>
+
+                                                    <option value="Theater Studies">Theater Studies</option>
+
+                                                </optgroup>
+
+                                                <optgroup label="Graduate and Professional Schools">
+
+                                                    <option value="Cell Biology (School of Medicine)">Cell Biology (School of Medicine)</option>
+
+                                                    <option value="Cellular and Molecular Physiology (School of Medicine)">Cellular and Molecular Physiology (School of Medicine)</option>
+
+                                                    <option value="Comparative Medicine (School of Medicine)">Comparative Medicine (School of Medicine)</option>
+
+                                                    <option value="Emergency Medicine (School of Medicine)">Emergency Medicine (School of Medicine)</option>
+
+                                                    <option value="Genetics (School of Medicine)">Genetics (School of Medicine)</option>
+
+                                                    <option value="Immunobiology (School of Medicine)">Immunobiology (School of Medicine)</option>
+
+                                                    <option value="Internal Medicine (School of Medicine)">Internal Medicine (School of Medicine)</option>
+
+                                                    <option value="Microbial Pathogenesis (School of Medicine)">Microbial Pathogenesis (School of Medicine)</option>
+
+                                                    <option value="Neuroscience (School of Medicine)">Neuroscience (School of Medicine)</option>
+
+                                                    <option value="Orthopaedics and Rehabilitation (School of Medicine)">Orthopaedics and Rehabilitation (School of Medicine)</option>
+
+                                                    <option value="Pathology (School of Medicine)">Pathology (School of Medicine)</option>
+
+                                                    <option value="Pediatrics (School of Medicine)">Pediatrics (School of Medicine)</option>
+
+                                                    <option value="Pharmacology (School of Medicine)">Pharmacology (School of Medicine)</option>
+
+                                                    <option value="Psychiatry (School of Medicine)">Psychiatry (School of Medicine)</option>
+
+                                                    <option value="Therapeutic Radiology (School of Medicine)">Therapeutic Radiology (School of Medicine)</option>
+
+                                                    <option value="Biostatistics (School of Public Health)">Biostatistics (School of Public Health)</option>
+
+                                                    <option value="Environmental Health Studies (School of Public Health)">Environmental Health Studies (School of Public Health)</option>
+
+                                                    <option value="Epidemiology of Microbial Diseases (School of Public Health)">Epidemiology of Microbial Diseases (School of Public Health)</option>
+
+                                                    <option value="School of Forestry and Environmental Studies">School of Forestry and Environmental Studies</option>
+
+                                                </optgroup>
+
+                                            </select>
+
+                                        </div> <!-- /.deptDropdown -->
+
+                                    </div><!-- /.col-* -->
+
+                                </div><!-- /.row -->
+
+                                <br/>
+
+
+
+                                <div class="row">
+
+                                    <div class="col-sm-8">
+
+                                        <div class="filter-actions">
+
+                                            <span style="cursor:pointer"><a id="reset-button-id"><i class="fa fa-close"></i> Reset Filter</a></span>
+
+                                        </div><!-- /.filter-actions -->
+
+                                    </div><!-- /.col-* -->
+
+
+
+                                    <div class="col-sm-4">
+
+                                        <button class="sort btn pull-right" data-sort="departments">Sort by Dept</button>
+
+                                        <button class="sort btn pull-right" data-sort="name">Sort by Name</button>
+
+                                    </div><!-- /.col-* -->
+
+                                </div><!-- /.row -->
+
+                            </div> <!-- /.filter -->
+
+
+
+                            <!-- Loading text -->
+
+                            <div id="loader">
+
+                                <p>loading...</p>
+
+                            </div>
+
+
+
+                            <!-- Listing items -->
+
+                            <div id="rdblistings">
+
+                                <ul class="list" id="list">
+
+                                    <li id="databaseitem" class="boxMD">
+
+                                        <div class="card-row">
+
+                                            <div class="card-row-inner">
+
+
+
+                                                <div class="card-row-body">
+
+                                                    <h2 class="card-row-title"><a target="_blank" class="name web1"></a></h2>
+
+                                                    <div class="card-row-content truncateme description"></div><!-- /.card-row-content -->
+
+                                                </div><!-- /.card-row-body -->
+
+
+
+                                                <div class="card-row-properties">
+
+                                                    <dl>
+
+                                                        <dd class="dept-head">Department(s)</dd><dt><span class="departments"></span></dt>
+
+                                                        <dd>Email</dd><dt><a target="_blank" class="email email2"></a></dt>
+
+                                                        <dd></dd><dt><a target="_blank" class="website">Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
+
+                                                    </dl>
+
+                                                </div><!-- /.card-row-properties -->
+
+
+
+                                            </div><!-- /.card-row-inner -->
+
+                                        </div><!-- /.card-row -->
+
+                                    </li>
+
+                                </ul>
+
+                            </div> <!-- /.hr -->
+
+
+
+                            <!-- Pagination buttons -->
+
+                            <div class="pager" id="pagination-nav">
+
+                                <span id="prev">
+
+                                    <i class="fa fa-chevron-left"></i>
+
+                                </span>
+
+
+
+                                <ul class="pagination">
+
+                                    <!-- Pages buttons (to be filled by js) -->
+
+                                </ul>
+
+
+
+                                <span id="next">
+
+                                    <i class="fa fa-chevron-right"></i>
+
+                                </span>
+
+                            </div><!-- /.pager -->
+
+
+
+                            <br/>
+
+                            <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+
+                                        <div class="contact-info-wrapper">
+
+                                            <div class="contact-head">
+
+                                                <h2>Got questions? Thoughts?</h2>
+
+                                            </div>
+
+
+
+                                            <div class="contact-info">
+
+                                                <span class="contact-info-item">
+
+                                                    <a href="feedback.html" target="_self">
+
+                                                        <i class="fa fa-paper-plane-o"></i>
+
+                                                        <span style="color:#fff">Send feedback</span>
+
+                                                    </a>
+
+                                                </span>
+
+
+
+                                                <span class="contact-info-item">
+
+                                                    <a href="mailto:yura.database@gmail.com" target="_blank">
+
+                                                        <i class="fa fa-at"></i>
+
+                                                        <span style="color:#fff">yura@yale.edu</span>
+
+                                                    </a>
+
+                                                </span><!-- /.contact-info-item -->
+
+
+
+                                                <span class="contact-info-item">
+
+                                                    <a href="https://www.facebook.com/yaleundergradresearch/" target="_blank">
+
+                                                        <i class="fa fa-facebook"></i>
+
+                                                        <span style="color:#fff">Facebook</span>
+
+                                                    </a>
+
+                                                </span><!-- /.contact-info-item -->
+
+                                            </div><!-- /.contact-info-->
+
+                                        </div><!-- /.contact-info-wrapper -->
+
+                                    </div><!-- /.col-* -->
+
+                                </div><!-- /.row -->
+
+                            </div>
+
+                        </div><!--rdbcontent-->
+
+                    </div><!-- /.content -->
+
+                </div><!-- /.container -->
+
+            </div><!-- /.main-inner -->
+
+        </div><!-- /.main -->
