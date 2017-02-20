@@ -11,12 +11,12 @@ router.get('/', function(req, res, next) {
                   title: 'Listings'
               });
           } else {
+              res.send('NO ticket');
               res.redirect('../');
           }
       });
     } else {
-      console.log("no ticket");
-      res.redirect('../');
+      res.send('no ticket');
     }
 });
 
