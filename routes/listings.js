@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
           }
       });
     } else {
+      console.log("no ticket");
       res.redirect('../');
     }
 });
