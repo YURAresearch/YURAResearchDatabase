@@ -11,9 +11,7 @@ router.get('/', function(req, res, next) {
                   title: 'Listings'
               });
           } else {
-              res.send('NO ticket');
-              res.redirect('../');
-          }
+              res.send('NO ticket');          }
       });
     } else {
       res.send('no ticket');
