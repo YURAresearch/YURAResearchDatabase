@@ -1,0 +1,54 @@
+<div class="page-wrapper">
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+
+    <div class="document-title">
+        <h1>Feedback</h1>
+
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="fa fa-chevron-left headback-chev"></i> YURA Research Database</a></li>
+        </ul>
+    </div><!-- /.document-title -->
+
+<h3 id="invitefeedback">We’d love to hear from you!</h3>
+<p>Let us know what you think, and what we can do better! <br/> If you would prefer to keep your comments anonymous, please only fill out the message textbox.</p>
+<br/>
+<div class="contact-form-wrapper clearfix background-white p30 boxMD" id="feedback-form">
+    <form class="contact-form" name='feedback' id='feedback' method='post' action='/feedback/confirm'>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="contact-form-name">Name</label>
+                    <input type="text" name="name" id="contact-form-name" class="form-control">
+                </div><!-- /.form-group -->
+            </div><!-- /.col-* -->
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="contact-form-email">Email address</label>
+                    <input type="text" name="email" id="contact-form-email" class="form-control">
+                </div><!-- /.form-group -->
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+        <div class="form-group">
+            <label for="contact-form-subject">Subject</label>
+            <input type="text" name="subject" id="contact-form-subject" class="form-control">
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <label for="contact-form-message">Message</label>
+            <textarea class="form-control required" name="message" id="contact-form-message" rows="6"></textarea>
+        </div><!-- /.form-group -->
+
+        <input type="submit" value="Send Feedback" class="btn btn-primary pull-right"></input>
+    </form><!-- /.contact-form -->
+</div><!-- /.contact-form-wrapper -->
+</br>
+<h3>{{message}}</h3>
+</br>
+                </div><!-- /.content -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
