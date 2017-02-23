@@ -56,10 +56,10 @@ app.get( '/logout', auth.logout );
 
 app.get('/listings', auth.bounce, function (req, res) {
   res.render('listings', {
-      title: 'Listings'
+      title: 'Listings',
+      cas_user: req.session[ auth.session_name ],
   });
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
