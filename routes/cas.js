@@ -1,17 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var request = require('request');
+var CASAuthentication = require('cas-authentication');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-   request('https://secure.its.yale.edu/cas/validate?service=https://yura-rdb.herokuapp.com/cas&ticket='+req.query.ticket, function (error, response, body) {
-   if (!error && response.statusCode == 200 && body.indexOf('yes')!== -1) {
-     res.send('hi');
-   }
-   else{
-     res.redirect('../');
-   }
- });
-});
 
-module.exports = router;
+// See https://github.com/kylepixel/cas-authentication
+module.exports = function(host, port, casUrl){
+  var cas = new CASAuthentication({
+      cas_url         : casUrl || 'https://secure.its.yale.edu/cas',
+      service_url     : process.env.HEROKU_HOST || 'http://' + host + ':' + port,
+      cas_version     : '1.0'
+  });
+  return cas;
+};
