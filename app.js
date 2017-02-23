@@ -7,11 +7,19 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var cas = require('./routes/cas');
-var listings = require('./routes/listings');
+//var listings = require('./routes/listings');
 var terms = require('./routes/terms');
 var feedback = require('./routes/feedback');
 var feedbackconfirm = require('./routes/feedback-confirm');
+
+var cas = require('./routes/cas');
+var session = require('client-sessions');
+
+var port = process.env.PORT || '3000';
+var host = process.env.HOST || 'localhost';
+var sessionSecret = process.env.SESSION_SECRET || 'e70a1e1ee4b8f662f78'
+
+var duration = 24 * 60 * 60 * 7 * 1000;
 
 var app = express();
 
@@ -29,10 +37,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 //app.use('/cas', cas);
-app.use('/listings', listings);
+//app.use('/listings', listings);
 app.use('/terms', terms);
 app.use('/feedback', feedback);
 app.use('/feedback/confirm', feedbackconfirm);
+
+app.use( session({
+    cookieName: 'session',
+    secret: sessionSecret,
+    duration: duration,
+    activeDuration: duration
+}));
+
+
+var auth = cas(host, port);
+
+app.get( '/logout', auth.logout );
+
+app.get('/listings', auth.bounce, function (req, res) {
+  res.render('listings', {
+      title: 'Listings'
+  });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

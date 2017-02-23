@@ -1,37 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-var cas = require('./cas.js');
-var session = require('client-sessions');
-
-var port = process.env.PORT || '8000';
-var host = process.env.HOST || 'localhost';
-var sessionSecret = process.env.SESSION_SECRET || 'e70a1e1ee4b8f662f78'
-
-var duration = 24 * 60 * 60 * 7 * 1000;
-
-router.use( session({
-    cookieName: 'session',
-    secret: sessionSecret,
-    duration: duration,
-    activeDuration: duration
-}));
-
-var auth = cas(host, port);
-
-router.get( '/logout', auth.logout );
-
-
-// All other routes require CAS authorization
-router.use(auth.bounce);
-
-// Get the homepage
-router.get('/', function (req, res) {
-  res.render('listings', {
-      title: 'Listings'
-  });
-});
-
 
 /* GET home page.
 router.get('/', function(req, res, next) {
