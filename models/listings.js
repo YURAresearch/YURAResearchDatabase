@@ -8,20 +8,7 @@ var options = {
 var pgp = require('pg-promise')();
 var db = pgp(process.env.DATABASE_FILE || 'postgres://postgres:bulld0g27@localhost:5432/yurardb');
 
-function getAllListings(callback) {
-    db.any('SELECT * FROM listings', [true], callback)
-        .then(function(data) {
-            callback(data); // send data;
-        })
-        .catch(function(error) {
-            console.log('ERROR:', error); // print the error;
-            return res.status(500).send(err);
-        });
-}
-
-/*
-function searchByTitle(searchString, callback) {
-    var query = "SELECT title FROM movies WHERE LOWER(title) LIKE LOWER('%" + searchString + "%')";
+function callbackData(query, callback) {
     db.any(query, [true], callback)
         .then(function(data) {
             callback(data); // send data;
@@ -31,9 +18,28 @@ function searchByTitle(searchString, callback) {
             return res.status(500).send(err);
         });
 }
-*/
+
+function getAllListings(callback) {
+    callbackData("SELECT * FROM listings", callback);
+}
+
+
+function searchListings(searchString, callback) {
+    callbackData("SELECT * FROM listings WHERE LOWER(name) LIKE LOWER('%" + searchString + "%') OR LOWER(description) LIKE LOWER('%" + searchString + "%')", callback);
+}
+
+function filterDepts(deptString, callback) {
+    callbackData("SELECT * FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%')", callback);
+}
+
+function searchANDfilter(searchString, deptString, callback) {
+  callbackData("SELECT * FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (LOWER(name) LIKE LOWER('%" + searchString + "%') OR LOWER(description) LIKE LOWER('%" + searchString + "%'))", callback);
+}
 
 module.exports = {
+    callbackData: callbackData,
     getAllListings: getAllListings,
-    //searchByTitle: searchByTitle,
+    searchListings: searchListings,
+    filterDepts: filterDepts,
+    searchANDfilter: searchANDfilter
 };

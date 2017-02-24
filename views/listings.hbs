@@ -9,178 +9,170 @@
                             <h1 id="home"><a href="/">YURA Research Database</a></h1>
                         </div>
                         <!-- /.document-title -->
-                        <!-- Logged in -->
                         <div>
-                            <h3>CAS User: {{cas_user}}</h3>
-                            <!-- Filter/Search bar -->
-                            <div class="filter boxMD">
+                            <form class="filter" method="get" action="/listings">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
-                                            <div>
-                                                <input placeholder="Search" class="form-control" autofocus>
-                                            </div>
+                                            <input type="text" name="search" placeholder="Keyword" class="form-control" autofocus>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
                                     <!-- /.col-* -->
+
                                     <div class="col-sm-12 col-md-6">
-                                        <div id="deptDropdown">
-                                            <select id="categories" class="form-control">
-                                                <option value="">Departments</option>
-                                                <optgroup label="Sciences">
-                                                  {{#each depts.sciences}}
-                                                  <option value='{{this}}'>{{this}}</option>
-                                                  {{/each}}
-                                                </optgroup>
-                                                <optgroup label="Mathematics and Engineering">
-                                                  {{#each depts.math_engineering}}
-                                                  <option value='{{this}}'>{{this}}</option>
-                                                  {{/each}}
-                                                </optgroup>
-                                                <optgroup label="Social Sciences">
-                                                  {{#each depts.social_sciences}}
-                                                  <option value='{{this}}'>{{this}}</option>
-                                                  {{/each}}
+                                        <div class="form-group">
+                                            <select name="departments" class="form-control" title="Select Category">
+                                              <option value="">Departments</option>
+                                              <optgroup label="Sciences">
+                                                {{#each depts.sciences}}
+                                                <option value='{{this}}'>{{this}}</option>
+                                                {{/each}}
                                               </optgroup>
-                                                <optgroup label="Humanities">
-                                                  {{#each depts.humanities}}
-                                                  <option value='{{this}}'>{{this}}</option>
-                                                  {{/each}}
-                                                </optgroup>
-                                                <optgroup label="Languages and Cultures">
-                                                  {{#each depts.languages_cultures}}
-                                                  <option value='{{this}}'>{{this}}</option>
-                                                  {{/each}}
-                                                </optgroup>
-                                                <optgroup label="Arts and Design">
-                                                  {{#each depts.arts_design}}
-                                                  <option value='{{this}}'>{{this}}</option>
-                                                  {{/each}}
-                                                </optgroup>
-                                                <optgroup label="Graduate and Professional Schools">
-                                                  {{#each depts.graduate_professional_schools}}
-                                                  <option value='{{this}}'>{{this}}</option>
-                                                  {{/each}}
-                                                </optgroup>
+                                              <optgroup label="Mathematics and Engineering">
+                                                {{#each depts.math_engineering}}
+                                                <option value='{{this}}'>{{this}}</option>
+                                                {{/each}}
+                                              </optgroup>
+                                              <optgroup label="Social Sciences">
+                                                {{#each depts.social_sciences}}
+                                                <option value='{{this}}'>{{this}}</option>
+                                                {{/each}}
+                                            </optgroup>
+                                              <optgroup label="Humanities">
+                                                {{#each depts.humanities}}
+                                                <option value='{{this}}'>{{this}}</option>
+                                                {{/each}}
+                                              </optgroup>
+                                              <optgroup label="Languages and Cultures">
+                                                {{#each depts.languages_cultures}}
+                                                <option value='{{this}}'>{{this}}</option>
+                                                {{/each}}
+                                              </optgroup>
+                                              <optgroup label="Arts and Design">
+                                                {{#each depts.arts_design}}
+                                                <option value='{{this}}'>{{this}}</option>
+                                                {{/each}}
+                                              </optgroup>
+                                              <optgroup label="Graduate and Professional Schools">
+                                                {{#each depts.graduate_professional_schools}}
+                                                <option value='{{this}}'>{{this}}</option>
+                                                {{/each}}
+                                              </optgroup>
                                             </select>
                                         </div>
-                                        <!-- /.deptDropdown -->
+                                        <!-- /.form-group -->
                                     </div>
                                     <!-- /.col-* -->
                                 </div>
                                 <!-- /.row -->
-                                <br/>
+
+                                <hr>
 
                                 <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="filter-actions">
-                                            <span style="cursor:pointer"><a id="reset-button-id"><i class="fa fa-close"></i> Reset Filter</a></span>
-                                        </div>
-                                        <!-- /.filter-actions -->
-                                    </div>
-                                    <!-- /.col-* -->
-
                                     <div class="col-sm-4">
-                                        <button class="sort btn pull-right" data-sort="departments">Sort by Dept</button>
-                                        <button class="sort btn pull-right" data-sort="name">Sort by Name</button>
+                                        <div class="filter-actions">
+                                            <a href="/listings"><i class="fa fa-close"></i> Reset Search</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <button type="submit" class="btn btn-primary pull-right">Search</button>
                                     </div>
                                     <!-- /.col-* -->
                                 </div>
                                 <!-- /.row -->
-                            </div>
-                            <!-- /.filter -->
+                            </form>
 
-                            <!-- Listing items -->
-                            <div>
-                                <ul class="list">
-                                  {{#each listings}}
-                                    <li>
-                                        <div class="card-row">
-                                            <div class="card-row-inner">
+                                <!-- Listing items -->
+                                <div>
+                                    <ul class="list">
+                                        {{#each listings}}
+                                            <li>
+                                                <div class="card-row">
+                                                    <div class="card-row-inner">
 
-                                                <div class="card-row-body">
-                                                    <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
-                                                    <div class="card-row-content">{{this.description}}</div>
-                                                    <!-- /.card-row-content -->
+                                                        <div class="card-row-body">
+                                                            <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
+                                                            <div class="card-row-content truncateme description">{{this.description}}</div>
+                                                            <!-- /.card-row-content -->
+                                                        </div>
+                                                        <!-- /.card-row-body -->
+
+                                                        <div class="card-row-properties">
+                                                            <dl>
+                                                                <dd>Department(s)</dd><dt><span>{{this.departments}}</span></dt>
+                                                                <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank">{{this.email}}</a></dt>
+                                                                <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
+                                                            </dl>
+                                                        </div>
+                                                        <!-- /.card-row-properties -->
+                                                    </div>
+                                                    <!-- /.card-row-inner -->
                                                 </div>
-                                                <!-- /.card-row-body -->
+                                                <!-- /.card-row -->
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                                <!-- /.hr -->
 
-                                                <div class="card-row-properties">
-                                                    <dl>
-                                                        <dd>Department(s)</dd><dt><span>{{this.departments}}</span></dt>
-                                                        <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank"></a>{{this.email}}</dt>
-                                                        <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
-                                                    </dl>
-                                                </div>
-                                                <!-- /.card-row-properties -->
-                                            </div>
-                                            <!-- /.card-row-inner -->
-                                        </div>
-                                        <!-- /.card-row -->
-                                    </li>
-                                  {{/each}}
-                                </ul>
-                            </div>
-                            <!-- /.hr -->
-
-                            <!-- Pagination buttons -->
-                            <div class="pager" id="pagination-nav">
-                                <span id="prev">
+                                <!-- Pagination buttons -->
+                                <div class="pager" id="pagination-nav">
+                                    <span id="prev">
                                     <i class="fa fa-chevron-left"></i>
                                 </span>
 
-                                <ul class="pagination">
-                                    <!-- Pages buttons (to be filled by js) -->
-                                </ul>
+                                    <ul class="pagination">
+                                        <!-- Pages buttons (to be filled by js) -->
+                                    </ul>
 
-                                <span id="next">
+                                    <span id="next">
                                     <i class="fa fa-chevron-right"></i>
                                 </span>
-                            </div>
-                            <!-- /.pager -->
+                                </div>
+                                <!-- /.pager -->
 
-                            <br/>
-                            <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="contact-info-wrapper">
-                                            <div class="contact-head">
-                                                <h2>Got questions? Thoughts?</h2>
-                                            </div>
+                                <br/>
+                                <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="contact-info-wrapper">
+                                                <div class="contact-head">
+                                                    <h2>Got questions? Thoughts?</h2>
+                                                </div>
 
-                                            <div class="contact-info">
-                                                <span class="contact-info-item">
+                                                <div class="contact-info">
+                                                    <span class="contact-info-item">
                                                     <a href="/feedback" target="_self">
                                                         <i class="fa fa-paper-plane-o"></i>
                                                         <span style="color:#fff">Send feedback</span>
-                                                </a>
-                                                </span>
+                                                    </a>
+                                                    </span>
 
-                                                <span class="contact-info-item">
+                                                    <span class="contact-info-item">
                                                   <a href="mailto:yura.database@gmail.com" target="_blank">
                                                         <i class="fa fa-at"></i>
                                                         <span style="color:#fff">yura@yale.edu</span>
-                                                </a>
-                                                </span>
-                                                <!-- /.contact-info-item -->
+                                                    </a>
+                                                    </span>
+                                                    <!-- /.contact-info-item -->
 
-                                                <span class="contact-info-item">
+                                                    <span class="contact-info-item">
                                                     <a href="https://www.facebook.com/yaleundergradresearch/" target="_blank">
                                                         <i class="fa fa-facebook"></i>
                                                         <span style="color:#fff">Facebook</span>
-                                                </a>
-                                                </span>
-                                                <!-- /.contact-info-item -->
+                                                    </a>
+                                                    </span>
+                                                    <!-- /.contact-info-item -->
+                                                </div>
+                                                <!-- /.contact-info-->
                                             </div>
-                                            <!-- /.contact-info-->
+                                            <!-- /.contact-info-wrapper -->
                                         </div>
-                                        <!-- /.contact-info-wrapper -->
+                                        <!-- /.col-* -->
                                     </div>
-                                    <!-- /.col-* -->
+                                    <!-- /.row -->
                                 </div>
-                                <!-- /.row -->
-                            </div>
                         </div>
                         <!--rdbcontent-->
                     </div>

@@ -10,9 +10,20 @@ function listAll(req, res) {
             depts: depts,
             listings: listings
         });
-        console.log(listings);
     };
-      listingsModels.getAllListings(callback);
+    if (req.query.search) {
+        if (req.query.departments) {
+            listingsModels.searchANDfilter(req.query.search, req.query.departments, callback);
+        } else {
+            listingsModels.searchListings(req.query.search, callback);
+        }
+    } else {
+        if (req.query.departments) {
+            listingsModels.filterDepts(req.query.departments, callback);
+        } else {
+            listingsModels.getAllListings(callback)
+        }
+    }
 }
 
 //GET home page.
