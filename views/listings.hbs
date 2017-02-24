@@ -29,94 +29,39 @@
                                             <select id="categories" class="form-control">
                                                 <option value="">Departments</option>
                                                 <optgroup label="Sciences">
-                                                    <option value="Applied Physics">Applied Physics</option>
-                                                    <option value="Astronomy">Astronomy</option>
-                                                    <option value="Chemistry">Chemistry</option>
-                                                    <option value="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</option>
-                                                    <option value="Geology and Geophysics">Geology and Geophysics</option>
-                                                    <option value="Molecular Biophysics and Biochemistry">Molecular Biophysics and Biochemistry</option>
-                                                    <option value="Molecular, Cellular and Developmental Biology">Molecular, Cellular and Developmental Biology</option>
-                                                    <option value="Physics">Physics</option>
+                                                  {{#each depts.sciences}}
+                                                    <option value='{{this}}'>{{this}}</option>
+                                                  {{/each}}
                                                 </optgroup>
                                                 <optgroup label="Mathematics and Engineering">
-                                                    <option value="Applied Mathematics">Applied Mathematics</option>
-                                                    <option value="Biomedical Engineering">Biomedical Engineering</option>
-                                                    <option value="Chemical and Environmental Engineering">Chemical and Environmental Engineering</option>
-                                                    <option value="Computer Science">Computer Science</option>
-                                                    <option value="Electrical Engineering">Electrical Engineering</option>
-                                                    <option value="Mathematics">Mathematics</option>
-                                                    <option value="Mechanical Engineering and Materials Science">Mechanical Engineering and Materials Science</option>
-                                                    <option value="Statistics">Statistics</option>
+                                                  {{#each depts.math_engineering}}
+                                                  <option value='{{this}}'>{{this}}</option>
+                                                  {{/each}}
                                                 </optgroup>
                                                 <optgroup label="Social Sciences">
-                                                    <option value="Anthropology">Anthropology</option>
-                                                    <option value="Cognitive Science">Cognitive Science</option>
-                                                    <option value="Economics">Economics</option>
-                                                    <option value="Environmental Studies">Environmental Studies</option>
-                                                    <option value="Ethics, Politics and Economics">Ethics, Politics and Economics</option>
-                                                    <option value="Global Affairs">Global Affairs</option>
-                                                    <option value="Linguistics">Linguistics</option>
-                                                    <option value="Political Science">Political Science</option>
-                                                    <option value="Psychology">Psychology</option>
-                                                    <option value="Sociology">Sociology</option>
-                                                    <option value="Women’s, Gender, and Sexuality Studies">Women’s, Gender, and Sexuality Studies</option>
-                                                </optgroup>
+                                                  {{#each depts.social_sciences}}
+                                                  <option value='{{this}}'>{{this}}</option>
+                                                  {{/each}}
+                                              </optgroup>
                                                 <optgroup label="Humanities">
-                                                    <option value="African American Studies">African American Studies</option>
-                                                    <option value="American Studies">American Studies</option>
-                                                    <option value="Archaeological Studies">Archaeological Studies</option>
-                                                    <option value="Classics">Classics</option>
-                                                    <option value="Ethnicity, Race and Migration">Ethnicity, Race and Migration</option>
-                                                    <option value="History">History</option>
-                                                    <option value="Humanities">Humanities</option>
-                                                    <option value="Philosophy">Philosophy</option>
-                                                    <option value="Religious Studies">Religious Studies</option>
+                                                  {{#each depts.humanities}}
+                                                  <option value='{{this}}'>{{this}}</option>
+                                                  {{/each}}
                                                 </optgroup>
                                                 <optgroup label="Languages and Cultures">
-                                                    <option value="African Studies">African Studies</option>
-                                                    <option value="Comparative Literature">Comparative Literature</option>
-                                                    <option value="East Asian Languages and Literatures">East Asian Languages and Literatures</option>
-                                                    <option value="English">English</option>
-                                                    <option value="French">French</option>
-                                                    <option value="Germanic Languages and Literature">Germanic Languages and Literature</option>
-                                                    <option value="Hellenic Studies">Hellenic Studies</option>
-                                                    <option value="Italian">Italian</option>
-                                                    <option value="Judaic Studies">Judaic Studies</option>
-                                                    <option value="Latin American Studies">Latin American Studies</option>
-                                                    <option value="Modern Middle East Studies">Modern Middle East Studies</option>
-                                                    <option value="Near Eastern Langauges and Civilizations">Near Eastern Langauges and Civilizations</option>
-                                                    <option value="Slavic Languages and Literatures">Slavic Languages and Literatures</option>
-                                                    <option value="South Asian Studies">South Asian Studies</option>
-                                                    <option value="Spanish and Portuguese">Spanish and Portuguese</option>
+                                                  {{#each depts.languages_cultures}}
+                                                  <option value='{{this}}'>{{this}}</option>
+                                                  {{/each}}
                                                 </optgroup>
                                                 <optgroup label="Arts and Design">
-                                                    <option value="Architecture">Architecture</option>
-                                                    <option value="Art">Art</option>
-                                                    <option value="Film and Media Studies">Film and Media Studies</option>
-                                                    <option value="History of Art">History of Art</option>
-                                                    <option value="Music">Music</option>
-                                                    <option value="Theater Studies">Theater Studies</option>
+                                                  {{#each depts.arts_design}}
+                                                  <option value='{{this}}'>{{this}}</option>
+                                                  {{/each}}
                                                 </optgroup>
                                                 <optgroup label="Graduate and Professional Schools">
-                                                    <option value="Cell Biology (School of Medicine)">Cell Biology (School of Medicine)</option>
-                                                    <option value="Cellular and Molecular Physiology (School of Medicine)">Cellular and Molecular Physiology (School of Medicine)</option>
-                                                    <option value="Comparative Medicine (School of Medicine)">Comparative Medicine (School of Medicine)</option>
-                                                    <option value="Emergency Medicine (School of Medicine)">Emergency Medicine (School of Medicine)</option>
-                                                    <option value="Genetics (School of Medicine)">Genetics (School of Medicine)</option>
-                                                    <option value="Immunobiology (School of Medicine)">Immunobiology (School of Medicine)</option>
-                                                    <option value="Internal Medicine (School of Medicine)">Internal Medicine (School of Medicine)</option>
-                                                    <option value="Microbial Pathogenesis (School of Medicine)">Microbial Pathogenesis (School of Medicine)</option>
-                                                    <option value="Neuroscience (School of Medicine)">Neuroscience (School of Medicine)</option>
-                                                    <option value="Orthopaedics and Rehabilitation (School of Medicine)">Orthopaedics and Rehabilitation (School of Medicine)</option>
-                                                    <option value="Pathology (School of Medicine)">Pathology (School of Medicine)</option>
-                                                    <option value="Pediatrics (School of Medicine)">Pediatrics (School of Medicine)</option>
-                                                    <option value="Pharmacology (School of Medicine)">Pharmacology (School of Medicine)</option>
-                                                    <option value="Psychiatry (School of Medicine)">Psychiatry (School of Medicine)</option>
-                                                    <option value="Therapeutic Radiology (School of Medicine)">Therapeutic Radiology (School of Medicine)</option>
-                                                    <option value="Biostatistics (School of Public Health)">Biostatistics (School of Public Health)</option>
-                                                    <option value="Environmental Health Studies (School of Public Health)">Environmental Health Studies (School of Public Health)</option>
-                                                    <option value="Epidemiology of Microbial Diseases (School of Public Health)">Epidemiology of Microbial Diseases (School of Public Health)</option>
-                                                    <option value="School of Forestry and Environmental Studies">School of Forestry and Environmental Studies</option>
+                                                  {{#each depts.graduate_professional_schools}}
+                                                  <option value='{{this}}'>{{this}}</option>
+                                                  {{/each}}
                                                 </optgroup>
                                             </select>
                                         </div>
