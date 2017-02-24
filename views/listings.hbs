@@ -18,7 +18,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <div>
-                                                <input placeholder="Search" class="form-control" id="searchbox" autofocus>
+                                                <input placeholder="Search" class="form-control" autofocus>
                                             </div>
                                         </div>
                                         <!-- /.form-group -->
@@ -30,7 +30,7 @@
                                                 <option value="">Departments</option>
                                                 <optgroup label="Sciences">
                                                   {{#each depts.sciences}}
-                                                    <option value='{{this}}'>{{this}}</option>
+                                                  <option value='{{this}}'>{{this}}</option>
                                                   {{/each}}
                                                 </optgroup>
                                                 <optgroup label="Mathematics and Engineering">
@@ -91,30 +91,26 @@
                             </div>
                             <!-- /.filter -->
 
-                            <!-- Loading text -->
-                            <div id="loader">
-                                <p>loading...</p>
-                            </div>
-
                             <!-- Listing items -->
-                            <div id="rdblistings">
-                                <ul class="list" id="list">
-                                    <li id="databaseitem" class="boxMD">
+                            <div>
+                                <ul class="list">
+                                  {{#each listings}}
+                                    <li>
                                         <div class="card-row">
                                             <div class="card-row-inner">
 
                                                 <div class="card-row-body">
-                                                    <h2 class="card-row-title"><a target="_blank" class="name web1"></a></h2>
-                                                    <div class="card-row-content truncateme description"></div>
+                                                    <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
+                                                    <div class="card-row-content">{{this.description}}</div>
                                                     <!-- /.card-row-content -->
                                                 </div>
                                                 <!-- /.card-row-body -->
 
                                                 <div class="card-row-properties">
                                                     <dl>
-                                                        <dd class="dept-head">Department(s)</dd><dt><span class="departments"></span></dt>
-                                                        <dd>Email</dd><dt><a target="_blank" class="email email2"></a></dt>
-                                                        <dd></dd><dt><a target="_blank" class="website">Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
+                                                        <dd>Department(s)</dd><dt><span>{{this.departments}}</span></dt>
+                                                        <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank"></a>{{this.email}}</dt>
+                                                        <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
                                                     </dl>
                                                 </div>
                                                 <!-- /.card-row-properties -->
@@ -123,6 +119,7 @@
                                         </div>
                                         <!-- /.card-row -->
                                     </li>
+                                  {{/each}}
                                 </ul>
                             </div>
                             <!-- /.hr -->

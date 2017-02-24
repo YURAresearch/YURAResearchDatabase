@@ -6,6 +6,7 @@
     "start": "nodemon start.js"
   },
   "dependencies": {
+    "bluebird": "^3.4.7",
     "body-parser": "~1.16.0",
     "cas-authentication": "^0.0.8",
     "client-sessions": "^0.7.0",
@@ -15,6 +16,7 @@
     "hbs": "^4.0.1",
     "morgan": "~1.7.0",
     "nodemailer": "^3.1.3",
+    "pg-promise": "^5.5.8",
     "postmark": "^1.3.1",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.2"
