@@ -12,6 +12,7 @@ var terms = require('./routes/terms');
 var feedback = require('./routes/feedback');
 var feedbackconfirm = require('./routes/feedback-confirm');
 
+var depts = require('./bin/departments');
 var cas = require('./bin/cas');
 var session = require('client-sessions');
 
@@ -53,7 +54,9 @@ app.use( session({
 var auth = cas(host, port);
 
 app.get( '/logout', auth.logout );
-
+app.get('/users', auth.bounce, function(req, res) {
+  res.redirect('/listings');
+});
 app.get('/listings', auth.bounce, listings);
 
 // catch 404 and forward to error handler
@@ -68,7 +71,6 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   // render the error page
   res.status(err.status || 500);
   res.render('error');
