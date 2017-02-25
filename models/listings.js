@@ -8,6 +8,8 @@ var options = {
 var pgp = require('pg-promise')();
 var db = pgp(process.env.DATABASE_FILE || 'postgres://postgres:bulld0g27@localhost:5432/yurardb');
 
+var countPageItems = 5;
+
 function callbackData(query, callback) {
     db.any(query, [true], callback)
         .then(function(data) {
@@ -20,7 +22,7 @@ function callbackData(query, callback) {
 }
 
 function getAllListings(callback) {
-    callbackData("SELECT * FROM listings", callback);
+    callbackData("SELECT * FROM listings ORDER BY name", callback);// LIMIT " + 5 + " OFFSET " + (pageNumber*5 - 5), callback);
 }
 
 

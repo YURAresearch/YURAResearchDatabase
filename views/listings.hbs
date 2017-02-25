@@ -83,96 +83,116 @@
                                 <!-- /.row -->
                             </form>
 
-                                <!-- Listing items -->
-                                <div>
-                                    <ul class="list">
-                                        {{#each listings}}
-                                            <li>
-                                                <div class="card-row">
-                                                    <div class="card-row-inner">
+                            <!-- Listing items -->
+                            <div>
+                                <ul class="list">
+                                    {{#each listings}}
+                                        <li>
+                                            <div class="card-row">
+                                                <div class="card-row-inner">
 
-                                                        <div class="card-row-body">
-                                                            <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
-                                                            <div class="card-row-content truncateme description">{{this.description}}</div>
-                                                            <!-- /.card-row-content -->
-                                                        </div>
-                                                        <!-- /.card-row-body -->
-
-                                                        <div class="card-row-properties">
-                                                            <dl>
-                                                                <dd>Department(s)</dd><dt><span>{{this.departments}}</span></dt>
-                                                                <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank">{{this.email}}</a></dt>
-                                                                <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
-                                                            </dl>
-                                                        </div>
-                                                        <!-- /.card-row-properties -->
+                                                    <div class="card-row-body">
+                                                        <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
+                                                        <div class="card-row-content truncateme description">{{this.description}}</div>
+                                                        <!-- /.card-row-content -->
                                                     </div>
-                                                    <!-- /.card-row-inner -->
-                                                </div>
-                                                <!-- /.card-row -->
-                                            </li>
-                                        {{/each}}
-                                    </ul>
-                                </div>
-                                <!-- /.hr -->
+                                                    <!-- /.card-row-body -->
 
-                                <!-- Pagination buttons -->
-                                <div class="pager" id="pagination-nav">
-                                    <span id="prev">
+                                                    <div class="card-row-properties">
+                                                        <dl>
+                                                            <dd>Department(s)</dd><dt><span>{{this.departments}}</span></dt>
+                                                            <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank">{{this.email}}</a></dt>
+                                                            <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
+                                                        </dl>
+                                                    </div>
+                                                    <!-- /.card-row-properties -->
+                                                </div>
+                                                <!-- /.card-row-inner -->
+                                            </div>
+                                            <!-- /.card-row -->
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <!-- /.hr -->
+
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    {{#paginate pagination type="first" }}
+                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">First</a></li>
+                                    {{/paginate}}
+                                    {{#paginate pagination type="previous" }}
+                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">Prev</a></li>
+                                    {{/paginate}}
+                                    {{#paginate pagination type="middle" limit="7" }}
+                                        <li {{#if active}} class="active" {{/if}}><a href="?p={{n}}">{{n}}</a></li>
+                                    {{/paginate}}
+                                    {{#paginate pagination type="next" }}
+                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">Next</a></li>
+                                    {{/paginate}}
+                                    {{#paginate pagination type="last" }}
+                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">Last</a></li>
+                                    {{/paginate}}
+                                </ul>
+                            </div>
+
+                            <!-- Pagination buttons -->
+                            <div class="pager" id="pagination-nav">
+                                <span id="prev">
                                     <i class="fa fa-chevron-left"></i>
                                 </span>
 
-                                    <ul class="pagination">
-                                        <!-- Pages buttons (to be filled by js) -->
-                                    </ul>
+                                <ul class="pagination">
+                                    <!-- Pages buttons (to be filled by js) -->
+                                </ul>
 
-                                    <span id="next">
+                                <span id="next">
                                     <i class="fa fa-chevron-right"></i>
                                 </span>
-                                </div>
-                                <!-- /.pager -->
+                            </div>
+                            <!-- /.pager -->
 
-                                <br/>
-                                <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="contact-info-wrapper">
-                                                <div class="contact-head">
-                                                    <h2>Got questions? Thoughts?</h2>
-                                                </div>
+                            <br/>
+                            <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="contact-info-wrapper">
+                                            <div class="contact-head">
+                                                <h2>Got questions? Thoughts?</h2>
+                                            </div>
 
-                                                <div class="contact-info">
-                                                    <span class="contact-info-item">
+                                            <div class="contact-info">
+                                                <span class="contact-info-item">
                                                     <a href="/feedback" target="_self">
                                                         <i class="fa fa-paper-plane-o"></i>
                                                         <span style="color:#fff">Send feedback</span>
-                                                    </a>
-                                                    </span>
+                                                </a>
+                                                </span>
 
-                                                    <span class="contact-info-item">
+                                                <span class="contact-info-item">
                                                   <a href="mailto:yura.database@gmail.com" target="_blank">
                                                         <i class="fa fa-at"></i>
                                                         <span style="color:#fff">yura@yale.edu</span>
-                                                    </a>
-                                                    </span>
-                                                    <!-- /.contact-info-item -->
+                                                </a>
+                                                </span>
+                                                <!-- /.contact-info-item -->
 
-                                                    <span class="contact-info-item">
+                                                <span class="contact-info-item">
                                                     <a href="https://www.facebook.com/yaleundergradresearch/" target="_blank">
                                                         <i class="fa fa-facebook"></i>
                                                         <span style="color:#fff">Facebook</span>
-                                                    </a>
-                                                    </span>
-                                                    <!-- /.contact-info-item -->
-                                                </div>
-                                                <!-- /.contact-info-->
+                                                </a>
+                                                </span>
+                                                <!-- /.contact-info-item -->
                                             </div>
-                                            <!-- /.contact-info-wrapper -->
+                                            <!-- /.contact-info-->
                                         </div>
-                                        <!-- /.col-* -->
+                                        <!-- /.contact-info-wrapper -->
                                     </div>
-                                    <!-- /.row -->
+                                    <!-- /.col-* -->
                                 </div>
+                                <!-- /.row -->
+                            </div>
                         </div>
                         <!--rdbcontent-->
                     </div>
