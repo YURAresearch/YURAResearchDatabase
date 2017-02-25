@@ -6,8 +6,16 @@ var options = {
 };
 
 var pgp = require('pg-promise')();
-var db = pgp(process.env.DATABASE_FILE || 'postgres://postgres:bulld0g27@localhost:5432/yurardb');
 
+var cn = {
+    host: 'localhost',
+    port: 5432,
+    database: 'yurardb',
+    user: 'postgres',
+    password: 'bulld0g27'
+};
+
+var db = pgp(process.env.DATABASE_URL || cn);
 var countPageItems = 5;
 
 function callbackData(query, callback) {

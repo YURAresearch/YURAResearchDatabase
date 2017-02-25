@@ -11,14 +11,24 @@ function listAll(req, res) {
     var callback = function(listings) {
         res.render('listings', {
             title: 'Listings',
+            searchPlaceholder: req.query.search||'Search',
+            deptPlaceholder: req.query.departments || 'Departments',
             depts: depts,
-            listings: listings.slice(req.query.p*5-5||0,req.query.p*5||5),
+            listings: listings.slice((req.query.p-1)*resultsPerPage || 0, req.query.p*resultsPerPage || resultsPerPage), //gets 5 entries for current page
             pagination: {
                 page: req.query.p || 1,
-                pageCount: Math.ceil(listings.length/5)
+                pageCount: Math.ceil(listings.length/resultsPerPage)
             }
         });
     };
+
+    var resultsPerPage = req.query.limit||10;
+    var maxresultsPerPage = 50;
+    //set max resultsPerPage to 50
+    if (req.query.limit>maxresultsPerPage){
+      resultsPerPage = maxresultsPerPage;
+    }
+
     if (req.query.search) {
         if (req.query.departments) {
             listingsModels.searchANDfilter(req.query.search, req.query.departments, callback);
