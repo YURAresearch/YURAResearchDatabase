@@ -116,41 +116,28 @@
                             </div>
                             <!-- /.hr -->
 
-                            <div class="pagination pagination-centered">
-                                <ul>
-                                    {{#paginate pagination type="first" }}
-                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">First</a></li>
-                                    {{/paginate}}
-                                    {{#paginate pagination type="previous" }}
-                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">Prev</a></li>
-                                    {{/paginate}}
+                            <!-- Pagination buttons -->
+                            <div class="pager" id="pagination-nav">
+                                {{#paginate pagination type="previous" }}
+                                    <span id="prev" {{#if disabled}} class="disabled" {{/if}}>
+                                        <a href="?p={{n}}">
+                                          <i class="fa fa-chevron-left"></i>
+                                        </a>
+                                    </span>
+                                {{/paginate}}
+                                <ul class="pagination">
                                     {{#paginate pagination type="middle" limit="7" }}
                                         <li {{#if active}} class="active" {{/if}}><a href="?p={{n}}">{{n}}</a></li>
                                     {{/paginate}}
-                                    {{#paginate pagination type="next" }}
-                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">Next</a></li>
-                                    {{/paginate}}
-                                    {{#paginate pagination type="last" }}
-                                        <li {{#if disabled}} class="disabled" {{/if}}><a href="?p={{n}}">Last</a></li>
-                                    {{/paginate}}
                                 </ul>
+                                {{#paginate pagination type="next" }}
+                                    <span id="next" {{#if disabled}} class="disabled" {{/if}}>
+                                      <a href="?p={{n}}">
+                                        <i class="fa fa-chevron-right"></i>
+                                      </a>
+                                    </span>
+                                {{/paginate}}
                             </div>
-
-                            <!-- Pagination buttons -->
-                            <div class="pager" id="pagination-nav">
-                                <span id="prev">
-                                    <i class="fa fa-chevron-left"></i>
-                                </span>
-
-                                <ul class="pagination">
-                                    <!-- Pages buttons (to be filled by js) -->
-                                </ul>
-
-                                <span id="next">
-                                    <i class="fa fa-chevron-right"></i>
-                                </span>
-                            </div>
-                            <!-- /.pager -->
 
                             <br/>
                             <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
