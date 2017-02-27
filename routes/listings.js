@@ -6,6 +6,13 @@ var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
 
 hbs.registerHelper('paginate', paginate);
+hbs.registerHelper('split-depts', function(str) {
+    str = hbs.Utils.escapeExpression(str);
+    for (var i = 0; i < str.length; i++) {
+        str = str.replace(';', "</br>");
+    }
+    return new hbs.SafeString(str)
+});
 
 function listAll(req, res) {
     var callback = function(listings) {
@@ -14,7 +21,7 @@ function listAll(req, res) {
             searchPlaceholder: req.query.search||'Search',
             deptPlaceholder: req.query.departments || 'Departments',
             depts: depts,
-            listings: listings.slice((req.query.p-1)*resultsPerPage || 0, req.query.p*resultsPerPage || resultsPerPage), //gets 5 entries for current page
+            listings: listings.slice((req.query.p-1)*resultsPerPage || 0, req.query.p*resultsPerPage || resultsPerPage), //gets entries for current page
             pagination: {
                 page: req.query.p || 1,
                 pageCount: Math.ceil(listings.length/resultsPerPage)

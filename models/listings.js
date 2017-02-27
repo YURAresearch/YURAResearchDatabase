@@ -7,7 +7,7 @@ var options = {
 
 var pgp = require('pg-promise')();
 
-var cn = {
+var localcn = {
     host: 'localhost',
     port: 5432,
     database: 'yurardb',
@@ -15,7 +15,7 @@ var cn = {
     password: 'bulld0g27'
 };
 
-var db = pgp(process.env.DATABASE_URL || cn);
+var db = pgp(process.env.DATABASE_URL || localcn);
 var countPageItems = 5;
 
 function callbackData(query, callback) {
