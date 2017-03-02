@@ -29,13 +29,22 @@ function callbackData(query, callback) {
         });
 }
 
-function getAllListings(callback) {
-    callbackData("SELECT * FROM listings ORDER BY name", callback);// LIMIT " + 5 + " OFFSET " + (pageNumber*5 - 5), callback);
+function searchArray(searchString) {
+    var search = searchString.split(' ');
+    var searchQuery = "";
+    for (var i = 0; i < search.length; i++) {
+        searchQuery = searchQuery + search[i] + '&';
+    }
+    searchQuery = searchQuery.substring(0, searchQuery.length-1);
+    return searchQuery;
 }
 
+function getAllListings(callback) {
+    callbackData("SELECT * FROM listings ORDER BY name", callback); // LIMIT " + 5 + " OFFSET " + (pageNumber*5 - 5), callback);
+}
 
 function searchListings(searchString, callback) {
-    callbackData("SELECT * FROM listings WHERE LOWER(name) LIKE LOWER('%" + searchString + "%') OR LOWER(description) LIKE LOWER('%" + searchString + "%')", callback);
+    callbackData("SELECT * FROM listings WHERE to_tsvector(listings.name) @@ to_tsquery('"+searchArray(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchArray(searchString)+"')", callback);
 }
 
 function filterDepts(deptString, callback) {
@@ -43,7 +52,7 @@ function filterDepts(deptString, callback) {
 }
 
 function searchANDfilter(searchString, deptString, callback) {
-  callbackData("SELECT * FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (LOWER(name) LIKE LOWER('%" + searchString + "%') OR LOWER(description) LIKE LOWER('%" + searchString + "%'))", callback);
+    callbackData("SELECT * FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (to_tsvector(listings.name) @@ to_tsquery('"+searchArray(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchArray(searchString)+"'))", callback);
 }
 
 module.exports = {
@@ -51,5 +60,6 @@ module.exports = {
     getAllListings: getAllListings,
     searchListings: searchListings,
     filterDepts: filterDepts,
-    searchANDfilter: searchANDfilter
+    searchANDfilter: searchANDfilter,
+    searchArray: searchArray
 };
