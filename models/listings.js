@@ -40,7 +40,7 @@ function searchArray(searchString) {
 }
 
 function getAllListings(callback) {
-    callbackData("SELECT * FROM listings ORDER BY name", callback); // LIMIT " + 5 + " OFFSET " + (pageNumber*5 - 5), callback);
+    callbackData("SELECT * FROM listings", callback); // LIMIT " + 5 + " OFFSET " + (pageNumber*5 - 5), callback);
 }
 
 function searchListings(searchString, callback) {
