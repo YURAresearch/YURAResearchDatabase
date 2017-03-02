@@ -10,7 +10,7 @@
                         </div>
                         <!-- /.document-title -->
                         <div>
-                            <form class="filter" method="get" action="/listings">
+                            <form id="filter" class="filter" method="get" action="/listings">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
@@ -20,10 +20,10 @@
                                     </div>
                                     <!-- /.col-* -->
 
-                                    <div class="col-sm-12 col-md-5">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <select name="departments" class="form-control" title="Select Category">
-                                              <option value="">{{deptPlaceholder}}</option>
+                                              <option value="{{deptPlaceholder}}">{{deptPlaceholder}}</option>
                                               <optgroup label="Sciences">
                                                 {{#each depts.sciences}}
                                                 <option value='{{this}}'>{{this}}</option>
@@ -63,10 +63,10 @@
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
-                                    <!-- /.col-* -->
+                                    <!-- /.col-*
                                     <div class="col-sm-1">
                                         <button type="submit" class="btn btn-primary pull-right">Search</button>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <!-- /.row -->
 

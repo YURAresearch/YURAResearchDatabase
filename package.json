@@ -9,6 +9,7 @@
     "bluebird": "^3.4.7",
     "body-parser": "~1.16.0",
     "cas-authentication": "^0.0.8",
+    "cheerio": "^0.22.0",
     "client-sessions": "^0.7.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",

@@ -36,7 +36,7 @@ function listAll(req, res) {
     }
 
     if (req.query.search) {
-        if (req.query.departments) {
+        if (req.query.departments!="Departments") {
             listingsModels.searchANDfilter(req.query.search, req.query.departments, callback);
         } else {
             listingsModels.searchListings(req.query.search, callback);

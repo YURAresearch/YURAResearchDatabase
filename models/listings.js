@@ -29,11 +29,11 @@ function callbackData(query, callback) {
         });
 }
 
-function searchArray(searchString) {
-    var search = searchString.split(' ');
+function searchHandler(searchString) {
+    var searchArray = searchString.split(' ');
     var searchQuery = "";
-    for (var i = 0; i < search.length; i++) {
-        searchQuery = searchQuery + search[i] + '&';
+    for (var i = 0; i < searchArray.length; i++) {
+        searchQuery = searchQuery + searchArray[i] + '&';
     }
     searchQuery = searchQuery.substring(0, searchQuery.length-1);
     return searchQuery;
@@ -44,7 +44,7 @@ function getAllListings(callback) {
 }
 
 function searchListings(searchString, callback) {
-    callbackData("SELECT * FROM listings WHERE to_tsvector(listings.name) @@ to_tsquery('"+searchArray(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchArray(searchString)+"')", callback);
+    callbackData("SELECT * FROM listings WHERE to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"')", callback);
 }
 
 function filterDepts(deptString, callback) {
@@ -52,7 +52,7 @@ function filterDepts(deptString, callback) {
 }
 
 function searchANDfilter(searchString, deptString, callback) {
-    callbackData("SELECT * FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (to_tsvector(listings.name) @@ to_tsquery('"+searchArray(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchArray(searchString)+"'))", callback);
+    callbackData("SELECT * FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"'))", callback);
 }
 
 module.exports = {
@@ -61,5 +61,5 @@ module.exports = {
     searchListings: searchListings,
     filterDepts: filterDepts,
     searchANDfilter: searchANDfilter,
-    searchArray: searchArray
+    searchHandler: searchHandler
 };
