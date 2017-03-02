@@ -35,14 +35,16 @@ function listAll(req, res) {
         resultsPerPage = maxresultsPerPage;
     }
 
+    console.log(req.query.departments);
+
     if (req.query.search) {
-        if (req.query.departments!="Departments") {
+        if (req.query.departments && req.query.departments!="Departments") {
             listingsModels.searchANDfilter(req.query.search, req.query.departments, callback);
         } else {
             listingsModels.searchListings(req.query.search, callback);
         }
     } else {
-        if (req.query.departments) {
+        if (req.query.departments && req.query.departments!="Departments"){
             listingsModels.filterDepts(req.query.departments, callback);
         } else {
             listingsModels.getAllListings(callback)
