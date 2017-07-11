@@ -96,7 +96,17 @@
                                                 <div class="card-row-inner">
                                                     <div class="card-row-body">
                                                         <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
-                                                        <div class="card-row-content truncateme description">{{truncate-desc this.description}}</div>
+                                                        <div class="card-row-content truncateme description">
+                                                            {{#if this.isTruncate}}
+                                                                {{truncate-desc this.description this.isTruncate}}
+                                                                <form method="post" action="/listings/{{this.list_id}}/untruncate">
+                                                                    <input type="submit" class="truncate-toggle" value="Show More">
+                                                                </form>
+                                                            {{else}}
+                                                                {{this.description this.isTruncate}}
+                                                                <div class="truncate-toggle">Show Less</div>
+                                                            {{/if}}
+                                                        </div>
                                                         <!-- /.card-row-content -->
                                                     </div>
                                                     <!-- /.card-row-body -->

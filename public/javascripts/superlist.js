@@ -1,6 +1,8 @@
 $(document).ready(function() {
     'use strict';
 
+  
+
     $('#filter').change(function() {
         $('#filter').submit();
     });

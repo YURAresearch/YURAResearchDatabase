@@ -6,3 +6,22 @@ body {
 a {
   color: #00B7FF;
 }
+
+.truncate-toggle {
+	cursor: pointer;
+	display: block;
+	background-color: #6EB39B;
+	width: 100px;
+	line-height: 25px;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-align: center;
+	margin: 10px 0 10px auto;
+	color: #fff;
+	border-radius: 1.5px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+	-webkit-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}

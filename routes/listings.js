@@ -13,23 +13,32 @@ hbs.registerHelper('split-depts', function(str) {
     }
     return new hbs.SafeString(str)
 });
-hbs.registerHelper('truncate-desc', function(str) {
+hbs.registerHelper('truncate-desc', function(str, isTruncate) {
     var len = 600;
-    if (str){
-      if (str.length > len && str.length > 0) {
-          var new_str = str + " ";
-          new_str = str.substr(0, len);
-          new_str = str.substr(0, new_str.lastIndexOf(" "));
-          new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
+    if (str && isTruncate) {
+        if (str.length > len && str.length > 0) {
+            var new_str = str + " ";
+            new_str = str.substr(0, len);
+            new_str = str.substr(0, new_str.lastIndexOf(" "));
+            new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
 
-          return new hbs.SafeString(new_str + '...');
-      }
+            return new hbs.SafeString(new_str + '...');
+        }
     }
     return str;
 });
 
+hbs.registerHelper('json', function(context) {
+    return JSON.stringify(context);
+});
+
 function listAll(req, res) {
     var callback = function(listings) {
+        console.log(listings.length);
+        for (var i = 0; i < listings.length; i++) {
+            listings[i].isTruncate = true;
+        }
+        console.log(listings);
         res.render('listings', {
             title: 'Listings',
             searchPlaceholder: req.query.search || '',
@@ -48,9 +57,6 @@ function listAll(req, res) {
     if (req.query.limit > maxresultsPerPage) {
         resultsPerPage = maxresultsPerPage;
     }
-
-    console.log(req.query.departments);
-
     if (req.query.search) {
         if (req.query.departments && req.query.departments != "Departments") {
             listingsModels.searchANDfilter(req.query.search, req.query.departments, callback);

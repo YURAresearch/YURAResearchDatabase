@@ -14,7 +14,7 @@ var feedbackconfirm = require('./routes/feedback-confirm');
 
 var depts = require('./bin/departments');
 var cas = require('./bin/cas');
-var session = require('client-sessions');
+var session = require('express-session')
 
 var port = process.env.PORT || '3000';
 var host = process.env.HOST || 'localhost';
@@ -32,48 +32,51 @@ app.set('view engine', 'hbs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
-app.use('/users', users);
+//app.use('/users', users);
 //app.use('/cas', cas);
 //app.use('/listings', listings);
 app.use('/terms', terms);
 app.use('/feedback', feedback);
 app.use('/feedback/confirm', feedbackconfirm);
 
-app.use( session({
-    cookieName: 'session',
+app.use(session({
     secret: sessionSecret,
-    duration: duration,
-    activeDuration: duration
+    resave: false,
+    saveUninitialized: true
 }));
 
 
+var user = "";
 var auth = cas(host, port);
 
-app.get( '/logout', auth.logout );
+app.get('/logout', auth.logout);
 app.get('/users', auth.bounce, function(req, res) {
-  res.redirect('/listings');
+    console.log(req.session[ auth.session_name ]);
+    res.redirect('/listings');
 });
 app.get('/listings', auth.bounce, listings);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
