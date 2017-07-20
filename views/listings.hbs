@@ -99,12 +99,14 @@
                                                         <div class="card-row-content truncateme description">
                                                             {{#if this.isTruncate}}
                                                                 {{truncate-desc this.description this.isTruncate}}
-                                                                <form method="post" action="/listings/{{this.list_id}}/untruncate">
+                                                                <form method="post" action="/listings/{{this.list_id}}.untruncate">
                                                                     <input type="submit" class="truncate-toggle" value="Show More">
                                                                 </form>
                                                             {{else}}
-                                                                {{this.description this.isTruncate}}
-                                                                <div class="truncate-toggle">Show Less</div>
+                                                                {{this.description}}
+                                                                <form method="post" action="/listings/{{this.list_id}}.truncate">
+                                                                    <input type="submit" class="truncate-toggle" value="Show Less">
+                                                                </form>
                                                             {{/if}}
                                                         </div>
                                                         <!-- /.card-row-content -->

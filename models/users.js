@@ -29,14 +29,19 @@ function callbackData(query, callback) {
 }
 
 function isUser(netID, callback) {
-    callbackData("SELECT * FROM users WHERE netID = " + netID, callback); 
+    callbackData("SELECT * FROM users WHERE netID = " + netID, callback);
+}
+
+function createUser(netID, callback) {
+    callbackData("[Make New User with netID]",callback);
+}
+
+function makeAdmin(netID, callback){
+  //do something
 }
 
 module.exports = {
     callbackData: callbackData,
-    getAllListings: getAllListings,
-    searchListings: searchListings,
-    filterDepts: filterDepts,
-    searchANDfilter: searchANDfilter,
-    searchHandler: searchHandler
+    isUser: isUser,
+    createUser: createUser,
 };

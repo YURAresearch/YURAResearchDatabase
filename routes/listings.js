@@ -21,11 +21,10 @@ hbs.registerHelper('truncate-desc', function(str, isTruncate) {
             new_str = str.substr(0, len);
             new_str = str.substr(0, new_str.lastIndexOf(" "));
             new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
-
             return new hbs.SafeString(new_str + '...');
         }
     }
-    return str;
+    return new hbs.SafeString(str);
 });
 
 hbs.registerHelper('json', function(context) {
@@ -33,12 +32,28 @@ hbs.registerHelper('json', function(context) {
 });
 
 function listAll(req, res) {
+
+    if (!req.session.untruncateList) {
+        req.session.untruncateList = [];
+    }
+
+
     var callback = function(listings) {
+        //console.log(listings);
+        console.log(req.session.untruncateList.length)
         console.log(listings.length);
         for (var i = 0; i < listings.length; i++) {
-            listings[i].isTruncate = true;
+          listings[i].isTruncate = true;
+          //console.log(listings[i].isTruncate);
+            for (var j = 0; j < req.session.untruncateList.length; j++) {
+              if (req.session.untruncateList[j] == listings[i].list_id){
+                console.log('truncating...')
+                listings[i].isTruncate = false;
+                break;
+              }
+            }
         }
-        console.log(listings);
+
         res.render('listings', {
             title: 'Listings',
             searchPlaceholder: req.query.search || '',
@@ -74,5 +89,13 @@ function listAll(req, res) {
 
 //GET home page.
 router.get('/listings', listAll);
-
+router.post('/listings/:listingid.:whichtruncate', function(req, res) {
+    if (req.params.whichtruncate = 'untruncate'){
+      req.session.untruncateList.push(req.params.listingid);
+    }
+    else if (req.params.whichtruncate = 'truncate') {
+      //delete list item
+    }
+    res.redirect('/listings');
+})
 module.exports = router;
