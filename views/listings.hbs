@@ -1,28 +1,28 @@
 <div id="RDB">
-    <div class="page-wrapper">
-        <div class="main">
-            <div class="main-inner">
-                <div class="container">
-                    <div class="content">
-                        <!-- Header -->
-                        <div class="document-title">
-                            <h1 id="home"><a href="/">YURA Research Database</a></h1>
-                        </div>
-                        <!-- /.document-title -->
-                        <div>
-                            <form id="filter" class="filter" method="get" action="/listings">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" name="search" placeholder="Search" value="{{searchPlaceholder}}" class="form-control">
-                                        </div>
-                                        <!-- /.form-group -->
-                                    </div>
-                                    <!-- /.col-* -->
+  <div class="page-wrapper">
+    <div class="main">
+      <div class="main-inner">
+        <div class="container">
+          <div class="content">
+            <!-- Header -->
+            <div class="document-title">
+              <h1 id="home"><a href="/">YURA Research Database</a></h1>
+            </div>
+            <!-- /.document-title -->
+            <div>
+              <form id="filter" class="filter" method="get" action="/listings">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="search" placeholder="Search" value="{{searchPlaceholder}}" class="form-control">
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
 
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            <select name="departments" class="form-control" title="Select Category">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                      <select name="departments" class="form-control" title="Select Category">
                                               <option value="{{deptPlaceholder}}">{{deptPlaceholder}}</option>
                                               <optgroup label="Sciences">
                                                 {{#each depts.sciences}}
@@ -60,148 +60,137 @@
                                                 {{/each}}
                                               </optgroup>
                                             </select>
-                                        </div>
-                                        <!-- /.form-group -->
-                                    </div>
-                                    <!-- /.col-*
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-*
                                     <div class="col-sm-1">
                                         <button type="submit" class="btn btn-primary pull-right">Search</button>
                                     </div>-->
-                                </div>
-                                <!-- /.row -->
+                </div>
+                <!-- /.row -->
 
-                                <hr>
+                <hr>
 
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="filter-actions">
-                                            <a id="reset-button-id" href="/listings"><i class="fa fa-close"></i> Reset Search</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <button id="sortDept" class="sort btn pull-right">Sort by Dept</button>
-                                        <button id="sortName" class="sort btn pull-right">Sort by Name</button>
-                                    </div>
-                                    <!-- /.col-* -->
-                                </div>
-                                <!-- /.row -->
-                            </form>
-
-                            <!-- Listing items -->
-                            <div>
-                                <ul class="list">
-                                    {{#each listings}}
-                                        <li>
-                                            <div class="card-row">
-                                                <div class="card-row-inner">
-                                                    <div class="card-row-body">
-                                                        <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
-                                                        <div class="card-row-content truncateme description">
-                                                            {{#if this.isTruncate}}
-                                                                {{truncate-desc this.description this.isTruncate}}
-                                                                <form method="post" action="/listings/{{this.list_id}}.untruncate">
-                                                                    <input type="submit" class="truncate-toggle" value="Show More">
-                                                                </form>
-                                                            {{else}}
-                                                                {{this.description}}
-                                                                <form method="post" action="/listings/{{this.list_id}}.truncate">
-                                                                    <input type="submit" class="truncate-toggle" value="Show Less">
-                                                                </form>
-                                                            {{/if}}
-                                                        </div>
-                                                        <!-- /.card-row-content -->
-                                                    </div>
-                                                    <!-- /.card-row-body -->
-
-                                                    <div class="card-row-properties">
-                                                        <dl>
-                                                            <dd>Department(s)</dd><dt><span>{{split-depts this.departments}}</span></dt>
-                                                            <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank">{{this.email}}</a></dt>
-                                                            <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
-                                                        </dl>
-                                                    </div>
-                                                    <!-- /.card-row-properties -->
-                                                </div>
-                                                <!-- /.card-row-inner -->
-                                            </div>
-                                            <!-- /.card-row -->
-                                        </li>
-                                    {{/each}}
-                                </ul>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="filter-actions">
+                      <a id="reset-button-id" href="/listings"><i class="fa fa-close"></i> Reset Search</a>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <button id="sortDept" class="sort btn pull-right">Sort by Dept</button>
+                    <button id="sortName" class="sort btn pull-right">Sort by Name</button>
+                  </div>
+                  <!-- /.col-* -->
+                </div>
+                <!-- /.row -->
+              </form>
+              <!-- Listing items -->
+              <div>
+                <ul class="list">
+                  {{#each listings}}
+                    <li>
+                      <div class="card-row">
+                        <div class="card-row-inner">
+                          <div class="card-row-body">
+                            <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
+                            <div class="card-row-content truncateme description">
+                              {{this.description}}
                             </div>
-                            <!-- /.hr -->
+                            <!-- /.card-row-content -->
+                          </div>
+                          <!-- /.card-row-body -->
 
-                            <!-- Pagination buttons -->
-                            <div class="pager" id="pagination-nav">
-                                {{#paginate pagination type="previous" }}
-                                    <span id="prev" {{#if disabled}} class="disabled" {{/if}}>
+                          <div class="card-row-properties">
+                            <dl>
+                              <dd>Department(s)</dd><dt><span>{{split-depts this.departments}}</span></dt>
+                              <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank">{{this.email}}</a></dt>
+                              <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
+                            </dl>
+                          </div>
+                          <!-- /.card-row-properties -->
+                        </div>
+                        <!-- /.card-row-inner -->
+                      </div>
+                      <!-- /.card-row -->
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+              <!-- /.hr -->
+
+              <!-- Pagination buttons -->
+              <div class="pager" id="pagination-nav">
+                {{#paginate pagination type="previous" }}
+                  <span id="prev" {{#if disabled}} class="disabled" {{/if}}>
                                         <a href="?p={{n}}">
                                           <i class="fa fa-chevron-left"></i>
                                         </a>
                                     </span>
-                                {{/paginate}}
-                                <ul class="pagination">
-                                    {{#paginate pagination type="middle" limit="7" }}
-                                        <li {{#if active}} class="active" {{/if}}><a href="?p={{n}}">{{n}}</a></li>
-                                    {{/paginate}}
-                                </ul>
-                                {{#paginate pagination type="next" }}
-                                    <span id="next" {{#if disabled}} class="disabled" {{/if}}>
+                {{/paginate}}
+                <ul class="pagination">
+                  {{#paginate pagination type="middle" limit="7" }}
+                    <li {{#if active}} class="active" {{/if}}><a href="?p={{n}}">{{n}}</a></li>
+                  {{/paginate}}
+                </ul>
+                {{#paginate pagination type="next" }}
+                  <span id="next" {{#if disabled}} class="disabled" {{/if}}>
                                       <a href="?p={{n}}">
                                         <i class="fa fa-chevron-right"></i>
                                       </a>
                                     </span>
-                                {{/paginate}}
-                            </div>
+                {{/paginate}}
+              </div>
 
-                            <br/>
-                            <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="contact-info-wrapper">
-                                            <div class="contact-head">
-                                                <h2>Got questions? Thoughts?</h2>
-                                            </div>
+              <br/>
+              <div class="block background-secondary fullwidth fullwidthMD" id="response-block">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="contact-info-wrapper">
+                      <div class="contact-head">
+                        <h2>Got questions? Thoughts?</h2>
+                      </div>
 
-                                            <div class="contact-info">
-                                                <span class="contact-info-item">
+                      <div class="contact-info">
+                        <span class="contact-info-item">
                                                     <a href="/feedback" target="_self">
                                                         <i class="fa fa-paper-plane-o"></i>
                                                         <span style="color:#fff">Send feedback</span>
-                                                </a>
-                                                </span>
+                        </a>
+                        </span>
 
-                                                <span class="contact-info-item">
+                        <span class="contact-info-item">
                                                   <a href="mailto:yura.database@gmail.com" target="_blank">
                                                         <i class="fa fa-at"></i>
                                                         <span style="color:#fff">yura@yale.edu</span>
-                                                </a>
-                                                </span>
-                                                <!-- /.contact-info-item -->
+                        </a>
+                        </span>
+                        <!-- /.contact-info-item -->
 
-                                                <span class="contact-info-item">
+                        <span class="contact-info-item">
                                                     <a href="https://www.facebook.com/yaleundergradresearch/" target="_blank">
                                                         <i class="fa fa-facebook"></i>
                                                         <span style="color:#fff">Facebook</span>
-                                                </a>
-                                                </span>
-                                                <!-- /.contact-info-item -->
-                                            </div>
-                                            <!-- /.contact-info-->
-                                        </div>
-                                        <!-- /.contact-info-wrapper -->
-                                    </div>
-                                    <!-- /.col-* -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                        </div>
-                        <!--rdbcontent-->
+                        </a>
+                        </span>
+                        <!-- /.contact-info-item -->
+                      </div>
+                      <!-- /.contact-info-->
                     </div>
-                    <!-- /.content -->
+                    <!-- /.contact-info-wrapper -->
+                  </div>
+                  <!-- /.col-* -->
                 </div>
-                <!-- /.container -->
+                <!-- /.row -->
+              </div>
             </div>
-            <!-- /.main-inner -->
+            <!--rdbcontent-->
+          </div>
+          <!-- /.content -->
         </div>
-        <!-- /.main -->
+        <!-- /.container -->
+      </div>
+      <!-- /.main-inner -->
+    </div>
+    <!-- /.main -->
