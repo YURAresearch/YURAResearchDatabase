@@ -15,10 +15,10 @@ var localcn = {
     password: 'bulld0g27'
 };
 
-var db = pgp(process.env.DATABASE_URL || localcn);
+var dbusers = pgp(process.env.DATABASE_URL || localcn);
 
 function callbackData(query, callback) {
-    db.any(query, [true], callback)
+    dbusers.any(query, [true], callback)
         .then(function(data) {
             callback(data); // send data;
         })
@@ -28,20 +28,26 @@ function callbackData(query, callback) {
         });
 }
 
-function isUser(netID, callback) {
-    callbackData("SELECT * FROM users WHERE netID = " + netID, callback);
+function getUser(netID, callback) {
+    callbackData("SELECT * FROM users WHERE NETID = '" + netID + "';", callback);
 }
 
 function createUser(netID, callback) {
-    callbackData("[Make New User with netID]",callback);
+    callbackData("INSERT INTO USERS(NETID, FIRSTACCESSED, LASTACCESSED, SESSIONCOUNT, ADMIN) VALUES ('" + netID + "',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1,false);", callback);
 }
 
-function makeAdmin(netID, callback){
-  //do something
+function updateUser(netID, field, newValue, callback){
+    callbackData("UPDATE users SET " + field + " = "  + newValue + " WHERE NETID = '" + netID + "';", callback);
+}
+
+function getFavorites(netID, callback){
+    callbackData("SELECT list_id FROM favorites INNER JOIN listings ON favorites.listingid = listings.list_id INNER JOIN users ON favorites.userid = users.id WHERE NETID = '" + netID + "';", callback)
 }
 
 module.exports = {
     callbackData: callbackData,
-    isUser: isUser,
+    getUser: getUser,
     createUser: createUser,
+    updateUser: updateUser,
+    getFavorites: getFavorites,
 };

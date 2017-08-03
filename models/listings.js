@@ -15,11 +15,11 @@ var localcn = {
     password: 'bulld0g27'
 };
 
-var db = pgp(process.env.DATABASE_URL || localcn);
+var dblistings = pgp(process.env.DATABASE_URL || localcn);
 var countPageItems = 5;
 
 function callbackData(query, callback) {
-    db.any(query, [true], callback)
+    dblistings.any(query, [true], callback)
         .then(function(data) {
             callback(data); // send data;
         })
