@@ -62,9 +62,7 @@ app.get('/users', auth.bounce, function(req, res) {
 });
 //app.get('/listings', auth.bounce, listings);
 
-app.get('/listings', listings);
-
-app.post('/listings/:listingid.:whichtruncate', listings);
+app.get('/listings', auth.bounce, listings);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
