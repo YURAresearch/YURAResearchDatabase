@@ -20,7 +20,7 @@ var port = process.env.PORT || '3000';
 var host = process.env.HOST || 'localhost';
 var sessionSecret = process.env.SESSION_SECRET || 'e70a1e1ee4b8f662f78'
 
-var duration = 1000 * 60 * 60 * 24 * 7; //one week
+var duration = 1000 * 60 * 60; //one hour
 
 var app = express();
 
@@ -60,7 +60,6 @@ app.get('/logout', auth.logout);
 app.get('/users', auth.bounce, users);
 
 app.get('/listings', auth.bounce, listings);
-//app.get('/listings', listings);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var depts = require('../bin/departments');
-var listingsModel = require('../models/listings.js');
+var postgresModel = require('../models/postgres.js');
 var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
 
@@ -13,27 +13,14 @@ hbs.registerHelper('split-depts', function(str) {
   }
   return new hbs.SafeString(str)
 });
-/**
-hbs.registerHelper('truncate-desc', function(str, isTruncate) {
-    var len = 600;
-    if (str && isTruncate) {
-        if (str.length > len && str.length > 0) {
-            var new_str = str + " ";
-            new_str = str.substr(0, len);
-            new_str = str.substr(0, new_str.lastIndexOf(" "));
-            new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
-            return new hbs.SafeString(new_str + '...');
-        }
-    }
-    return new hbs.SafeString(str);
-});
-**/
 
 hbs.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
-
 function listAll(req, res) {
+
+  if (!req.session.loggedin) res.redirect('/users'); //if user info not loaded, redirect to users route
+
   var callback = function(listings) {
     res.render('listings', {
       title: 'Listings',
@@ -55,20 +42,35 @@ function listAll(req, res) {
   }
   if (req.query.search) {
     if (req.query.departments && req.query.departments != "Departments") {
-      listingsModel.searchANDfilter(req.query.search, req.query.departments, callback);
+      postgresModel.searchANDfilter(req.query.search, req.query.departments, callback);
     } else {
-      listingsModel.searchListings(req.query.search, callback);
+      postgresModel.searchListings(req.query.search, callback);
     }
   } else {
     if (req.query.departments && req.query.departments != "Departments") {
-      listingsModel.filterDepts(req.query.departments, callback);
+      postgresModel.filterDepts(req.query.departments, callback);
     } else {
-      listingsModel.getAllListings(callback);
+      postgresModel.getAllListings(callback);
     }
   }
 }
 
 //GET home page.
 router.get('/listings', listAll);
-
 module.exports = router;
+
+/**
+hbs.registerHelper('truncate-desc', function(str, isTruncate) {
+    var len = 600;
+    if (str && isTruncate) {
+        if (str.length > len && str.length > 0) {
+            var new_str = str + " ";
+            new_str = str.substr(0, len);
+            new_str = str.substr(0, new_str.lastIndexOf(" "));
+            new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
+            return new hbs.SafeString(new_str + '...');
+        }
+    }
+    return new hbs.SafeString(str);
+});
+**/

@@ -15,11 +15,11 @@ var localcn = {
     password: 'bulld0g27'
 };
 
-var dblistings = pgp(process.env.DATABASE_URL || localcn);
+var db = pgp(process.env.DATABASE_URL || localcn);
 var countPageItems = 5;
 
 function callbackData(query, callback) {
-    dblistings.any(query, [true], callback)
+    db.any(query, [true], callback)
         .then(function(data) {
             callback(data); // send data;
         })
@@ -28,6 +28,8 @@ function callbackData(query, callback) {
             return res.status(500).send(err);
         });
 }
+
+//listing functions
 
 function searchHandler(searchString) {
     var searchArray = searchString.split(' ');
@@ -55,11 +57,34 @@ function searchANDfilter(searchString, deptString, callback) {
     callbackData("SELECT * FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"'))", callback);
 }
 
+//user functions
+
+function getUser(netID, callback) {
+    callbackData("SELECT * FROM users WHERE NETID = '" + netID + "';", callback);
+}
+
+function createUser(netID, callback) {
+    callbackData("INSERT INTO USERS(NETID, FIRSTACCESSED, LASTACCESSED, SESSIONCOUNT, ADMIN) VALUES ('" + netID + "',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1,false);", callback);
+}
+
+function updateUser(netID, field, newValue, callback){
+    callbackData("UPDATE users SET " + field + " = "  + newValue + " WHERE NETID = '" + netID + "';", callback);
+}
+
+function getFavorites(netID, callback){
+    callbackData("SELECT list_id FROM favorites INNER JOIN listings ON favorites.listingid = listings.list_id INNER JOIN users ON favorites.userid = users.id WHERE NETID = '" + netID + "';", callback)
+}
+
+
 module.exports = {
     callbackData: callbackData,
     getAllListings: getAllListings,
     searchListings: searchListings,
     filterDepts: filterDepts,
     searchANDfilter: searchANDfilter,
-    searchHandler: searchHandler
+    searchHandler: searchHandler,
+    getUser: getUser,
+    createUser: createUser,
+    updateUser: updateUser,
+    getFavorites: getFavorites,
 };
