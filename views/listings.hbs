@@ -138,21 +138,21 @@
 
               <!-- Pagination buttons -->
               <div class="pager" id="pagination-nav">
-                {{#paginate pagination type="previous" }}
+                {{#paginate pagination type="previous"}}
                   <span id="prev" {{#if disabled}} class="disabled" {{/if}}>
-                                        <a href="?p={{n}}">
+                                        <a href="{{paginate-link ../url n}}">
                                           <i class="fa fa-chevron-left"></i>
                                         </a>
                                     </span>
                 {{/paginate}}
                 <ul class="pagination">
                   {{#paginate pagination type="middle" limit="7" }}
-                    <li {{#if active}} class="active" {{/if}}><a href="?p={{n}}">{{n}}</a></li>
+                    <li {{#if active}} class="active" {{/if}}><a href="{{paginate-link ../url n}}">{{n}}</a></li>
                   {{/paginate}}
                 </ul>
                 {{#paginate pagination type="next" }}
                   <span id="next" {{#if disabled}} class="disabled" {{/if}}>
-                                      <a href="?p={{n}}">
+                                      <a href="{{paginate-link ../url n}}">
                                         <i class="fa fa-chevron-right"></i>
                                       </a>
                                     </span>
