@@ -44,7 +44,7 @@ function searchHandler(searchString) {
 function getAllListings(netID, sortby, callback) {
     if (sortby == 'name') {
       callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id) AS isFavorite FROM listings ORDER BY ( SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')), name, departments;", callback);
-    } else if (sortby == 'departments') {
+    } else if (sortby == 'dept') {
       callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id) AS isFavorite FROM listings ORDER BY ( SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')), departments, name;", callback);
     } else {
       callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id) AS isFavorite FROM listings ORDER BY ( SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')), name;", callback);

@@ -32,6 +32,8 @@ function listAll(req, res) {
       deptPlaceholder: req.query.departments || 'Departments',
       depts: depts,
       listings: listings.slice((req.query.p - 1) * resultsPerPage || 0, req.query.p * resultsPerPage || resultsPerPage), //gets entries for current page
+      numberOfResults: listings.length,
+      url: req.url,
       pagination: {
         page: req.query.p || 1,
         pageCount: Math.ceil(listings.length / resultsPerPage)
@@ -54,7 +56,7 @@ function listAll(req, res) {
     if (req.query.departments && req.query.departments != "Departments") {
       postgresModel.filterDepts(req.query.departments, callback);
     } else {
-      postgresModel.getAllListings(req.session.cas_user, req.query.sortby, callback);
+      postgresModel.getAllListings(req.session.cas_user, req.query.sort, callback);
     }
   }
 }
