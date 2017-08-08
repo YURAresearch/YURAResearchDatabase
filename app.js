@@ -55,15 +55,21 @@ app.use(session({
 var user = "";
 var auth = cas(host, port);
 
-app.get('/logout', auth.logout);
+app.get('/logout', function(req, res) {
+  req.session.destroy(function(err) {
+    if (err) return next(err)
+    auth.logout;
+    res.redirect('/')
+  });
+});
 
 app.get('/users', auth.bounce, users);
 
 app.get('/listings', auth.bounce, listings);
 
-app.post('/listings/removeFavorite/:listingid',listings);
+app.post('/listings/removeFavorite/:listingid', listings);
 
-app.post('/listings/addFavorite/:listingid',listings);
+app.post('/listings/addFavorite/:listingid', listings);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,19 +6,10 @@ var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
 
 hbs.registerHelper('paginate', paginate);
-hbs.registerHelper('split-depts', function(str) {
-  str = hbs.Utils.escapeExpression(str);
-  for (var i = 0; i < str.length; i++) {
-    str = str.replace(';', "</br>");
-  }
-  return new hbs.SafeString(str)
-});
-
 hbs.registerHelper('paginate-link', function(url, pageNum) {
   //important - page number parameter must be last in url for this to work
-
   if (url.indexOf('?') > -1) { //contains params
-    if (url.indexOf('?p=') > -1) {    // already contains page number param
+    if (url.indexOf('?p=') > -1) { // already contains page number param
       return url.substring(0, url.indexOf('?p=')) + "?p=" + pageNum.toString();
     } else if (url.indexOf('&p=') > -1){  // already contains page number and other params
       return url.substring(0, url.indexOf('&p=')) + "&p=" + pageNum.toString();
@@ -28,9 +19,14 @@ hbs.registerHelper('paginate-link', function(url, pageNum) {
   } else {
     return url + "?p=" + pageNum.toString();
   }
-
 });
-
+hbs.registerHelper('split-depts', function(str) {
+  str = hbs.Utils.escapeExpression(str);
+  for (var i = 0; i < str.length; i++) {
+    str = str.replace(';', "</br>");
+  }
+  return new hbs.SafeString(str)
+})
 hbs.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });

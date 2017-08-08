@@ -4,11 +4,11 @@ var postgresModel = require('../models/postgres.js');
 
 /* GET users listing. */
 router.get('/users', function(req, res) {
-  console.log(req.session.cas_user);
+  console.log(req.session);
   postgresModel.getUser(req.session.cas_user, function(data) {
     if (data.length == 0) { //user does not exist yet
       postgresModel.createUser(req.session.cas_user, function(log) {
-        console.log(log);
+        console.log('User Created');
       }); //create User
       req.session.loggedin = true;
       req.session.save();
