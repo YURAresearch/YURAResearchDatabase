@@ -41,8 +41,14 @@ function searchHandler(searchString) {
     return searchQuery;
 }
 
-function getAllListings(callback) {
-    callbackData("SELECT * FROM listings", callback); // LIMIT " + 5 + " OFFSET " + (pageNumber*5 - 5), callback);
+function getAllListings(netID, sortby, callback) {
+    if (sortby == 'name') {
+      callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id) AS isFavorite FROM listings ORDER BY ( SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')), name, departments;", callback);
+    } else if (sortby == 'departments') {
+      callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id) AS isFavorite FROM listings ORDER BY ( SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')), departments, name;", callback);
+    } else {
+      callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id) AS isFavorite FROM listings ORDER BY ( SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')), name;", callback);
+    }
 }
 
 function searchListings(searchString, callback) {
@@ -72,9 +78,16 @@ function updateUser(netID, field, newValue, callback){
 }
 
 function getFavorites(netID, callback){
-    callbackData("SELECT list_id FROM favorites INNER JOIN listings ON favorites.listingid = listings.list_id INNER JOIN users ON favorites.userid = users.id WHERE NETID = '" + netID + "';", callback)
+    callbackData("SELECT list_id FROM favorites INNER JOIN listings ON favorites.listingid = listings.list_id INNER JOIN users ON favorites.netid = users.netid WHERE users.netid = '" + netID + "';", callback)
 }
 
+function addFavorite(netID, listingid, callback){
+    callbackData("INSERT INTO favorites (netid, listingid) VALUES ('"+netID+"',"+listingid+");", callback);
+}
+
+function removeFavorite(netID, listingid, callback){
+    callbackData("DELETE FROM favorites WHERE netID = '" + netID + "' AND listingid = '"+ listingid +"';", callback);
+}
 
 module.exports = {
     callbackData: callbackData,
@@ -87,4 +100,6 @@ module.exports = {
     createUser: createUser,
     updateUser: updateUser,
     getFavorites: getFavorites,
+    addFavorite: addFavorite,
+    removeFavorite: removeFavorite,
 };

@@ -17,12 +17,16 @@ hbs.registerHelper('split-depts', function(str) {
 hbs.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
+
 function listAll(req, res) {
+
+  console.log(req.session);
 
   if (!req.session.loggedin) res.redirect('/users'); //if user info not loaded, redirect to users route
 
   var callback = function(listings) {
-    res.render('listings', {
+
+  res.render('listings', {
       title: 'Listings',
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',
@@ -50,13 +54,29 @@ function listAll(req, res) {
     if (req.query.departments && req.query.departments != "Departments") {
       postgresModel.filterDepts(req.query.departments, callback);
     } else {
-      postgresModel.getAllListings(callback);
+      postgresModel.getAllListings(req.session.cas_user, req.query.sortby, callback);
     }
   }
 }
 
 //GET home page.
 router.get('/listings', listAll);
+
+router.post('/listings/addFavorite/:listingid',function(req,res){
+  postgresModel.addFavorite(req.session.cas_user, req.params.listingid, function(log) {
+    console.log('Entry  '+ req.params.listingid.toString() +' Added To Favorites');
+  });
+  res.redirect('/listings');
+});
+
+router.post('/listings/removeFavorite/:listingid',function(req,res){
+  console.log(req.params.listingid);
+  postgresModel.removeFavorite(req.session.cas_user, req.params.listingid, function(log) {
+    console.log('Entry '+ req.params.listingid.toString() +' Removed From Favorites');
+  });
+  res.redirect('/listings');
+});
+
 module.exports = router;
 
 /**

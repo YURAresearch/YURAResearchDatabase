@@ -11,6 +11,7 @@ router.get('/users', function(req, res) {
         console.log(log);
       }); //create User
       req.session.loggedin = true;
+      req.session.save();
       res.redirect('/listings')
     } else {
       postgresModel.updateUser(req.session.cas_user, 'SESSIONCOUNT', data[0].sessioncount + 1, function(log) {
@@ -19,11 +20,8 @@ router.get('/users', function(req, res) {
       postgresModel.updateUser(req.session.cas_user, 'LASTACCESSED', 'CURRENT_TIMESTAMP', function(log) {
         console.log('Last Accessed Time Updated');
       }) //add current time to last accessed
-      postgresModel.getFavorites(req.session.cas_user, function(favdata) {
-        req.session.favdata = favdata;
-        console.log(req.session.favdata);
-      }); //get favorites listing
       req.session.loggedin = true;
+      req.session.save();
       res.redirect('/listings')
     }
   });

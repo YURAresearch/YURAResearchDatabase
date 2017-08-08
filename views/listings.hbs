@@ -108,6 +108,18 @@
                               <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank">{{this.email}}</a></dt>
                               <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
                             </dl>
+                            <dl>
+                              </br>
+                              {{#if isfavorite}}
+                                <form action="/listings/removeFavorite/{{this.list_id}}" method="POST">
+                                  <input type="submit" value="Remove From Favorites" class="form-control">
+                                </form>
+                              {{else}}
+                              <form action="/listings/addFavorite/{{this.list_id}}" method="POST">
+                                <input type="submit" value="Add To Favorites" class="form-control">
+                              </form>
+                              {{/if}}
+                            </dl>
                           </div>
                           <!-- /.card-row-properties -->
                         </div>

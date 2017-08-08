@@ -61,6 +61,10 @@ app.get('/users', auth.bounce, users);
 
 app.get('/listings', auth.bounce, listings);
 
+app.post('/listings/removeFavorite/:listingid',listings);
+
+app.post('/listings/addFavorite/:listingid',listings);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
