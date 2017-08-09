@@ -100,6 +100,10 @@ function removeFavorite(netID, listingid, callback){
     callbackData("DELETE FROM favorites WHERE netID = '" + netID + "' AND listingid = '"+ listingid +"';", callback);
 }
 
+function isAdmin(netID, callback){
+  callbackData("SELECT admin FROM users WHERE netID = '" + netID + "'", callback);
+}
+
 module.exports = {
     callbackData: callbackData,
     getAllListings: getAllListings,
@@ -113,4 +117,5 @@ module.exports = {
     getFavorites: getFavorites,
     addFavorite: addFavorite,
     removeFavorite: removeFavorite,
+    isAdmin: isAdmin,
 };

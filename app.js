@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var admin = require('./routes/admin');
 var listings = require('./routes/listings');
 var terms = require('./routes/terms');
 var feedback = require('./routes/feedback');
@@ -66,6 +67,8 @@ app.get('/logout', function(req, res) {
 app.get('/users', auth.bounce, users);
 
 app.get('/listings', auth.bounce, listings);
+
+app.get('/admin', auth.bounce, admin);
 
 app.post('/listings/removeFavorite/:listingid', listings);
 
