@@ -19,7 +19,7 @@ router.get('/users', function(req, res) {
       }); //add one to session count
       postgresModel.updateUser(req.session.cas_user, 'LASTACCESSED', 'CURRENT_TIMESTAMP', function(log) {
         console.log('Last Accessed Time Updated');
-      }) //add current time to last accessed
+      }); //add current time to last accessed
       req.session.loggedin = true;
       req.session.save();
       res.redirect('/listings')
