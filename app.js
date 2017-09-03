@@ -21,7 +21,7 @@ var port = process.env.PORT || '3000';
 var host = process.env.HOST || 'localhost';
 var sessionSecret = process.env.SESSION_SECRET || 'e70a1e1ee4b8f662f78'
 
-var duration = 1000 * 60 * 60; //one hour
+var duration = 1000 * 60 * 60 * 24; //one hour
 
 var app = express();
 
