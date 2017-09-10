@@ -113,6 +113,7 @@
                               <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
                             </dl>
                             <dl>
+                              {{this.isfavorite}}
                               </br>
                               {{#if isfavorite}}
                                 <form action="/listings/removeFavorite/{{this.list_id}}" method="POST">
