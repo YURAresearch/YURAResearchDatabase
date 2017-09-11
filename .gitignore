@@ -38,3 +38,6 @@ jspm_packages
 
 # SQL dumps
 *.dump
+
+# Yarn lock files
+*.lock

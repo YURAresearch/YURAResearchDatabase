@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon start.js"
+    "start": "DEBUG=yuraresearchdatabase:server nodemon start.js"
   },
   "dependencies": {
     "bluebird": "^3.4.7",
