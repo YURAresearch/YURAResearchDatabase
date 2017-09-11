@@ -34,7 +34,21 @@ In order to transform this file into a Hydrated, Fire-Breathing, Alive+Kicking d
 
 ![psql session](/assets/psql_session1.jpg)
 
-### Running the server
-I can't connect to the database yet, so if you can make it work, drop an issue! Will update with details soon.
+Great! Now the last step is to configure the app to connect to your local postgres database. To do this, go to bin/localcn.js, and fill out the localcn.postgres object like this: 
 
-Stay tuned!
+`
+localcn.postgres = {
+    host: 'localhost',
+    port: 5432,
+    database: 'yurardb_testing',
+    user: '{your user}',
+    password: '{your password}'
+};
+`
+Now, you should be able to connect to your local postgres database!
+
+### Running the server
+
+To run your local instance of RDB, just do `npm start`. We are working on a way to directly connect to the Heroku Postgres database.
+
+More info to come - Stay tuned!
