@@ -1,3 +1,6 @@
+var config = require('../bin/config');
+var localcn = require('../bin/localcn');
+
 var promise = require('bluebird');
 
 var options = {
@@ -7,15 +10,7 @@ var options = {
 
 var pgp = require('pg-promise')();
 
-var localcn = {
-    host: 'localhost',
-    port: 5432,
-    database: 'yurardb_testing',
-    user: 'postgres',
-    password: 'bulld0g27'
-};
-
-var db = pgp(process.env.DATABASE_URL || localcn);
+var db = pgp(process.env.DATABASE_URL || localcn.postgres);
 var countPageItems = 5;
 
 function callbackData(query, callback) {

@@ -13,15 +13,11 @@ var terms = require('./routes/terms');
 var feedback = require('./routes/feedback');
 var feedbackconfirm = require('./routes/feedback-confirm');
 
+var config = require('./bin/config');
+var localcn = require('./bin/localcn');
 var depts = require('./bin/departments');
 var cas = require('./bin/cas');
 var session = require('express-session')
-
-var port = process.env.PORT || '3000';
-var host = process.env.HOST || 'localhost';
-var sessionSecret = process.env.SESSION_SECRET || 'e70a1e1ee4b8f662f78'
-
-var duration = 1000 * 60 * 60 * 24; //one hour
 
 var app = express();
 
@@ -47,14 +43,13 @@ app.use('/feedback', feedback);
 app.use('/feedback/confirm', feedbackconfirm);
 
 app.use(session({
-  secret: sessionSecret,
+  secret: config.sessionSecret,
   resave: false,
   saveUninitialized: true
 }));
 
-
 var user = "";
-var auth = cas(host, port);
+var auth = cas(config.host, config.port);
 
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err) {
