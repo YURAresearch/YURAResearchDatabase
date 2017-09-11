@@ -3,7 +3,7 @@
 
 Do you want to help students find research? Want to get started with web development? Read the ***Getting Started*** below to learn more!
 
-Master branch deployed at https://yura-rdb.herokuapp.com/
+Testing branch deployed at https://yura-rdb-staging.herokuapp.com/
 
 ## Getting Started
 
