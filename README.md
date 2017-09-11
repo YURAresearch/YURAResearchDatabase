@@ -36,7 +36,7 @@ In order to transform this file into a Hydrated, Fire-Breathing, Alive+Kicking d
 
 Great! Now the last step is to configure the app to connect to your local postgres database. To do this, go to bin/localcn.js, and fill out the localcn.postgres object like this: 
 
-`
+```javascript
 localcn.postgres = {
     host: 'localhost',
     port: 5432,
@@ -44,7 +44,7 @@ localcn.postgres = {
     user: '{your user}',
     password: '{your password}'
 };
-`
+```
 Now, you should be able to connect to your local postgres database!
 
 ### Running the server
