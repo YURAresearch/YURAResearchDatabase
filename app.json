@@ -1,0 +1,28 @@
+{
+  "name": "YURAResearchDatabase",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "ADMINIUM_URL": {
+      "required": true
+    },
+    "HEROKU_HOST": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "adminium",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
