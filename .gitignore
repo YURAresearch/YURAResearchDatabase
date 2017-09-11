@@ -41,3 +41,6 @@ jspm_packages
 
 # Yarn lock files
 *.lock
+
+# Local Config Files
+bin/localcn.js
