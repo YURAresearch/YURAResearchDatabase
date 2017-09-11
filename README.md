@@ -35,3 +35,6 @@ In order to transform this file into a Hydrated, Fire-Breathing, Alive+Kicking d
 ![psql session](/assets/psql_session1.jpg)
 
 ### Running the server
+I can't connect to the database yet, so if you can make it work, drop an issue! Will update with details soon.
+
+Stay tuned!
