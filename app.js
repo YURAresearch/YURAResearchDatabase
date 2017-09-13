@@ -45,7 +45,10 @@ app.use('/feedback/confirm', feedbackconfirm);
 app.use(session({
   secret: config.sessionSecret,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    maxAge: config.cookieduration,
+  }
 }));
 
 var user = "";
@@ -63,7 +66,7 @@ app.get('/users', auth.bounce, users);
 
 app.get('/listings', auth.bounce, listings);
 
-app.get('/admin', auth.bounce, admin);
+app.get('/admin/:page', auth.bounce, admin);
 
 app.post('/listings/removeFavorite/:listingid', listings);
 
