@@ -58,13 +58,17 @@ app.get('/logout', function(req, res) {
   req.session.destroy(function(err) {
     if (err) return next(err)
     auth.logout;
-    res.redirect('/')
+    res.redirect('/');
   });
 });
 
 app.get('/users', auth.bounce, users);
 
 app.get('/listings', auth.bounce, listings);
+
+app.get('/admin', auth.bounce, function(req, res){
+  res.redirect('/admin/database');
+});
 
 app.get('/admin/:page', auth.bounce, admin);
 
