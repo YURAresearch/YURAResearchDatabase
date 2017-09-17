@@ -99,6 +99,14 @@ function isAdmin(netID, callback){
   callbackData("SELECT admin FROM users WHERE netID = '" + netID + "'", callback);
 }
 
+function getUserCount(callback){
+  callbackData("SELECT COUNT(*) FROM users", callback)
+}
+
+function getSearchCount(callback){
+  callbackData("SELECT COUNT(*) FROM searches", callback)
+}
+
 module.exports = {
     callbackData: callbackData,
     getAllListings: getAllListings,
@@ -113,4 +121,5 @@ module.exports = {
     addFavorite: addFavorite,
     removeFavorite: removeFavorite,
     isAdmin: isAdmin,
+    getUserCount: getUserCount,
 };

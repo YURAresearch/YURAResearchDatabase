@@ -22,7 +22,6 @@ try:
 	mainwebcontents = urllib.urlopen(mainweburl).read()
 except:
 	sys.exit("Error getting main listing website contents!")
-
 # Set department
 dpt = raw_input("What department are we looking at?\n>> ")
 
@@ -46,6 +45,7 @@ nodessum = ""
 prefix = re.escape(raw_input("String that needs to match before\n>> "))
 suffix = re.escape(raw_input("String that needs to match after\n>> "))
 mainRE = re.compile(prefix+r"(.*)"+suffix+r'*?')
+print mainRE.pattern
 mmatches = re.finditer(mainRE,mainwebcontents)
 
 # For parsing through faculty profile websites
