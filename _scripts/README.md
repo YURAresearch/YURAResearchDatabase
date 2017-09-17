@@ -20,7 +20,7 @@ If we want to get accurate information for faculty in the Architecture departmen
 
 Roughly speaking, there are two parts to automated "web scraping".
 
-1) Travelling between pages
+1) Traveling between pages
 2) Understanding what is in each page
 
 Both of these are very interesting. For YURAbot, though, we'll focus on a subset of 2). We want something that can extract repeated blocks of information - groups of elements with similar tags/styling.
