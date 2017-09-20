@@ -37,10 +37,14 @@ function searchHandler(searchString) {
 }
 
 function sortByParser(sortby){
-    if (sortby == 'name') {
-      return "name,";
-    } else if (sortby == 'dept') {
-      return "departments,";
+    if (sortby == 'name-asc') {
+      return "name ASC,";
+    } else if (sortby == 'name-desc') {
+      return "name DESC,";
+    } else if (sortby == 'dept-asc') {
+      return "departments ASC,";
+    }    else if (sortby == 'dept-desc') {
+      return "departments DESC,";
     } else {
       return ""
     }

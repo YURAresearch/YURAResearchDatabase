@@ -79,8 +79,17 @@
                     </div>
                   </div>
                   <div class="col-sm-8">
-                    <button type="submit" name="sort" id="sortDept" class="sort btn pull-right" value="dept">Sort by Dept</button>
-                    <button type="submit" name="sort" id="sortName" class="sort btn pull-right" value="name">Sort by Name</button>
+                    {{#if sortDeptDesc}}
+                    <button type="submit" name="sort" id="sortDept" class="sort btn pull-right" value="dept-desc">Sort by Dept</button>
+                    {{else}}
+                    <button type="submit" name="sort" id="sortDept" class="sort btn pull-right" value="dept-asc">Sort by Dept</button>
+                    {{/if}}
+
+                    {{#if sortNameDesc}}
+                    <button type="submit" name="sort" id="sortName" class="sort btn pull-right" value="name-desc">Sort by Name</button>
+                    {{else}}
+                    <button type="submit" name="sort" id="sortName" class="sort btn pull-right" value="name-asc">Sort by Name</button>
+                    {{/if}}
                   </div>
                   <!-- /.col-* -->
                 </div>
