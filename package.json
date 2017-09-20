@@ -6,6 +6,7 @@
     "start": "DEBUG=yuraresearchdatabase:server nodemon start.js"
   },
   "dependencies": {
+    "async": "^2.5.0",
     "bluebird": "^3.4.7",
     "body-parser": "~1.16.0",
     "cas-authentication": "^0.0.8",

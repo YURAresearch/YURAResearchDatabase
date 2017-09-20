@@ -44,6 +44,8 @@ function listAll(req, res) {
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',
       depts: depts,
+      sortNameDesc: (req.query.sort=="name-asc"),
+      sortDeptDesc: (req.query.sort=="dept-asc"),
       listings: listings.slice((req.query.p - 1) * resultsPerPage || 0, req.query.p * resultsPerPage || resultsPerPage), //gets entries for current page
       numberOfResults: listings.length,
       url: req.url,
@@ -53,6 +55,7 @@ function listAll(req, res) {
       }
     });
   };
+
   var resultsPerPage = req.query.limit || 10;
   var maxresultsPerPage = 50;
   //set max resultsPerPage to 50
@@ -80,32 +83,16 @@ router.get('/listings', listAll);
 router.post('/listings/addFavorite/:listingid',function(req,res){
   postgresModel.addFavorite(req.session.cas_user, req.params.listingid, function(log) {
     console.log('Entry  '+ req.params.listingid.toString() +' Added To Favorites');
+    res.redirect('/listings');
   });
-  res.redirect('/listings');
 });
 
 router.post('/listings/removeFavorite/:listingid',function(req,res){
   console.log(req.params.listingid);
   postgresModel.removeFavorite(req.session.cas_user, req.params.listingid, function(log) {
     console.log('Entry '+ req.params.listingid.toString() +' Removed From Favorites');
+    res.redirect('/listings');
   });
-  res.redirect('/listings');
 });
 
 module.exports = router;
-
-/**
-hbs.registerHelper('truncate-desc', function(str, isTruncate) {
-    var len = 600;
-    if (str && isTruncate) {
-        if (str.length > len && str.length > 0) {
-            var new_str = str + " ";
-            new_str = str.substr(0, len);
-            new_str = str.substr(0, new_str.lastIndexOf(" "));
-            new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
-            return new hbs.SafeString(new_str + '...');
-        }
-    }
-    return new hbs.SafeString(str);
-});
-**/
