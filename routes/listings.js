@@ -96,19 +96,3 @@ router.post('/listings/removeFavorite/:listingid',function(req,res){
 });
 
 module.exports = router;
-
-/**
-hbs.registerHelper('truncate-desc', function(str, isTruncate) {
-    var len = 600;
-    if (str && isTruncate) {
-        if (str.length > len && str.length > 0) {
-            var new_str = str + " ";
-            new_str = str.substr(0, len);
-            new_str = str.substr(0, new_str.lastIndexOf(" "));
-            new_str = (new_str.length > 0) ? new_str : str.substr(0, len);
-            return new hbs.SafeString(new_str + '...');
-        }
-    }
-    return new hbs.SafeString(str);
-});
-**/

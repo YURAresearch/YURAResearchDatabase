@@ -134,7 +134,7 @@ module.exports = {
     removeFavorite: removeFavorite,
     isAdmin: isAdmin,
     getUserCount: getUserCount,
+    getDAUCount: getDAUCount,
     getSearchCount: getSearchCount,
     getListingCount: getListingCount,
-    getDAUCount: getDAUCount,
 };
