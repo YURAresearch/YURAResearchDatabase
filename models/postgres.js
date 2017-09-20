@@ -38,9 +38,9 @@ function searchHandler(searchString) {
 
 function sortByParser(sortby){
     if (sortby == 'name') {
-      return ",name";
+      return "name,";
     } else if (sortby == 'dept') {
-      return ",departments";
+      return "departments,";
     } else {
       return ""
     }
@@ -51,22 +51,22 @@ function saveSearch(searchQuery, deptFilter){
 }
 
 function getAllListings(netID, sortby, callback) {
-    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings ORDER BY (SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "'))" + sortByParser(sortby) + ", name, departments", callback);
+    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings ORDER BY " + sortByParser(sortby) + "(SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),name,departments", callback);
 }
 
 function searchListings(searchString, netID, sortby, callback) {
     saveSearch(searchString, "");
-    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.keywords) @@ to_tsquery('"+searchHandler(searchString)+"') ORDER BY (SELECT CASE WHEN (ts_rank(to_tsvector(listings.departments), to_tsquery('"+searchHandler(searchString)+"'))) > 0 THEN 1 ELSE 0 END) DESC,(SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "'))" + sortByParser(sortby) + ",listings.custom_desc DESC,(SELECT ts_rank(to_tsvector(listings.name), to_tsquery('"+searchHandler(searchString)+"'))) DESC, (SELECT ts_rank(to_tsvector(listings.description), to_tsquery('"+searchHandler(searchString)+"'))) DESC, (SELECT ts_rank(to_tsvector(listings.keywords), to_tsquery('"+searchHandler(searchString)+"'))) DESC, name, departments" , callback);
+    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE (to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.keywords) @@ to_tsquery('"+searchHandler(searchString)+"')) ORDER BY "+ sortByParser(sortby) + "(SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),(SELECT CASE WHEN (ts_rank(to_tsvector(listings.departments), to_tsquery('"+searchHandler(searchString)+"'))) > 0 THEN 1 ELSE 0 END) DESC, listings.custom_desc DESC,(SELECT ts_rank(to_tsvector(listings.name), to_tsquery('"+searchHandler(searchString)+"'))) DESC,(SELECT ts_rank(to_tsvector(listings.description), to_tsquery('"+searchHandler(searchString)+"'))) DESC, (SELECT ts_rank(to_tsvector(listings.keywords), to_tsquery('"+searchHandler(searchString)+"'))) DESC,name,departments", callback);
 }
 
 function filterDepts(deptString, netID, sortby, callback) {
     saveSearch("",deptString);
-    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') ORDER BY (SELECT ts_rank(to_tsvector(listings.keywords), to_tsquery('"+searchHandler(searchString)+"'))),(SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "'))" + sortByParser(sortby) + ",listings.custom_desc DESC,name, departments", callback);
+    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') ORDER BY  " + sortByParser(sortby) + "(SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),listings.custom_desc DESC,name,departments", callback);
 }
 
 function searchANDfilter(searchString, deptString, netID, sortby, callback) {
     saveSearch(searchString, deptString);
-    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.keywords) @@ to_tsquery('"+searchHandler(searchString)+"')) ORDER BY (SELECT CASE WHEN (ts_rank(to_tsvector(listings.departments), to_tsquery('"+searchHandler(searchString)+"'))) > 0 THEN 1 ELSE 0 END) DESC,(SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "'))" + sortByParser(sortby) + ",listings.custom_desc DESC,(SELECT ts_rank(to_tsvector(listings.name), to_tsquery('"+searchHandler(searchString)+"'))) DESC, (SELECT ts_rank(to_tsvector(listings.description), to_tsquery('"+searchHandler(searchString)+"'))) DESC,(SELECT ts_rank(to_tsvector(listings.keywords), to_tsquery('"+searchHandler(searchString)+"'))) DESC, name, departments", callback);
+    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE LOWER(departments) LIKE LOWER('%" + deptString + "%') AND (to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.keywords) @@ to_tsquery('"+searchHandler(searchString)+"')) ORDER BY "+ sortByParser(sortby) + "(SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),(SELECT CASE WHEN (ts_rank(to_tsvector(listings.departments), to_tsquery('"+searchHandler(searchString)+"'))) > 0 THEN 1 ELSE 0 END) DESC, listings.custom_desc DESC,(SELECT ts_rank(to_tsvector(listings.name), to_tsquery('"+searchHandler(searchString)+"'))) DESC,(SELECT ts_rank(to_tsvector(listings.description), to_tsquery('"+searchHandler(searchString)+"'))) DESC, (SELECT ts_rank(to_tsvector(listings.keywords), to_tsquery('"+searchHandler(searchString)+"'))) DESC,name,departments", callback);
 }
 
 //user functions

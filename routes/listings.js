@@ -80,16 +80,16 @@ router.get('/listings', listAll);
 router.post('/listings/addFavorite/:listingid',function(req,res){
   postgresModel.addFavorite(req.session.cas_user, req.params.listingid, function(log) {
     console.log('Entry  '+ req.params.listingid.toString() +' Added To Favorites');
+    res.redirect('/listings');
   });
-  res.redirect('/listings');
 });
 
 router.post('/listings/removeFavorite/:listingid',function(req,res){
   console.log(req.params.listingid);
   postgresModel.removeFavorite(req.session.cas_user, req.params.listingid, function(log) {
     console.log('Entry '+ req.params.listingid.toString() +' Removed From Favorites');
+    res.redirect('/listings');
   });
-  res.redirect('/listings');
 });
 
 module.exports = router;
