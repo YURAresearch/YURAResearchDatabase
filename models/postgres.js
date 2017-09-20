@@ -107,8 +107,16 @@ function getUserCount(callback){
   callbackData("SELECT COUNT(*) FROM users", callback)
 }
 
+function getDAUCount(callback){
+  callbackData("SELECT COUNT(*) FROM users WHERE users.lastaccessed >= now()::date", callback)
+}
+
 function getSearchCount(callback){
   callbackData("SELECT COUNT(*) FROM searches", callback)
+}
+
+function getListingCount(callback){
+  callbackData("SELECT COUNT(*) FROM listings", callback)
 }
 
 module.exports = {
@@ -126,4 +134,7 @@ module.exports = {
     removeFavorite: removeFavorite,
     isAdmin: isAdmin,
     getUserCount: getUserCount,
+    getSearchCount: getSearchCount,
+    getListingCount: getListingCount,
+    getDAUCount: getDAUCount,
 };
