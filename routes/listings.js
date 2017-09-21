@@ -35,7 +35,7 @@ function listAll(req, res) {
 
   console.log(req.session);
 
-  if (req.session.loggedin == false) res.redirect('/users'); //if user info not loaded, redirect to users route
+  if (req.session.loggedin == false || !(req.session.loggedin)) res.redirect('/users'); //if user info not loaded, redirect to users route
 
   var callback = function(listings) {
 

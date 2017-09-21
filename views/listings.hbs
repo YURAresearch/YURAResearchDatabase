@@ -80,15 +80,15 @@
                   </div>
                   <div class="col-sm-8">
                     {{#if sortDeptDesc}}
-                    <button type="submit" name="sort" id="sortDept" class="sort btn pull-right" value="dept-desc">Sort by Dept</button>
+                      <button type="submit" name="sort" id="sortDept" class="sort btn pull-right" value="dept-desc">Sort by Dept</button>
                     {{else}}
-                    <button type="submit" name="sort" id="sortDept" class="sort btn pull-right" value="dept-asc">Sort by Dept</button>
+                      <button type="submit" name="sort" id="sortDept" class="sort btn pull-right" value="dept-asc">Sort by Dept</button>
                     {{/if}}
 
                     {{#if sortNameDesc}}
-                    <button type="submit" name="sort" id="sortName" class="sort btn pull-right" value="name-desc">Sort by Name</button>
+                      <button type="submit" name="sort" id="sortName" class="sort btn pull-right" value="name-desc">Sort by Name</button>
                     {{else}}
-                    <button type="submit" name="sort" id="sortName" class="sort btn pull-right" value="name-asc">Sort by Name</button>
+                      <button type="submit" name="sort" id="sortName" class="sort btn pull-right" value="name-asc">Sort by Name</button>
                     {{/if}}
                   </div>
                   <!-- /.col-* -->
@@ -98,7 +98,8 @@
               <!-- Listing items -->
               <h2 class="page-title">
                 {{numberOfResults}} results matching your query
-              </h2><!-- /.page-title -->
+              </h2>
+              <!-- /.page-title -->
 
               <div>
                 <ul class="list">
@@ -128,9 +129,9 @@
                                   <input type="submit" value="Remove From Favorites" class="form-control">
                                 </form>
                               {{else}}
-                              <form action="/listings/addFavorite/{{this.list_id}}" method="POST">
-                                <input type="submit" value="Add To Favorites" class="form-control">
-                              </form>
+                                <form action="/listings/addFavorite/{{this.list_id}}" method="POST">
+                                  <input type="submit" value="Add To Favorites" class="form-control">
+                                </form>
                               {{/if}}
                             </dl>
                           </div>
@@ -147,7 +148,7 @@
 
               <!-- Pagination buttons -->
               <div class="pager" id="pagination-nav">
-                {{#paginate pagination type="previous"}}
+                {{#paginate pagination type="previous" }}
                   <span id="prev" {{#if disabled}} class="disabled" {{/if}}>
                                         <a href="{{paginate-link ../url n}}">
                                           <i class="fa fa-chevron-left"></i>
