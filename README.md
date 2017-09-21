@@ -52,3 +52,5 @@ Now, you should be able to connect to your local postgres database!
 To run your local instance of RDB, just do `npm start` and go to [localhost:3000](localhost:3000). We are working on a way to directly connect to the Heroku Postgres database.
 
 More info to come - Stay tuned!
+
+Hello peeps.
