@@ -4,6 +4,7 @@ var depts = require('../bin/departments');
 var postgresModel = require('../models/postgres.js');
 var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
+var ua = require('universal-analytics');
 
 hbs.registerHelper('paginate', paginate);
 hbs.registerHelper('paginate-link', function(url, pageNum) {
@@ -36,6 +37,11 @@ function listAll(req, res) {
   console.log(req.session);
 
   if (req.session.loggedin == false || !(req.session.loggedin)) res.redirect('/users'); //if user info not loaded, redirect to users route
+
+  else {
+    var visitor = ua('UA-63178606-6',req.session.cas_user,{strictCidFormat: false});
+    visitor.pageview("/listings").send()
+  }
 
   var callback = function(listings) {
 
