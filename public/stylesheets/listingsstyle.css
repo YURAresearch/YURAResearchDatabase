@@ -1,4 +1,5 @@
-/* Custom additional CSS for listings page *//*--------------------------------------------------------------------------
+/* Custom additional CSS for listings page */
+/*--------------------------------------------------------------------------
 GPL statement:
 This file is part of RDB.
 
@@ -22,6 +23,14 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 a:focus {
 	text-decoration: none;
+}
+form#filter {
+	margin-bottom: 20px;
+}
+#resultcount {
+	font-size: 14px;
+	color: #C0C0C0;
+	padding-bottom: 20px;
 }
 
 /* Loading and warning */
@@ -97,6 +106,16 @@ mark {
   padding: 0px;
   margin: 0px;
 }
+#remFav, #addFav {
+	color: #FFFFFF;
+	border: none;
+}
+#remFav {
+	background-color: #CE962A;
+}
+#addFav {
+	background-color: #279678;
+}
 
 /* Buttons and filters */
 #searchbox, #deptDropdown .selectize-input {
@@ -131,7 +150,6 @@ mark {
 	background-color: #205699;
 	color: #fff;
 	padding: 9px 15px;
-	border-radius: 18.6px;
 	text-align: center;
 	margin-top: 3px;
 	margin-bottom: 3px;
@@ -155,7 +173,7 @@ mark {
 .description {
   line-height: 1.6em;
   display: block;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* Pure CSS truncation with toggle */
@@ -278,11 +296,13 @@ span#prev:hover, span#next:hover {
 	height: 60px;
 	width: 60px;
 
-position: fixed;	bottom: 20px;
+position: fixed;
+	bottom: 20px;
 	right: 20px;
 	background-color: #2f84aa;
 
-display: block;	z-index: 999;
+display: block;
+	z-index: 999;
 	text-align: center;
 	border-radius: 30px;
 	box-shadow: 0 4px 16px rgba(0,0,0,0.4);

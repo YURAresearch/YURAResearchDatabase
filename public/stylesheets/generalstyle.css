@@ -24,10 +24,10 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 .btn {
     box-shadow: 0 1px 4px rgba(0,0,0,0.4);
-    border-radius: 2px;
-    -webkit-transition: box-shadow 0.15s linear;
-    -o-transition: box-shadow 0.15s linear;
-    transition: box-shadow 0.15s linear;
+    border-radius: 4px;
+    -webkit-transition: box-shadow 0.05s linear;
+    -o-transition: box-shadow 0.05s linear;
+    transition: box-shadow 0.05s linear;
 }
 .btn:active, .btn:hover {
     box-shadow:0 2px 8px rgba(0,0,0,0.4);
