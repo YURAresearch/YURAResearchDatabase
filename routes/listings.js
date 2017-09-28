@@ -38,11 +38,6 @@ function listAll(req, res) {
 
   if (req.session.loggedin == false || !(req.session.loggedin)) res.redirect('/users'); //if user info not loaded, redirect to users route
 
-  else {
-    var visitor = ua('UA-63178606-6',req.session.cas_user,{strictCidFormat: false});
-    visitor.pageview("/listings").send()
-  }
-
   var callback = function(listings) {
 
   res.render('listings', {

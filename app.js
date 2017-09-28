@@ -54,6 +54,7 @@ app.use(session({
 
 var user = "";
 var auth = cas(config.host, config.port);
+app.use(ua.middleware("UA-63178606-6", {cookieName: '_ga'}));
 
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err) {
