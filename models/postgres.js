@@ -1,5 +1,11 @@
 var config = require('../bin/config');
-var localcn = require('../bin/localcn');
+
+try {
+  var localcn = require('../bin/localcn');
+    // do stuff
+} catch (ex) {
+    console.log('no local config specified');
+}
 
 var promise = require('bluebird');
 
