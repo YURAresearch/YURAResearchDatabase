@@ -75,7 +75,7 @@
                 <div class="row">
                   <div class="col-sm-4">
                     <div class="filter-actions">
-                      <a id="reset-button-id" href="/listings"><i class="fa fa-close"></i> Reset Search</a>
+                      <a id="reset-button-id" href="/listings" class="btn"><i class="fa fa-close"></i> Reset Search</a>
                     </div>
                   </div>
                   <div class="col-sm-8">
@@ -96,7 +96,7 @@
                 <!-- /.row -->
               </form>
               <!-- Listing items -->
-              <h2 class="page-title">
+              <h2 id="resultcount" class="page-title">
                 {{numberOfResults}} results matching your query
               </h2>
               <!-- /.page-title -->
@@ -126,11 +126,11 @@
                               </br>
                               {{#if isfavorite}}
                                 <form action="/listings/removeFavorite/{{this.list_id}}" method="POST">
-                                  <input type="submit" value="Remove From Favorites" class="form-control">
+                                  <input type="submit" value="Remove From Favorites" class="form-control btn" id="remFav">
                                 </form>
                               {{else}}
                                 <form action="/listings/addFavorite/{{this.list_id}}" method="POST">
-                                  <input type="submit" value="Add To Favorites" class="form-control">
+                                  <input type="submit" value="Add To Favorites" class="form-control btn" id="addFav">
                                 </form>
                               {{/if}}
                             </dl>

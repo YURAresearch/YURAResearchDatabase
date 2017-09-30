@@ -14,7 +14,6 @@ var feedback = require('./routes/feedback');
 var feedbackconfirm = require('./routes/feedback-confirm');
 
 var config = require('./bin/config');
-var localcn = require('./bin/localcn');
 var depts = require('./bin/departments');
 var cas = require('./bin/cas');
 var session = require('express-session')
