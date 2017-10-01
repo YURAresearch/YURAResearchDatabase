@@ -11,13 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res) {
     if (req.query.submit) {
-        let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'yura.database.feedback@gmail.com',
-                pass: 'undergradresearch'
-            }
-        });
+        var transporter = nodemailer.createTransport('smtps://yura.database.feedback%40gmail.com:undergradresearch@smtp.gmail.com');
 
         // setup email data with unicode symbols
         var mailOptions = {
@@ -25,7 +19,7 @@ router.post('/', function(req, res) {
             to: 'yura.database@gmail.com', // list of receivers
             replyTo: req.body.email,
             subject: '[RDB Feedback] '+req.body.subject, // Subject line
-            html: '<h3>Name</h3><p>' + req.body.name + '</p><h1>Message</h1><p>' + req.body.message+ '</p>', // plain text body
+            html: '<h3>Name</h3><p>' + req.body.name + '</p><h1>Message</h1><p>' + req.body.message + '</p>', // plain text body
         };
 
         // send mail with defined transport object
