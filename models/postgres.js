@@ -42,6 +42,10 @@ function searchHandler(searchString) {
     return searchQuery;
 }
 
+function escapeRegExp(str) {
+  return str = str.replace(/\(/g, "\\\\(").replace(/\)/g, "\\\\)");
+}
+
 function saveSearch(searchQuery, deptFilter){
     db.query("INSERT INTO searches (search_query, department_filter, datetime) VALUES ('" + searchQuery + "', '" + deptFilter + "', CURRENT_TIMESTAMP);");
 }
@@ -57,12 +61,12 @@ function searchListings(searchString, netID, callback) {
 
 function filterDepts(deptString, netID, callback) {
     saveSearch("",deptString);
-    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE departments ~* '(\\m" + deptString + "\\M)' ORDER BY (SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),listings.custom_desc DESC,name,departments", callback);
+    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE departments ~* E'" + escapeRegExp(deptString) + ";' ORDER BY (SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),listings.custom_desc DESC,name,departments", callback);
 }
 
 function searchANDfilter(searchString, deptString, netID, callback) {
     saveSearch(searchString, deptString);
-    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE departments ~* '(\\m" + deptString + "\\M)' AND (to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.keywords) @@ to_tsquery('"+searchHandler(searchString)+"')) ORDER BY (SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),(SELECT CASE WHEN (ts_rank(to_tsvector(listings.departments), to_tsquery('"+searchHandler(searchString)+"'))) > 0 THEN 1 ELSE 0 END) DESC, listings.custom_desc DESC,(SELECT ts_rank(to_tsvector(listings.name), to_tsquery('"+searchHandler(searchString)+"'))) DESC,(SELECT ts_rank(to_tsvector(listings.description), to_tsquery('"+searchHandler(searchString)+"'))) DESC, (SELECT ts_rank(to_tsvector(listings.keywords), to_tsquery('"+searchHandler(searchString)+"'))) DESC,name,departments", callback);
+    callbackData("SELECT *, exists(SELECT 1 FROM favorites WHERE favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "') AS isFavorite FROM listings WHERE departments ~* E'" + escapeRegExp(deptString) + ";' AND (to_tsvector(listings.name) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.description) @@ to_tsquery('"+searchHandler(searchString)+"') OR to_tsvector(listings.keywords) @@ to_tsquery('"+searchHandler(searchString)+"')) ORDER BY (SELECT favorites.listingid FROM favorites WHERE (favorites.listingid = listings.list_id AND favorites.netid = '" + netID + "')),(SELECT CASE WHEN (ts_rank(to_tsvector(listings.departments), to_tsquery('"+searchHandler(searchString)+"'))) > 0 THEN 1 ELSE 0 END) DESC, listings.custom_desc DESC,(SELECT ts_rank(to_tsvector(listings.name), to_tsquery('"+searchHandler(searchString)+"'))) DESC,(SELECT ts_rank(to_tsvector(listings.description), to_tsquery('"+searchHandler(searchString)+"'))) DESC, (SELECT ts_rank(to_tsvector(listings.keywords), to_tsquery('"+searchHandler(searchString)+"'))) DESC,name,departments", callback);
 }
 
 //user functions
