@@ -59,7 +59,7 @@ form#filter {
 }
 .list li {
     margin-bottom: 10px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 .list div:hover {
 	background-color: #FAFDFE;
@@ -81,7 +81,7 @@ form#filter {
 .card-row-properties dd {
 	margin-right: 8px;
 }
-.list .cardrow, .list li {
+.list .card-row, .list li {
 	border-radius: 4px;
 }
 a.website:focus {
