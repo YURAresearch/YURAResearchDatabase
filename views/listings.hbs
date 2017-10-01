@@ -79,8 +79,6 @@
                     </div>
                   </div>
                   <div class="col-sm-8">
-                      <button id="sortDept" class="sort btn pull-right">Sort by Dept</button>
-                      <button id="sortName" class="sort btn pull-right">Sort by Name</button>
                   </div>
                   <!-- /.col-* -->
                 </div>
@@ -99,7 +97,11 @@
                       <div class="card-row">
                         <div class="card-row-inner">
                           <div class="card-row-body">
-                            <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a></h2>
+                            <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a>
+                                {{#if isfavorite}}
+                                <img src="images/star.png" alt="(favorite)" style="margin:1px 0px 1px 10px;vertical-align:bottom;height:18px;width:18px"/>
+                                {{/if}}
+                            </h2>
                             <div class="card-row-content truncateme description">
                               <article>{{this.description}}</article>
                             </div>
@@ -116,11 +118,11 @@
                             <dl>
                               </br>
                               {{#if isfavorite}}
-                                <form action="/listings/removeFavorite/{{this.list_id}}" method="POST">
+                                <form action="/listings/removeFavorite/{{this.list_id}}" class="fav-form" method="POST">
                                   <input type="submit" value="Remove From Favorites" class="form-control btn" id="remFav">
                                 </form>
                               {{else}}
-                                <form action="/listings/addFavorite/{{this.list_id}}" method="POST">
+                                <form action="/listings/addFavorite/{{this.list_id}}" class="fav-form" method="POST">
                                   <input type="submit" value="Add To Favorites" class="form-control btn" id="addFav">
                                 </form>
                               {{/if}}

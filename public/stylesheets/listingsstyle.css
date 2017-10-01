@@ -28,8 +28,8 @@ form#filter {
 	margin-bottom: 20px;
 }
 #resultcount {
-	font-size: 14px;
-	color: #C0C0C0;
+	font-size: 16px;
+	color: #A0A0A0;
 	padding-bottom: 20px;
 	border: none;
 }
@@ -58,7 +58,8 @@ form#filter {
     list-style-type: none;
 }
 .list li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 .list div:hover {
 	background-color: #FAFDFE;
@@ -79,6 +80,9 @@ form#filter {
 /* Listing items */
 .card-row-properties dd {
 	margin-right: 8px;
+}
+.list .cardrow, .list li {
+	border-radius: 4px;
 }
 a.website:focus {
 	color: #008675;
@@ -110,12 +114,17 @@ mark {
 #remFav, #addFav {
 	color: #FFFFFF;
 	border: none;
+	width: 200px;
+	float: right;
 }
 #remFav {
 	background-color: #CE962A;
 }
 #addFav {
 	background-color: #279678;
+}
+.fav-form {
+	height: 40px;
 }
 
 /* Buttons and filters */
