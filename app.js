@@ -11,7 +11,6 @@ var admin = require('./routes/admin');
 var listings = require('./routes/listings');
 var terms = require('./routes/terms');
 var feedback = require('./routes/feedback');
-var feedbackconfirm = require('./routes/feedback-confirm');
 
 var config = require('./bin/config');
 var depts = require('./bin/departments');
@@ -40,7 +39,6 @@ app.use('/', index);
 //app.use('/listings', listings);
 app.use('/terms', terms);
 app.use('/feedback', feedback);
-app.use('/feedback/confirm', feedbackconfirm);
 
 app.use(session({
   secret: config.sessionSecret,

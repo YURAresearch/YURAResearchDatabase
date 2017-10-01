@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res) {
-  mg.sendText(req.body.email, 'yura.database@gmail.com',
+  mg.sendText(req.body.name + ' <' + req.body.email + '>', 'yura.database@gmail.com',
     req.body.subject,req.body.message,
     function(err) {
       if (err) {
