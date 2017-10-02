@@ -109,12 +109,17 @@
                             <dl>
                               <dd>Department(s)</dd><dt><span>{{split-depts this.departments}}</span></dt>
                               <dd>Email</dd><dt><a href='mailto:{{this.email}}' target="_blank">{{this.email}}</a></dt>
-                              {{#if this.website}}
-                              <dd></dd><dt><a href = '{{this.website}}' target="_blank"> Go to website <i class="fa fa-chevron-right headout-chev"></i></a></dt>
-                              {{/if}}
                             </dl>
                             <dl>
                               </br>
+
+                              {{#if this.website}}
+                                <dd></dd>
+                                <dt>
+                                  <a href='{{this.website}}' target="_blank">Go to website <i class="fa fa-chevron-right headout-chev"></i></a>
+                                </dt>
+                              {{/if}}
+
                               {{#if isfavorite}}
                                 <form action="/listings/removeFavorite/{{this.list_id}}" class="fav-form" method="POST">
                                   <input type="submit" value="Remove from Favorites" class="form-control btn" id="remFav">
@@ -124,6 +129,7 @@
                                   <input type="submit" value="Add to Favorites" class="form-control btn" id="addFav">
                                 </form>
                               {{/if}}
+
                             </dl>
                           </div>
                           <!-- /.card-row-properties -->
