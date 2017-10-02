@@ -149,37 +149,32 @@ mark {
 }
 .query-buttons {
 	display: inline-block;
-	float:right;
-}
-.filter-actions {
-	height: 37px;
-}
-.sort.btn {
-	margin-left: 8px;
-	background-color: #777;
-	margin-top: 5px;
-	color: #fff;
-	width: 125px;
-}
-#reset-button-id {
-	background-color: #B51E00;
+	float: right;
 	color: #fff;
 	padding: 9px 15px;
 	text-align: center;
 	margin-top: 3px;
 	margin-bottom: 3px;
+	margin-left: 8px;
     white-space: nowrap;
     overflow: visible;
+    width: 125px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.4);
     -webkit-transition: all 0.15s linear;
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
 }
-#reset-button-id .fa, #reset-button-id:hover, #reset-button-id::selection {
-	color: #fff !important;
+.filter-actions {
+	height: 37px;
 }
-#reset-button-id:hover {
-	box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+#reset-button-id {
+	background-color: #B51E00;
+}
+#letsgo {
+	background-color: #205699;
+}
+.query-buttons .fa, .query-buttons:hover, .query-buttons::selection {
+	color: #fff !important;
 }
 #reset-button-id::selection {
 	background-color: transparent;
