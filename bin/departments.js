@@ -17,7 +17,7 @@ var math_engineering = [
     'Electrical Engineering',
     'Mathematics',
     'Mechanical Engineering and Materials Science',
-    'Statistics'
+    'Statistics'nau
 ];
 
 var social_sciences = [
@@ -43,7 +43,8 @@ var humanities = [
     'History',
     'Humanities',
     'Philosophy',
-    'Religious Studies'
+    'Religious Studies',
+    'Divinity'
 ];
 
 var languages_cultures = [
