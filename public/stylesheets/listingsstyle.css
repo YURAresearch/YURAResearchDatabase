@@ -18,6 +18,9 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------*/
 
 /* General layout and appearance */
+.document-title {
+	margin-bottom: 30px;
+}
 .background-secondary, .faq-item:before {
     background-color: #0f74aa;
 }
@@ -62,7 +65,7 @@ form#filter {
     padding: 0;
     list-style-type: none;
 }
-.list li {
+.list li, #filter {
     margin-bottom: 10px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
