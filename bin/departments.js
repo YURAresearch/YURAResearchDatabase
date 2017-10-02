@@ -17,7 +17,7 @@ var math_engineering = [
     'Electrical Engineering',
     'Mathematics',
     'Mechanical Engineering and Materials Science',
-    'Statistics'nau
+    'Statistics'
 ];
 
 var social_sciences = [
