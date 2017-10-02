@@ -24,7 +24,7 @@ $(document).ready(function() {
     "use strict";
 
     if ($('#RDB').length === 0) {  // Only on listings page
-        console.log("load listings stuff")
+        console.log("load listings stuff");
         // Events setup functions for various js work after entries have loaded; called after list.js call to add
         // (Re)check pages state and adjust prev/next buttons; Update highlighting
         function checkPrevNext() {
