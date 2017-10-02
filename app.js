@@ -61,6 +61,10 @@ app.get('/logout', function(req, res) {
   });
 });
 
+app.get('/database',function(req,res)){
+  res.redirect('');
+}
+
 app.get('/users', auth.bounce, users);
 
 app.get('/listings', auth.bounce, listings);

@@ -27,7 +27,7 @@ var social_sciences = [
     'Environmental Studies',
     'Ethics, Politics, and Economics',
     'Global Affairs',
-    'Linguistings',
+    'Linguistics',
     'Political Science',
     'Psychology',
     'Sociology',
