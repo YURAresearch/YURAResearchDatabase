@@ -28,8 +28,8 @@ form#filter {
 	margin-bottom: 20px;
 }
 #resultcount {
-	font-size: 16px;
-	color: #A0A0A0;
+	font-size: 14px;
+	color: #C0C0C0;
 	border: none;
 	line-height: 45px;
 	margin: 0px;
@@ -171,7 +171,7 @@ mark {
 	background-color: #B51E00;
 }
 #letsgo {
-	background-color: #205699;
+	background-color: #208699 !important;
 }
 .query-buttons .fa, .query-buttons:hover, .query-buttons::selection {
 	color: #fff !important;
