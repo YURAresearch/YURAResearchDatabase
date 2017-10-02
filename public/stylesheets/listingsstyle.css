@@ -81,7 +81,7 @@ form#filter {
 .card-row-properties dd {
 	margin-right: 8px;
 }
-.list .card-row, .list li {
+.list .card-row, .list .card-row div, .list li, #filter{
 	border-radius: 4px;
 }
 a.website:focus {
