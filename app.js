@@ -16,7 +16,7 @@ var config = require('./bin/config');
 var depts = require('./bin/departments');
 var cas = require('./bin/cas');
 var session = require('express-session')
-///var ua = require('universal-analytics');
+//var ua = require('universal-analytics');
 
 var app = express();
 

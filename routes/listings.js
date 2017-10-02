@@ -4,7 +4,7 @@ var depts = require('../bin/departments');
 var postgresModel = require('../models/postgres.js');
 var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
-//var ua = require('universal-analytics');
+var ua = require('universal-analytics');
 var queryString = require('querystring');
 
 
