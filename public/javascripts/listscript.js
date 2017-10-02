@@ -19,64 +19,68 @@
 // --------------------------------------------------------------------------
 //
 
-"use strict";
+$(document).ready(function() {
 
-// Events setup functions for various js work after entries have loaded; called after list.js call to add
-// (Re)check pages state and adjust prev/next buttons; Update highlighting
-function checkPrevNext() {
-    // Take care of hiding prev or next buttons, depending on pages and current page
-    if ($('.active').length === 0) {
-        // Check empty
-        $('#next').css('visibility', 'hidden');
-        $('#prev').css('visibility', 'hidden');
+    "use strict";
+
+    if ($('#RDB').length === 0) {  // Only on listings page
+        // Events setup functions for various js work after entries have loaded; called after list.js call to add
+        // (Re)check pages state and adjust prev/next buttons; Update highlighting
+        function checkPrevNext() {
+            // Take care of hiding prev or next buttons, depending on pages and current page
+            if ($('.active').length === 0) {
+                // Check empty
+                $('#next').css('visibility', 'hidden');
+                $('#prev').css('visibility', 'hidden');
+            }
+            else {
+                // Check next
+                if ($('.active').next().length === 0) {
+                    $('#next').css('visibility', 'hidden');
+                }
+                else {
+                    $('#next').css('visibility', 'visible');
+                }
+                // Check prev
+                if ($('.active').prev().length === 0) {
+                    $('#prev').css('visibility', 'hidden');
+                }
+                else {
+                    $('#prev').css('visibility', 'visible');
+                }
+            }
+        }
+
+        // Pagination events, back to top, and reset filters, etc.
+        function postEntryWork() {
+            // Checking page buttons and add events
+            checkPrevNext();
+            $('#prev').click(function() {
+                checkPrevNext();
+            });
+            $('#next').click(function() {
+                checkPrevNext();
+            });
+            // Reset filters
+            $('#reset-button-id').click(function() {
+                checkPrevNext();
+            });
+
+            // Scroll to top button
+            $('#back-top').hide();
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    $('#back-top').fadeIn(300);
+                }
+                else {
+                    $('#back-top').fadeOut(300);
+                }
+            });
+            $('#back-top').click(function() {
+                $('body,html').animate({scrollTop:0}, 400);
+            });
+        }
+
+        postEntryWork();
     }
-    else {
-        // Check next
-        if ($('.active').next().length === 0) {
-            $('#next').css('visibility', 'hidden');
-        }
-        else {
-            $('#next').css('visibility', 'visible');
-        }
-        // Check prev
-        if ($('.active').prev().length === 0) {
-            $('#prev').css('visibility', 'hidden');
-        }
-        else {
-            $('#prev').css('visibility', 'visible');
-        }
-    }
-}
-
-// Pagination events, back to top, and reset filters, etc.
-function postEntryWork() {
-    // Checking page buttons and add events
-    checkPrevNext();
-    $('#prev').click(function() {
-        $('.active').prev().trigger('click'); // Transmit click event to the previous page number
-        checkPrevNext();
-    });
-    $('#next').click(function() {
-        $('.active').next().trigger('click'); // Transmit click event to the next page number
-        checkPrevNext();
-    });
-
-    // Scroll to top button
-    $('#back-top').hide();
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 300) {
-            $('#back-top').fadeIn(300);
-        }
-        else {
-            $('#back-top').fadeOut(300);
-        }
-    });
-    $('#back-top').click(function() {
-        $('body,html').animate({scrollTop:0}, 400);
-    });
-
-    // Reset filters
-    $('#reset-button-id').click(function() {
-        checkPrevNext();
-    });
-}
+});
