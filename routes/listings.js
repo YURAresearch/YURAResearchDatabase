@@ -4,7 +4,7 @@ var depts = require('../bin/departments');
 var postgresModel = require('../models/postgres.js');
 var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
-var ua = require('universal-analytics');
+//var ua = require('universal-analytics');
 var queryString = require('querystring');
 
 
@@ -40,7 +40,6 @@ function listAll(req, res) {
 
   if (req.session.loggedin == false || !(req.session.loggedin)) res.redirect('/users'); //if user info not loaded, redirect to users route
 
-
   if (req.query){
     req.session.lastquery = queryString.stringify(req.query);
     console.log(req.session.lastquery);
@@ -49,6 +48,7 @@ function listAll(req, res) {
   var callback = function(listings) {
 
   res.render('listings', {
+      userID: req.session.cas_user,
       title: 'Listings',
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',

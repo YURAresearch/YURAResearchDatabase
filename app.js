@@ -16,7 +16,7 @@ var config = require('./bin/config');
 var depts = require('./bin/departments');
 var cas = require('./bin/cas');
 var session = require('express-session')
-var ua = require('universal-analytics');
+///var ua = require('universal-analytics');
 
 var app = express();
 
@@ -51,7 +51,7 @@ app.use(session({
 
 var user = "";
 var auth = cas(config.host, config.port);
-app.use(ua.middleware("UA-63178606-6", {cookieName: '_ga'}));
+//app.use(ua.middleware("UA-63178606-6", {cookieName: '_ga'}));
 
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err) {
