@@ -44,7 +44,6 @@ var humanities = [
     'Humanities',
     'Philosophy',
     'Religious Studies',
-    'Divinity'
 ];
 
 var languages_cultures = [
@@ -93,7 +92,8 @@ var graduate_professional_schools = [
     'Biostatistics (School of Public Health)',
     'Environmental Health Studies (School of Public Health)',
     'Epidemiology of Microbial Diseases (School of Public Health)',
-    'School of Forestry and Environmental Studies'
+    'School of Forestry and Environmental Studies',
+    'Divinity School'
 ];
 
 var depts = {

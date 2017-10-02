@@ -71,9 +71,9 @@ function listAll(req, res) {
   }
   if (req.query.search) {
     if (req.query.departments && req.query.departments != "Departments") {
-      postgresModel.searchANDfilter(req.query.search, req.query.departments, req.session.cas_user, callback);
+      postgresModel.searchANDfilter(req.query.search.trim(), req.query.departments, req.session.cas_user, callback);
     } else {
-      postgresModel.searchListings(req.query.search, req.session.cas_user, callback);
+      postgresModel.searchListings(req.query.search.trim(), req.session.cas_user, callback);
     }
   } else {
     if (req.query.departments && req.query.departments != "Departments") {
