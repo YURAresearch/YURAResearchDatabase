@@ -1,9 +1,9 @@
 $(document).ready(function() {
   'use strict';
 
-  $('#filter').change(function() {
-    $('#filter').submit();
-  });
+  // $('#filter').change(function() {
+  //   $('#filter').submit();
+  // });
 
   /**
    * Bootstrap Select
