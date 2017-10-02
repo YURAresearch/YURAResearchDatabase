@@ -1,50 +1,43 @@
 var express = require('express');
 var router = express.Router();
-const nodemailer = require('nodemailer');
+var config = require('../bin/config');
+
+var Mailgun = require('mailgun').Mailgun;
+
+var mg = new Mailgun(config.mailgun_key);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('feedback', {
-        title: 'Feedback'
-    });
+  res.render('feedback', {
+    title: 'Feedback'
+  });
 });
 
 router.post('/', function(req, res) {
-    if (req.query.submit) {
-        let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'yura.database.feedback@gmail.com',
-                pass: 'undergradresearch'
-            }
-        });
 
-        // setup email data with unicode symbols
-        var mailOptions = {
-            from:'yura.database.feedback@gmail.com', // sender address
-            to: 'yura.database@gmail.com', // list of receivers
-            replyTo: req.body.email,
-            subject: '[RDB Feedback] '+req.body.subject, // Subject line
-            html: '<h3>Name</h3><p>' + req.body.name + '</p><h1>Message</h1><p>' + req.body.message+ '</p>', // plain text body
-        };
+  if(req.body.email){
+    var sender = (req.body.name + ' <' + req.body.email + '>');
+  } else{
+    var sender = ('Anonymous User <yura.database@gmail.com>');
+  }
+  var subject = (req.body.subject || 'RDB Feedback');
+  var message = (req.body.message);
 
-        // send mail with defined transport object
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                res.render('feedback', {
-                    title: 'Feedback',
-                    message: 'Error: Please try again, or email us at yura@yale.edu.',
-                });
-            } else {
-                res.render('feedback', {
-                    title: 'Feedback',
-                    message: 'Your message has been sent! Thank you for your feedback.',
-                });
-            }
+  mg.sendText(sender, 'yura.database@gmail.com', subject, message,
+    function(err) {
+      if (err) {
+        console.log(err);
+        res.render('feedback', {
+          title: 'Feedback',
+          message: 'Error: Please try again, or email us at yura@yale.edu.',
         });
-    } else {
-        res.send('Error');
-    }
+      } else {
+        res.render('feedback', {
+          title: 'Feedback',
+          message: 'Your message has been sent! Thank you for your feedback.',
+        });
+      }
+    });
 });
 
 module.exports = router;

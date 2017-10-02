@@ -11,7 +11,6 @@ var admin = require('./routes/admin');
 var listings = require('./routes/listings');
 var terms = require('./routes/terms');
 var feedback = require('./routes/feedback');
-var feedbackconfirm = require('./routes/feedback-confirm');
 
 var config = require('./bin/config');
 var depts = require('./bin/departments');
@@ -40,7 +39,6 @@ app.use('/', index);
 //app.use('/listings', listings);
 app.use('/terms', terms);
 app.use('/feedback', feedback);
-app.use('/feedback/confirm', feedbackconfirm);
 
 app.use(session({
   secret: config.sessionSecret,
@@ -76,6 +74,11 @@ app.get('/admin/:page', auth.bounce, admin);
 app.post('/listings/removeFavorite/:listingid', listings);
 
 app.post('/listings/addFavorite/:listingid', listings);
+
+// letsencrypt ssl certificate confirmation
+app.get('/.well-known/acme-challenge/:content', function(req, res) {
+  res.send('_Vz9KLmSfZNgaOvmV2SP29dF3UYbRqnxs4u6zuA9nRs.eQwz2bF_dTl8qE6neOOeozqWGRcP-4Jiolfu9-s9xtA')
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

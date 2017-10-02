@@ -2,7 +2,7 @@ var sciences = [
     'Applied Physics',
     'Astronomy',
     'Chemistry',
-    'Evolutionary Biology',
+    'Ecology and Evolutionary Biology',
     'Geology and Geophysics',
     'Molecular Biophysics and Biochemistry',
     'Molecular, Cellular and Developmental Biology',

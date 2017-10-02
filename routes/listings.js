@@ -5,6 +5,8 @@ var postgresModel = require('../models/postgres.js');
 var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
 var ua = require('universal-analytics');
+var queryString = require('querystring');
+
 
 hbs.registerHelper('paginate', paginate);
 hbs.registerHelper('paginate-link', function(url, pageNum) {
@@ -38,6 +40,12 @@ function listAll(req, res) {
 
   if (req.session.loggedin == false || !(req.session.loggedin)) res.redirect('/users'); //if user info not loaded, redirect to users route
 
+
+  if (req.query){
+    req.session.lastquery = queryString.stringify(req.query);
+    console.log(req.session.lastquery);
+  }
+
   var callback = function(listings) {
 
   res.render('listings', {
@@ -45,8 +53,6 @@ function listAll(req, res) {
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',
       depts: depts,
-      sortNameDesc: (req.query.sort=="name-asc"),
-      sortDeptDesc: (req.query.sort=="dept-asc"),
       listings: listings.slice((req.query.p - 1) * resultsPerPage || 0, req.query.p * resultsPerPage || resultsPerPage), //gets entries for current page
       numberOfResults: listings.length,
       url: req.url,
@@ -65,15 +71,15 @@ function listAll(req, res) {
   }
   if (req.query.search) {
     if (req.query.departments && req.query.departments != "Departments") {
-      postgresModel.searchANDfilter(req.query.search, req.query.departments, req.session.cas_user, req.query.sort, callback);
+      postgresModel.searchANDfilter(req.query.search, req.query.departments, req.session.cas_user, callback);
     } else {
-      postgresModel.searchListings(req.query.search, req.session.cas_user, req.query.sort, callback);
+      postgresModel.searchListings(req.query.search, req.session.cas_user, callback);
     }
   } else {
     if (req.query.departments && req.query.departments != "Departments") {
-      postgresModel.filterDepts(req.query.departments, req.session.cas_user, req.query.sort, callback);
+      postgresModel.filterDepts(req.query.departments, req.session.cas_user, callback);
     } else {
-      postgresModel.getAllListings(req.session.cas_user, req.query.sort, callback);
+      postgresModel.getAllListings(req.session.cas_user, callback);
     }
   }
 }
@@ -81,10 +87,14 @@ function listAll(req, res) {
 //GET home page.
 router.get('/listings', listAll);
 
-router.post('/listings/addFavorite/:listingid',function(req,res){
+router.post('/listings/addFavorite/:listingid/',function(req,res){
   postgresModel.addFavorite(req.session.cas_user, req.params.listingid, function(log) {
     console.log('Entry  '+ req.params.listingid.toString() +' Added To Favorites');
-    res.redirect('/listings');
+    if (req.session.lastquery){
+      res.redirect('/listings?'+req.session.lastquery);
+    } else{
+      res.redirect('/listings');
+    }
   });
 });
 
@@ -92,7 +102,11 @@ router.post('/listings/removeFavorite/:listingid',function(req,res){
   console.log(req.params.listingid);
   postgresModel.removeFavorite(req.session.cas_user, req.params.listingid, function(log) {
     console.log('Entry '+ req.params.listingid.toString() +' Removed From Favorites');
-    res.redirect('/listings');
+    if (req.session.lastquery){
+      res.redirect('/listings?'+req.session.lastquery);
+    } else{
+      res.redirect('/listings');
+    }
   });
 });
 
