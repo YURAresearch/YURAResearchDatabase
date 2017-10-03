@@ -21290,7 +21290,9 @@ body {
 
   background-color: #fff;
 
-  color: rgba(54, 54, 54, 0.75);
+  /*color: rgba(54, 54, 54, 0.75);*/
+
+  color: #181818;
 
   font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
 
