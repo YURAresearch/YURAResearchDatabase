@@ -88,20 +88,23 @@ form#filter {
 .list .card-row, .list .card-row div, .list li, #filter{
 	border-radius: 4px;
 }
-a.website:focus {
-	color: #008675;
-}
 .website, .email {
 	word-wrap: break-word;
 	word-break: break-all;
 }
-dt span.departments, .email, .website {
+dt span.departments, .email {
 	line-height: 1.42857;
 }
-dt span.departments > span, .email, .website {
+dt span.departments > span, .email {
 	display: block;
 	padding-top: 9.5px;
 	padding-bottom: 9.5px;
+}
+#weblink-button {
+	float: right;
+	color: #fff !important;
+	margin-bottom: 15px;
+	background-color: #397fef;
 }
 .headout-chev {
 	font-size: 80%;
