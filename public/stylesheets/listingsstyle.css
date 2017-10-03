@@ -100,8 +100,12 @@ dt span.departments > span, .email {
 	padding-top: 9.5px;
 	padding-bottom: 9.5px;
 }
+.listings-buttons {
+	height: 120px;
+}
 #weblink-button {
 	float: right;
+	clear: right;
 	color: #fff !important;
 	margin-bottom: 15px;
 	background-color: #397fef;
@@ -121,14 +125,16 @@ mark {
 #remFav, #addFav {
 	color: #FFFFFF;
 	border: none;
-	width: 200px;
+	width: 180px;
 	float: right;
+	clear: right;
+	height: 37px;
 }
 #remFav {
 	background-color: #CE962A;
 }
 #addFav {
-	background-color: #279678;
+	background-color: #619A59;
 }
 .fav-form {
 	height: 40px;
