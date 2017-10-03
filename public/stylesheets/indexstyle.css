@@ -131,6 +131,9 @@ h6 {
         font-size: 12px !important;
     }
 }
+#back-top {
+    font-size: 14px;
+}
 
 /* Awesomeness block */
 #sellingblock .box-content h2, #sellingblock .box-content p {
