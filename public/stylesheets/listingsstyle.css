@@ -82,6 +82,9 @@ form#filter {
 }
 
 /* Listing items */
+.card-row-title a {
+	font-size: 120%;
+}
 .card-row-properties dd {
 	margin-right: 8px;
 }
