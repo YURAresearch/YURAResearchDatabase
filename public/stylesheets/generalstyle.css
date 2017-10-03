@@ -53,26 +53,6 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 .contact-info a:hover .fa {
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
-
-.truncate-toggle {
-	cursor: pointer;
-	display: block;
-	background-color: #6EB39B;
-	width: 100px;
-	line-height: 25px;
-	font-size: 13px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-align: center;
-	margin: 10px 0 10px auto;
-	color: #fff;
-	border-radius: 1.5px;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.4);
-	-webkit-transition: all 0.15s linear;
-	-o-transition: all 0.15s linear;
-	transition: all 0.15s linear;
-}
-
 #mce-EMAIL {
     border: none;
     border-radius: 3px;
@@ -155,4 +135,29 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 .nav>li>a:focus {
     background-color: transparent;
+}
+
+/* Back-to-top button */
+#back-top {
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2f84aa;
+    display: block;
+    z-index: 999;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+#back-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    top: 20px;
+    font-size: 15px;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
