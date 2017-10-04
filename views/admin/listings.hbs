@@ -1,0 +1,166 @@
+<div id="RDB">
+  <div class="page-wrapper">
+    <header class="header header-minimal">
+      <div class="header-statusbar">
+        <div class="header-statusbar-inner">
+          <div class="header-statusbar-left">
+            <h1>YURA RDB Admin Portal</h1>
+          </div>
+          <!-- /.header-statusbar-left -->
+        </div>
+        <!-- /.header-statusbar-inner -->
+      </div>
+      <!-- /.header-statusbar -->
+    </header>
+    <!-- /.header -->
+    <div class="main">
+      <div class="outer-admin">
+        <div class="wrapper-admin">
+          <!-- /.sidebar-admin-->
+          <div class="sidebar-secondary-admin">
+            <ul>
+              <li>
+                <a href="database">
+                                <span class="icon"><i class="fa fa-tachometer"></i></span>
+                                <span class="title">Database</span>
+                                <span class="subtitle">View the listings</span>
+                            </a>
+              </li>
+
+              <li>
+                <a href="analytics">
+                                <span class="icon"><i class="fa fa-line-chart"></i></span>
+                                <span class="title">Analytics</span>
+                                <span class="subtitle">See how RDB is doing</span>
+                            </a>
+              </li>
+
+              <li class="active">
+                <a href="listings">
+                                <span class="icon"><i class="fa fa-table"></i></span>
+                                <span class="title">Edit Listings</span>
+                                <span class="subtitle">Default table style</span>
+                            </a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.sidebar-secondary-admin -->
+          <div class="content-admin">
+            <div class="content-admin-wrapper">
+              <div class="content-admin-main">
+                <div class="content-admin-main-inner">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="page-title">
+                          <h1>Edit RDB Listings</h1>
+                        </div>
+                        <!-- /.page-title -->
+
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="background-white p20 mb50">
+                              <h2 class="page-title">Choose an Option:</h2>
+                              <a href="#">
+                                <div class="alert alert-success" role="alert">
+                                  <strong>Add New Listing</strong>
+                                </div>
+                              </a>
+                              <a href="#">
+                                <div class="alert alert-info" role="alert">
+                                  <strong>Edit Existing Listing</strong>
+                                </div>
+                              </a>
+                              <a href="#">
+                                <div class="alert alert-danger" role="alert">
+                                  <strong>Delete Listing</strong>
+                                </div>
+                              </a>
+                            </div>
+                            <!-- /.col-sm-12 -->
+                            <div class="background-white p20 mb50">
+                              <h2 class="page-title">Add New Listing</h2>
+                              <form>
+                                  <div class="form-group">
+                                      <label for="newListingName">Name</label>
+                                      <input type="text" class="form-control" id="newListingName" placeholder="ex. John Doe">
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="newListingEmail">Email</label>
+                                      <input type="email" class="form-control" id="newListingEmail" placeholder="ex. john.doe@yale.edu">
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="newListingDepts">Departments (separate by semicolons)</label>
+                                      <input type="text" class="form-control" id="newListingDepts" placeholder="ex. Cell Biology; Physics;">
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="exampleInputText1">Website</label>
+                                      <input type="text" class="form-control" id="newListingWebsite" placeholder="ex. http://john.yale.edu">
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="exampleInputTextarea">Description</label>
+                                      <textarea class="form-control" rows="5" id="newListingDesc" placeholder="Some Sweet Descriptions"></textarea>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="exampleInputText1">Keywords</label>
+                                      <input type="text" class="form-control" id="newListingKeywords" placeholder="Separate by Commas">
+                                  </div>
+                                  <br/>
+                                  <div class="checkbox">
+                                      <input type="checkbox" id="customDesc"><label for="customDesc">Description Submitted by User</label>
+                                  </div>
+                                  <br/><br/>
+                                  <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add Listing</button>
+                              </form>
+                            </div>
+                            <!-- /.col-sm-12 -->
+                            <div class="background-white p20 mb50">
+                              <h2 class="page-title">Edit Existing Listing</h2>
+                              <form>
+                                  <div class="form-group">
+                                      <label for="newListingEmail">Find Listing by Email</label>
+                                      <input type="email" class="form-control" id="newListingEmail" placeholder="ex. john.doe@yale.edu">
+                                  </div>
+                                  </br>
+                                  <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Find Listing</button>
+                              </form>
+                            </div>
+                            <!-- /.col-sm-12 -->
+                            <div class="background-white p20 mb50">
+                              <h2 class="page-title">Delete Listing</h2>
+                              <form>
+                                  <div class="form-group">
+                                      <label for="newListingEmail">Find Listing by Email</label>
+                                      <input type="email" class="form-control" id="newListingEmail" placeholder="ex. john.doe@yale.edu">
+                                  </div>
+                                  </br>
+                                  <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Find Listing</button>
+                              </form>
+                            </div>
+                            <!-- /.col-sm-12 -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.col-* -->
+                      </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                  </div>
+                  <!-- /.content-admin-main-inner -->
+                </div>
+                <!-- /.content-admin-main -->
+              </div>
+              <!-- /.content-admin-wrapper -->
+            </div>
+            <!-- /.content-admin -->
+          </div>
+          <!-- /.wrapper-admin -->
+        </div>
+        <!-- /.outer-admin -->
+      </div>
+      <!-- /.main -->

@@ -3,6 +3,7 @@ var router = express.Router();
 var postgresModel = require('../models/postgres.js');
 var asyncModule = require('async')
 
+
 var userCount = 0
 var searchCount = 0
 var listingCount = 0
