@@ -104,14 +104,15 @@ dt span.departments > span, .email {
 	padding-bottom: 9.5px;
 }
 .listing-buttons {
-	height: 120px;
+	height: 107.5px;
 }
 #weblink-button {
 	float: right;
 	clear: right;
 	color: #fff !important;
-	margin-bottom: 15px;
+	margin-bottom: 7.5px;
 	background-color: #397fef;
+    width: 100%;
 }
 .headout-chev {
 	font-size: 80%;
@@ -128,7 +129,7 @@ mark {
 #remFav, #addFav {
 	color: #FFFFFF;
 	border: none;
-	width: 180px;
+	width: 100%;
 	float: right;
 	clear: right;
 	height: 37px;
