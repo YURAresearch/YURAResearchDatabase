@@ -23,7 +23,7 @@ hbs.registerHelper('paginate-link', function(url, pageNum) {
     return url + "?p=" + pageNum.toString();
   }
 });
-var deptBreaker = '<span style="display:block;height:0px;width:0px;margin:0px;padding:0px;line-height:0px;"></span>'
+var deptBreaker = '<span style="display:block;height:0px;width:0px;margin:0px;padding:0px;line-height:0px;"></span>';
 hbs.registerHelper('split-depts', function(str) {
   str = hbs.Utils.escapeExpression(str);
   for (var i = 0; i < str.length; i++) {
