@@ -26,9 +26,7 @@ hbs.registerHelper('paginate-link', function(url, pageNum) {
 var deptBreaker = '<span style="display:block;height:0px;width:0px;margin:0px;padding:0px;line-height:0px;"></span>';
 hbs.registerHelper('split-depts', function(str) {
   str = hbs.Utils.escapeExpression(str);
-  for (var i = 0; i < str.length; i++) {
-    str = str.replace(/;/g, deptBreaker);
-  }
+  str = str.replace(/;/g, deptBreaker);
   return new hbs.SafeString(str);
 });
 hbs.registerHelper('json', function(context) {
