@@ -29,8 +29,8 @@ hbs.registerHelper('split-depts', function(str) {
   for (var i = 0; i < str.length; i++) {
     str = str.replace(';', deptBreaker);
   }
-  return new hbs.SafeString(str)
-})
+  return new hbs.SafeString(str);
+});
 hbs.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
