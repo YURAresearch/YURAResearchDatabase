@@ -53,6 +53,7 @@ function listAll(req, res) {
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',
       depts: depts,
+      isListings: true,
       listings: listings.slice((req.query.p - 1) * resultsPerPage || 0, req.query.p * resultsPerPage || resultsPerPage), //gets entries for current page
       numberOfResults: listings.length,
       url: req.url,
