@@ -27,7 +27,7 @@ var deptBreaker = '<span style="display:block;height:0px;width:0px;margin:0px;pa
 hbs.registerHelper('split-depts', function(str) {
   str = hbs.Utils.escapeExpression(str);
   for (var i = 0; i < str.length; i++) {
-    str = str.replace(';', deptBreaker);
+    str = str.replace(/;/g, deptBreaker);
   }
   return new hbs.SafeString(str);
 });
