@@ -20,6 +20,9 @@
 
 "use strict";
 
+// Be nice :)
+console.log("Welcome to RDB! If you are interested in how RDB works, or would like to use our framework for inspiration, feel free to reach out to us at yura@yale.edu.")
+
 // Testimonials management
 // TESTIMONIALS HERE
 var TESTIMONIALS = [
@@ -60,7 +63,7 @@ function changeTestimonial() {
 // All main scripts
 $(document).ready(function() {
     // Learn more button
-    $('#learnmore, #learnmore-link').localScroll({duration:800});
+    $('#learnmore').localScroll({duration:800});
 
     // Scroll to top button
     $('#back-top').hide();

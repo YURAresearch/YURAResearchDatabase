@@ -21,6 +21,9 @@
 
 "use strict";
 
+// Be nice :)
+console.log("Welcome to RDB! If you are interested in how RDB works, or would like to use our framework for inspiration, feel free to reach out to us at yura@yale.edu.")
+
 // Events setup functions for various js work after entries have loaded; called after list.js call to add
 // (Re)check pages state and adjust prev/next buttons; Update highlighting
 function checkPrevNext() {
