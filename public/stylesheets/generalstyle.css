@@ -41,6 +41,10 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 .boxMD, .boxMD .card-row-inner, .boxMD .card-row {
     border-radius: 3px;
 }
+#response-block {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
 .contact-info .fa {
     background-color: #1290d3;
     color: #fff;

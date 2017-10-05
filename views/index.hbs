@@ -10,7 +10,7 @@
                             <div class="hero-image-content">
                                 <div class="container" id="learnmore">
                                     <h1>YURA Research Database</h1>
-                                    <p><strong>1400+</strong> Faculty listings. <strong>60+</strong> Fields of study. Endless opportunities.<br>Powered by the <strong>Yale Undergraduate Research Association</strong></p>
+                                    <p><strong>1500+</strong> Faculty listings. <strong>60+</strong> Fields of study. Endless opportunities.<br>Powered by the <strong>Yale Undergraduate Research Association</strong></p>
                                     <a id="listings" href="/users" class="btn btn-primary btn-lg">Log In</a>
                                     <a href="#content" class="btn btn-secondary btn-lg">Learn More</a>
                                 </div>
@@ -32,7 +32,9 @@
                             <!-- /.hero-image-content -->
                         </div>
                         <!-- /.hero-image-inner -->
-                        <img src="/images/learnmore.png" alt="learn more" style="position:absolute;width:200px;bottom:5px;right:50%;margin-right:-100px"/>
+                        <a href="#content" id="learnmore-link">
+                            <img src="/images/learnmore.png" alt="learn more" style="position:absolute;width:200px;bottom:5px;right:50%;margin-right:-100px"/>
+                        </a>
                     </div>
                     <!-- /.hero-image -->
                 </div>
@@ -46,8 +48,8 @@
 
                         <div class="posts post-detail post-info-rdb">
                             <div class="post-content">
-                                <p><strong>The Research Database (RDB)</strong> is created by the <strong><a href="http://yura.yale.edu" style="text-decoration:none;border:none;color:inherit;" target="_blank">Yale Undergraduate Research Association (YURA)</a></strong> as a cross-disciplinary database of Yale faculty with profile and research information. With department filters and search functions, the database is a collection of information about faculty members from all departments at Yale. It aims to provide Yale undergraduates of any disciplines a convenient, user-friendly, and more intuitive platform to find out about the work of faculty at Yale and look for potential undergraduate research mentors.</p>
-                                <p>RDB is meant to be an integrated springboard for learning about and connecting with faculty. After looking for interesting faculty members, do go to their websites to learn more about them and their research!</p>
+                                <p><strong>The Research Database (RDB)</strong> is created by the <strong><a href="http://yura.yale.edu" style="text-decoration:none;border:none;color:inherit;" target="_blank">Yale Undergraduate Research Association (YURA)</a></strong> as a cross-disciplinary database of Yale faculty with profile and research information. With department filters and keyword search functions, the database is a collection of information about faculty members from all departments at Yale. It aims to provide Yale undergraduates of any disciplines a convenient, user-friendly, and more intuitive platform to find out about the work of faculty at Yale and look for potential undergraduate research mentors.</p>
+                                <p>RDB is meant to be an integrated springboard for learning about and connecting with faculty. After looking for interesting faculty members, do go to their websites and reach to them via email to learn more about them and their research!</p>
                                 <p>If you are looking for more resources and information about undergraduate research, fellowships and other related events, we've got you covered&#8212; head over to <a href="http://yura.yale.edu" style="text-decoration:none;border:none;" target="_blank">YURA's website</a>!</p>
                                 <br/>
                                 <h3>How to Use</h3>
@@ -57,14 +59,15 @@
                                     <li>Email</li>
                                     <li>Website</li>
                                     <li>Affiliated departments, programs and/or schools</li>
-                                    <li>A brief description of their work and research (Use the "Show more/less" button to expand and contract the descriptions.)</li>
+                                    <li>A brief description of their work and research</li>
                                 </ul>
                                 <p>To learn more about them, click on the name or "Go to website" to access the faculty members' webpage.</p>
                                 <p>Also,</p>
                                 <ul>
                                     <li>Use the keyword search box to search for names or keywords in descriptions</li>
                                     <li>Use the “Departments” box to filter the list by their affiliated departments and programs</li>
-                                    <li>Click on "Reset Filter" to remove the searches and filters</li>
+                                    <li>Click on "Clear" to remove the searches and filters</li>
+                                    <li>We now have a "Favorites" function! Add specific professors to "Favorites" to keep track of their listing. Bookmarked professors will always be shown at the top of search results.</li>
                                 </ul>
                                 <p>Explore around the database to try out some of the features yourself!</p>
                             </div>
@@ -113,7 +116,7 @@
 
                                     <div class="box-content">
                                         <h2>Comprehensive</h2>
-                                        <p>All undergraduate departments and programs included.</p>
+                                        <p>All undergraduate departments and programs included, and more.</p>
                                     </div>
                                     <!-- /.box-content -->
                                 </div>
@@ -155,7 +158,7 @@
 
                                 <div class="faq-item-answer">
                                     <p>
-                                        No! RDB is made for Yalies of all disciplines, and faculty included in RDB spans across all of Yale's departments. We believe that students in all disciplines would find a research database resource useful.
+                                        No! RDB is made for Yalies of all disciplines, and faculty listed in RDB spans across all of Yale's departments. We believe that students in all disciplines would find a research database resource useful.
                                     </p>
                                 </div>
                                 <!-- /.faq-item-answer -->
@@ -170,7 +173,7 @@
 
                                 <div class="faq-item-answer">
                                     <p>
-                                        All listings items on RDB are taken from publicly available information about faculty in respective departments' websites, unless faculty members specifically requested to add, remove, or edit their entries.
+                                        All listings items on RDB are taken from publicly available information about faculty in respective department websites, unless faculty members themselves specifically requested to add, remove, or edit their entries.
                                     </p>
                                 </div>
                                 <!-- /.faq-item-answer -->
@@ -185,7 +188,7 @@
 
                                 <div class="faq-item-answer">
                                     <p>
-                                        No, only users with valid Yale NetID authentication are able to access this database.
+                                        No, only users with valid Yale NetID authentication are able to access this database's listings.
                                     </p>
                                 </div>
                                 <!-- /.faq-item-answer -->
@@ -219,7 +222,7 @@
 
                                 <div class="faq-item-answer">
                                     <p>
-                                        We are open to updates and changes on the listing entries. <a href="https://goo.gl/forms/DrwFE76LcZJY57mr1" target="_blank">Send us a simple request form</a> or simply <a href="mailto:yura@yale.edu">send us an email at yura@yale.edu</a>                                        and we will process it at our earliest convenience.
+                                        We are open to updates and changes on the listing entries. <a href="https://goo.gl/forms/DrwFE76LcZJY57mr1" target="_blank">Send us a simple request form</a> or simply <a href="mailto:yura@yale.edu">send us an email at yura@yale.edu</a>and we will process it at our earliest convenience.
                                     </p>
                                 </div>
                                 <!-- /.faq-item-answer -->
@@ -264,7 +267,7 @@
                                         <span class="contact-info-item">
                             <a href="mailto:yura@yale.edu" target="_blank">
                                 <i class="fa fa-at"></i>
-                                <span style="color:#fff">yura@yale.edu</span>
+                                <span style="color:#fff">Email</span>
                                         </a>
                                         </span>
                                         <!-- /.contact-info-item -->

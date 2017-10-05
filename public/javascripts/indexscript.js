@@ -60,7 +60,7 @@ function changeTestimonial() {
 // All main scripts
 $(document).ready(function() {
     // Learn more button
-    $('#learnmore').localScroll({duration:800});
+    $('#learnmore, #learnmore-link').localScroll({duration:800});
 
     // Scroll to top button
     $('#back-top').hide();
