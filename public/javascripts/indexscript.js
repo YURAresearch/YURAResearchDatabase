@@ -20,6 +20,9 @@
 
 "use strict";
 
+// Be nice :)
+console.log("Welcome to RDB! If you are interested in how RDB works, or would like to use our framework for inspiration, feel free to reach out to us at yura@yale.edu.")
+
 // Testimonials management
 // TESTIMONIALS HERE
 var TESTIMONIALS = [
