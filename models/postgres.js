@@ -36,7 +36,7 @@ function searchHandler(searchString) {
     var searchArray = searchString.split(' ');
     var searchQuery = "";
     for (var i = 0; i < searchArray.length; i++) {
-        searchQuery = searchQuery + searchArray[i] + '&';
+        searchQuery = searchQuery + searchArray[i].replace(/'/g, '"') + '&';
     }
     searchQuery = searchQuery.substring(0, searchQuery.length-1);
     return searchQuery;
