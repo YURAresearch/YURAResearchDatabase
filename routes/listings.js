@@ -6,6 +6,7 @@ var hbs = require('hbs');
 var paginate = require('handlebars-paginate');
 var ua = require('universal-analytics');
 var queryString = require('querystring');
+var shortHash = require('short-hash');
 
 
 hbs.registerHelper('paginate', paginate);
@@ -48,7 +49,7 @@ function listAll(req, res) {
   var callback = function(listings) {
 
   res.render('listings', {
-      userID: req.session.cas_user,
+      userIDhash: shortHash(req.session.cas_user),
       title: 'Listings',
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',

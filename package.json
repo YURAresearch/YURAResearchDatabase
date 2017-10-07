@@ -27,6 +27,7 @@
     "readmore-js": "^2.1.0",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.2",
+    "short-hash": "^1.0.0",
     "universal-analytics": "^0.4.15"
   }
 }
