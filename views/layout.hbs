@@ -50,7 +50,17 @@ Backend Developer: Surya Dutta
     gtag('js', new Date());
     gtag('config', 'UA-63178606-7', {
       'user_id': 'Anonymous User',
-    });  </script>
+    });
+  </script>
+  {{/if}}
+  {{#if isAdmin}}
+  <script>
+    gtag('set', 'dimension1', 'true');
+  </script>
+  {{else}}
+  <script>
+    gtag('set', 'dimension1', 'false');
+  </script>
   {{/if}}
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -31,7 +31,7 @@ router.get('/users', function(req, res) {
       },
       function(callback) {
         if (req.session.isAdmin == true) {
-          res.redirect('/admin');
+          res.redirect('/listings');
         } else {
           res.redirect('/listings');
         }

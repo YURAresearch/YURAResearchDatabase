@@ -8,7 +8,6 @@ var ua = require('universal-analytics');
 var queryString = require('querystring');
 var shortHash = require('short-hash');
 
-
 hbs.registerHelper('paginate', paginate);
 hbs.registerHelper('paginate-link', function(url, pageNum) {
   //important - page number parameter must be last in url for this to work
@@ -49,12 +48,12 @@ function listAll(req, res) {
   var callback = function(listings) {
 
   res.render('listings', {
+      isAdmin: req.session.isAdmin,
       userIDhash: shortHash(req.session.cas_user),
       title: 'Listings',
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',
       depts: depts,
-      isListings: true,
       listings: listings.slice((req.query.p - 1) * resultsPerPage || 0, req.query.p * resultsPerPage || resultsPerPage), //gets entries for current page
       numberOfResults: listings.length,
       url: req.url,
