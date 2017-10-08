@@ -48,7 +48,7 @@ function listAll(req, res) {
   var callback = function(listings) {
 
     //save search if not admin
-    if (!req.session.isAdmin){
+    if (!(req.session.isAdmin)){
       if (req.query.search) {
         if (req.query.departments && req.query.departments != "Departments") {
           postgresModel.saveSearch(req.query.search,req.query.departments, listings.length, shortHash(req.session.cas_user));
