@@ -47,18 +47,21 @@ function listAll(req, res) {
 
   var callback = function(listings) {
 
-    //save search
-    if (req.query.search) {
-      if (req.query.departments && req.query.departments != "Departments") {
-        postgresModel.saveSearch(req.query.search,req.query.departments, listings.length, shortHash(req.session.cas_user));
+    //save search if not admin
+    if (!req.session.isAdmin){
+      if (req.query.search) {
+        if (req.query.departments && req.query.departments != "Departments") {
+          postgresModel.saveSearch(req.query.search,req.query.departments, listings.length, shortHash(req.session.cas_user));
+        } else {
+          postgresModel.saveSearch(req.query.search,'', listings.length, shortHash(req.session.cas_user));
+        }
       } else {
-        postgresModel.saveSearch(req.query.search,'', listings.length, shortHash(req.session.cas_user));
-      }
-    } else {
-      if (req.query.departments && req.query.departments != "Departments") {
-        postgresModel.saveSearch('',req.query.departments, listings.length, shortHash(req.session.cas_user));
+        if (req.query.departments && req.query.departments != "Departments") {
+          postgresModel.saveSearch('',req.query.departments, listings.length, shortHash(req.session.cas_user));
+        }
       }
     }
+
 
     res.render('listings', {
       isAdmin: req.session.isAdmin,
