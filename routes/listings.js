@@ -14,7 +14,7 @@ hbs.registerHelper('paginate-link', function(url, pageNum) {
   if (url.indexOf('?') > -1) { //contains params
     if (url.indexOf('?p=') > -1) { // already contains page number param
       return url.substring(0, url.indexOf('?p=')) + "?p=" + pageNum.toString();
-    } else if (url.indexOf('&p=') > -1){  // already contains page number and other params
+    } else if (url.indexOf('&p=') > -1) { // already contains page number and other params
       return url.substring(0, url.indexOf('&p=')) + "&p=" + pageNum.toString();
     } else {
       return url + "&p=" + pageNum.toString();
@@ -26,7 +26,7 @@ hbs.registerHelper('paginate-link', function(url, pageNum) {
 var deptBreaker = '<span style="display:block;height:18px;width:0px;margin:0px;padding:0px;line-height:0px;"></span>';
 hbs.registerHelper('split-depts', function(str) {
   str = hbs.Utils.escapeExpression(str);
-  str = str.substring(0,str.length-1)
+  str = str.substring(0, str.length - 1)
   str = str.replace(/;/g, deptBreaker);
   return new hbs.SafeString(str);
 });
@@ -40,14 +40,27 @@ function listAll(req, res) {
 
   if (req.session.loggedin == false || !(req.session.loggedin)) res.redirect('/users'); //if user info not loaded, redirect to users route
 
-  if (req.query){
+  if (req.query) {
     req.session.lastquery = queryString.stringify(req.query);
     console.log(req.session.lastquery);
   }
 
   var callback = function(listings) {
 
-  res.render('listings', {
+    //save search
+    if (req.query.search) {
+      if (req.query.departments && req.query.departments != "Departments") {
+        postgresModel.saveSearch(req.query.search,req.query.departments, listings.length, shortHash(req.session.cas_user));
+      } else {
+        postgresModel.saveSearch(req.query.search,'', listings.length, shortHash(req.session.cas_user));
+      }
+    } else {
+      if (req.query.departments && req.query.departments != "Departments") {
+        postgresModel.saveSearch('',req.query.departments, listings.length, shortHash(req.session.cas_user));
+      }
+    }
+
+    res.render('listings', {
       isAdmin: req.session.isAdmin,
       userIDhash: shortHash(req.session.cas_user),
       title: 'Listings',
@@ -88,24 +101,24 @@ function listAll(req, res) {
 //GET home page.
 router.get('/listings', listAll);
 
-router.post('/listings/addFavorite/:listingid/',function(req,res){
+router.post('/listings/addFavorite/:listingid/', function(req, res) {
   postgresModel.addFavorite(req.session.cas_user, req.params.listingid, function(log) {
-    console.log('Entry  '+ req.params.listingid.toString() +' Added To Favorites');
-    if (req.session.lastquery){
-      res.redirect('/listings?'+req.session.lastquery);
-    } else{
+    console.log('Entry  ' + req.params.listingid.toString() + ' Added To Favorites');
+    if (req.session.lastquery) {
+      res.redirect('/listings?' + req.session.lastquery);
+    } else {
       res.redirect('/listings');
     }
   });
 });
 
-router.post('/listings/removeFavorite/:listingid',function(req,res){
+router.post('/listings/removeFavorite/:listingid', function(req, res) {
   console.log(req.params.listingid);
   postgresModel.removeFavorite(req.session.cas_user, req.params.listingid, function(log) {
-    console.log('Entry '+ req.params.listingid.toString() +' Removed From Favorites');
-    if (req.session.lastquery){
-      res.redirect('/listings?'+req.session.lastquery);
-    } else{
+    console.log('Entry ' + req.params.listingid.toString() + ' Removed From Favorites');
+    if (req.session.lastquery) {
+      res.redirect('/listings?' + req.session.lastquery);
+    } else {
       res.redirect('/listings');
     }
   });
