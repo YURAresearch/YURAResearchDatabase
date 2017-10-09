@@ -20,6 +20,20 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 /* General layout and appearance */
 .document-title {
 	margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.document-title h1 {
+	display: inline;
+	text-align: left;
+}
+#home-arrow {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+#home-arrow-link {
+	border-radius: 6px;
+	background-color: rgba(255,255,255,0.2);
 }
 .background-secondary, .faq-item:before {
     background-color: #0f74aa;
