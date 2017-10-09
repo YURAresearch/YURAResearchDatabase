@@ -15756,7 +15756,7 @@ h2.widgettitle {
 
         left: auto;
 
-        top: 120px;
+        top: 30%;
 
         transform: none;
 
@@ -18231,7 +18231,8 @@ h2.widgettitle {
 
   margin-top: 20px;
 
-  text-align: justify; }
+  /*text-align: justify; */
+}
 
   .post-detail .post-content p {
 

@@ -21,16 +21,26 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 /* General layout */
 @media (max-width: 330px) {
     .hero-image-content {
-        top: 75px !important;
+        top: 10% !important;
     }
 }
 .hero-image-inner {
     box-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
+@media (max-width: 600px) {
+    .hero-image-content h1 {
+        font-size: 35px;
+    }
+}
+@media (max-height: 330px) {
+    .hero-image-content p, .hero-image-content h1 {
+        margin-bottom: 20px;
+    }
+}
 
 /* General text */
 body {
-    font-size: 18px;
+    font-size: 16px;
     background-color: #f2f2f2;
 }
 .page-wrapper {
