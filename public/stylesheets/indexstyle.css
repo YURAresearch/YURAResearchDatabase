@@ -32,7 +32,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
         font-size: 35px;
     }
 }
-@media (max-height: 330px) {
+@media (max-height: 400px) {
     .hero-image-content p, .hero-image-content h1 {
         margin-bottom: 20px;
     }
