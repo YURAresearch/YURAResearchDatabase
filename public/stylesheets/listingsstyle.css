@@ -20,12 +20,13 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 /* General layout and appearance */
 .document-title {
 	margin-bottom: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
-.document-title h1 {
+.document-title>h1 {
 	display: inline;
 	text-align: left;
+	font-size: 32px;
 }
 #home-arrow {
 	margin-right: 10px;
@@ -33,8 +34,22 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 #home-arrow-link {
 	border-radius: 6px;
+	background-color: rgba(255,255,255,0.1);
+}
+#home-arrow-link:hover {
 	background-color: rgba(255,255,255,0.2);
 }
+@media (max-width: 767px) {
+    .document-title>h1 {
+        font-size: 27px;
+    }
+ }
+@media (max-width: 450px) {
+    .document-title>h1 {
+        font-size: 22px;
+    }
+}
+
 .background-secondary, .faq-item:before {
     background-color: #0f74aa;
 }
