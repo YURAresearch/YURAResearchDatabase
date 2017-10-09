@@ -67,6 +67,7 @@ function listAll(req, res) {
       isAdmin: req.session.isAdmin,
       userIDhash: shortHash(req.session.cas_user),
       title: 'Listings',
+      isListings: true,
       searchPlaceholder: req.query.search || '',
       deptPlaceholder: req.query.departments || 'Departments',
       depts: depts,
