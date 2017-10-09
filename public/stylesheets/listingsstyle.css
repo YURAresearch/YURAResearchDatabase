@@ -28,7 +28,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 	text-align: left;
 	font-size: 32px;
 }
-#home-arrow {
+/*#home-arrow {
 	margin-right: 10px;
 	margin-left: 10px;
 }
@@ -38,7 +38,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 #home-arrow-link:hover {
 	background-color: rgba(255,255,255,0.2);
-}
+}*/
 @media (max-width: 767px) {
     .document-title>h1 {
         font-size: 27px;
