@@ -49,6 +49,11 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
         font-size: 22px;
     }
 }
+@media (max-width: 350px) {
+    .document-title>h1 {
+        font-size: 17px;
+    }
+}
 
 .background-secondary, .faq-item:before {
     background-color: #0f74aa;
