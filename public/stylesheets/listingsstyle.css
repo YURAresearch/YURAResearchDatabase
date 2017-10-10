@@ -225,6 +225,16 @@ mark {
 	-o-transition: all 0.15s linear;
 	transition: all 0.15s linear;
 }
+@media (max-width: 991px) and (min-width: 767px) {
+    .query-buttons {
+        clear: right;
+    }
+}
+@media (max-width: 550px) {
+    .query-buttons {
+        clear: right;
+    }
+}
 .filter-actions {
 	height: 37px;
 }
