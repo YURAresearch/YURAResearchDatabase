@@ -47,7 +47,7 @@ body {
     background-color: transparent;
 }
 p {
-    line-height: 30px;
+    line-height: 25px;
 }
 h1 {
     font-size: 34px;
@@ -75,7 +75,7 @@ h6 {
     font-size: 18px;
 }
 #maintext {
-    padding-bottom: 50px;
+    padding-bottom: 10px;
 }
 .post-info-rdb p {
     margin-top: 5px;
@@ -102,7 +102,7 @@ h6 {
 
 /* Testimonials block */
 #testimonial-page {
-    padding-top: 30px;
+    padding-top: 15px;
     padding-bottom: 30px;
 }
 #testimonials blockquote {
@@ -132,7 +132,7 @@ h6 {
 }
 @media (max-width: 500px) {
     #testimonials blockquote {
-        height: 260px;
+        height: 200px;
     }
     #testimonials footer p {
         font-size: 15px !important;
@@ -148,6 +148,10 @@ h6 {
 /* Awesomeness block */
 #sellingblock .box-content h2, #sellingblock .box-content p {
     color: #eee;
+}
+#sellingblock {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 /* The following 3 pieces are to adjust the responsive layout of the block
    to only expand at 992px instead of 768px width; the layout was off originally */
@@ -182,6 +186,9 @@ h6 {
 }
 
 /* FAQs block */
+#faqhead {
+    margin-top: 0px;
+}
 .faq-item {
     margin: 20px 0;
     padding: 30px;
@@ -202,7 +209,7 @@ h6 {
     content: none; /* Get rid of little box */
 }
 .faq-item-question h3 {
-    font-size: 25px;
+    font-size: 23px;
     margin: 0px;
     padding: 0px;
     color: #181818;
