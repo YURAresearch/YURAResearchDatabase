@@ -229,10 +229,18 @@ mark {
     .query-buttons {
         clear: right;
     }
+    #query-button-block, .query-buttons {
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+    }
 }
-@media (max-width: 550px) {
+@media (max-width: 570px) {
     .query-buttons {
         clear: right;
+    }
+    #query-button-block, .query-buttons {
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
     }
 }
 .filter-actions {
