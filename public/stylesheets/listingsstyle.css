@@ -208,6 +208,10 @@ mark {
 	line-height: 28px;
 	cursor:pointer;
 }
+#query-buttons-block {
+    display: block;
+    overflow: auto;
+}
 .query-buttons {
 	display: inline-block;
 	float: right;
