@@ -208,7 +208,7 @@ mark {
 	line-height: 28px;
 	cursor:pointer;
 }
-#query-buttons-block {
+#query-button-block {
     display: block;
     overflow: auto;
 }
