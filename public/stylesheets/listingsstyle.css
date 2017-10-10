@@ -141,12 +141,9 @@ dt span.departments > span, .email {
 	height: 107.5px;
 }
 #weblink-button {
-	float: right;
-	clear: right;
 	color: #fff !important;
 	margin-bottom: 7.5px;
 	background-color: #397fef;
-    width: 100%;
 }
 .headout-chev {
 	font-size: 80%;
@@ -160,13 +157,20 @@ mark {
   padding: 0px;
   margin: 0px;
 }
+#remFav, #addFav, #weblink-button {
+    width: 100%;
+    float: right;
+    clear: right;
+    height: 37px;
+}
+@media (max-width: 1000px) and (min-width: 650px) {
+    #remFav, #addFav, #weblink-button {
+        width: 40%;
+    }
+}
 #remFav, #addFav {
 	color: #FFFFFF;
 	border: none;
-	width: 100%;
-	float: right;
-	clear: right;
-	height: 37px;
 }
 #remFav {
 	background-color: #CE962A;
@@ -229,6 +233,9 @@ mark {
 }
 #letsgo {
 	background-color: #208699 !important;
+}
+#show-favs {
+    background-color: #C08C00 !important;
 }
 .query-buttons .fa, .query-buttons:hover, .query-buttons::selection {
 	color: #fff !important;

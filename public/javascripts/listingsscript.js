@@ -83,5 +83,5 @@ function postEntryWork() {
 
 $(document).ready(function() {
         postEntryWork();
-        console.log("RDB Listings ready!")
+        // console.log("RDB Listings ready!")
 });
