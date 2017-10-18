@@ -149,7 +149,7 @@ dt span.departments > span, .email {
 .listing-buttons {
 	height: 107.5px;
 }
-#weblink-button {
+.weblink-button {
 	color: #fff !important;
 	margin-bottom: 7.5px;
 	background-color: #397fef;
@@ -166,25 +166,25 @@ mark {
   padding: 0px;
   margin: 0px;
 }
-#remFav, #addFav, #weblink-button {
+.remFav, .addFav, .weblink-button {
     width: 100%;
     float: right;
     clear: right;
     height: 37px;
 }
 @media (max-width: 1000px) and (min-width: 650px) {
-    #remFav, #addFav, #weblink-button {
+    .remFav, .addFav, .weblink-button {
         width: 40%;
     }
 }
-#remFav, #addFav {
+.remFav, .addFav {
 	color: #FFFFFF;
 	border: none;
 }
-#remFav {
+.remFav {
 	background-color: #CE962A;
 }
-#addFav {
+.addFav {
 	background-color: #279678;
 }
 .fav-form {

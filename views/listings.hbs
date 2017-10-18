@@ -106,7 +106,7 @@
                             <div class="card-row-content truncateme description">
                               <input type='checkbox' class='hiddentrig' id='item{{this.list_id}}'><span class='desc-text'>
                                 {{this.description}}
-                              </span><label class='show-text' for='item{{this.list_id}}'>
+                              </span><label class='show-text' for='item{{this.list_id}}'></label>
                             </div>
                             <!-- /.card-row-content -->
                           </div>
@@ -121,16 +121,16 @@
                               <br/>
 
                               {{#if this.website}}
-                                <a href='{{this.website}}' class="btn" id="weblink-button" target="_blank">Go to website <i class="fa fa-chevron-right headout-chev"></i></a>
+                                <a href='{{this.website}}' class="btn weblink-button" target="_blank">Go to website <i class="fa fa-chevron-right headout-chev"></i></a>
                               {{/if}}
 
                               {{#if isfavorite}}
                                 <form action="/listings/removeFavorite/{{this.list_id}}" class="fav-form" method="POST">
-                                  <input type="submit" value="Remove from Favorites" class="form-control btn" id="remFav">
+                                  <input type="submit" value="Remove from Favorites" class="form-control btn remFav">
                                 </form>
                               {{else}}
                                 <form action="/listings/addFavorite/{{this.list_id}}" class="fav-form" method="POST">
-                                  <input type="submit" value="Add to Favorites" class="form-control btn" id="addFav">
+                                  <input type="submit" value="Add to Favorites" class="form-control btn addFav">
                                 </form>
                               {{/if}}
 
