@@ -56,6 +56,13 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 #about {
     text-align: right;
+    width: auto;
+    float: right;
+    /*margin: 0;
+    line-height: 35.2px;*/
+}
+#about>a {
+    color: #fff;
 }
 .background-secondary, .faq-item:before {
     background-color: #0f74aa;
