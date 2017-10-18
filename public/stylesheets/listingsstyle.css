@@ -234,8 +234,6 @@ mark {
         width: 140px !important;
     }
     #query-button-block, .query-buttons {
-        -webkit-transform: scaleY(-1);
-        transform: scaleY(-1);
         width: 100%;
     }
 }
