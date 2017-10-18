@@ -63,20 +63,20 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
  }
 @media (max-width: 450px) {
     .document-title>h1 {
-        font-size: 22px;
+        font-size: 20px;
     }
     #about {
         line-height: 24.2px;
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 @media (max-width: 375px) {
     .document-title>h1 {
-        font-size: 17px;
+        font-size: 16px;
     }
     #about {
         line-height: 18.7px;
-        font-size: 8px;
+        font-size: 7px;
     }
 }
 .background-secondary, .faq-item:before {
