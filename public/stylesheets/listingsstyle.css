@@ -166,25 +166,25 @@ mark {
   padding: 0px;
   margin: 0px;
 }
-.remFav, .addFav, .weblink-button {
+.fav-form .remFav, .fav-form .addFav, .weblink-button {
     width: 100%;
     float: right;
     clear: right;
     height: 37px;
 }
 @media (max-width: 1000px) and (min-width: 650px) {
-    .remFav, .addFav, .weblink-button {
+    .fav-form .remFav, .fav-form .addFav, .weblink-button {
         width: 40%;
     }
 }
-.remFav, .addFav {
+.fav-form .remFav, .fav-form .addFav {
 	color: #FFFFFF;
 	border: none;
 }
-.remFav {
+.fav-form .remFav {
 	background-color: #CE962A;
 }
-.addFav {
+.fav-form .addFav {
 	background-color: #279678;
 }
 .fav-form {
