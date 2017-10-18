@@ -39,6 +39,19 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 #home-arrow-link:hover {
 	background-color: rgba(255,255,255,0.2);
 }*/
+#about {
+    text-align: right;
+    width: auto;
+    float: right;
+    z-index: 2;
+    position: relative;
+    margin: 0;
+    line-height: 35.2px;
+    font-size: 16px;
+}
+#about>a {
+    color: rgba(240,245,255,0.4);
+}
 @media (max-width: 767px) {
     .document-title>h1 {
         font-size: 27px;
@@ -65,19 +78,6 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
         line-height: 18.7px;
         font-size: 8px;
     }
-}
-#about {
-    text-align: right;
-    width: auto;
-    float: right;
-    z-index: 2;
-    position: relative;
-    margin: 0;
-    line-height: 35.2px;
-    font-size: 16px;
-}
-#about>a {
-    color: rgba(240,245,255,0.4);
 }
 .background-secondary, .faq-item:before {
     background-color: #0f74aa;
