@@ -231,11 +231,12 @@ mark {
 }
 @media (max-width: 991px) and (min-width: 767px) {
     .query-buttons {
-        clear: right;
+        width: 140px !important;
     }
     #query-button-block, .query-buttons {
         -webkit-transform: scaleY(-1);
         transform: scaleY(-1);
+        width: 100%;
     }
 }
 @media (max-width: 570px) {
