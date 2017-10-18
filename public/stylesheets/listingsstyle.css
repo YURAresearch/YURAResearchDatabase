@@ -43,15 +43,27 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     .document-title>h1 {
         font-size: 27px;
     }
+    #about {
+        line-height: 29.7px;
+        font-size: 14px;
+    }
  }
 @media (max-width: 450px) {
     .document-title>h1 {
         font-size: 22px;
     }
+    #about {
+        line-height: 24.2px;
+        font-size: 10px;
+    }
 }
-@media (max-width: 350px) {
+@media (max-width: 375px) {
     .document-title>h1 {
         font-size: 17px;
+    }
+    #about {
+        line-height: 18.7px;
+        font-size: 8px;
     }
 }
 #about {
@@ -60,11 +72,12 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     float: right;
     z-index: 2;
     position: relative;
-    /*margin: 0;
-    line-height: 35.2px;*/
+    margin: 0;
+    line-height: 35.2px;
+    font-size: 16px;
 }
 #about>a {
-    color: #fff;
+    color: rgba(240,245,255,0.4);
 }
 .background-secondary, .faq-item:before {
     background-color: #0f74aa;
