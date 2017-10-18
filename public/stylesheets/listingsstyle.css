@@ -58,6 +58,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     text-align: right;
     width: auto;
     float: right;
+    z-index: 5;
     /*margin: 0;
     line-height: 35.2px;*/
 }
