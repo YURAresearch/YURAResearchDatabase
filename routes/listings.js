@@ -7,6 +7,7 @@ var paginate = require('handlebars-paginate');
 var ua = require('universal-analytics');
 var queryString = require('querystring');
 var shortHash = require('short-hash');
+var underscore = require('underscore');
 
 hbs.registerHelper('paginate', paginate);
 hbs.registerHelper('paginate-link', function(url, pageNum) {
@@ -34,59 +35,64 @@ hbs.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
 
-function listAll(req, res) {
+var resultsPerPage = 10;
 
+function renderPage(req, res, listings) {
+  res.render('listings', {
+    isAdmin: req.session.isAdmin,
+    userIDhash: shortHash(req.session.cas_user),
+    title: 'Listings',
+    isListings: true,
+    searchPlaceholder: req.query.search || '',
+    deptPlaceholder: req.query.departments || 'Departments',
+    favOnly: req.query.favorites || false,
+    depts: depts,
+    listings: listings.slice((req.query.p - 1) * resultsPerPage || 0, req.query.p * resultsPerPage || resultsPerPage), //gets entries for current page
+    numberOfResults: listings.length,
+    url: req.url,
+    pagination: {
+      page: req.query.p || 1,
+      pageCount: Math.ceil(listings.length / resultsPerPage),
+    }
+  });
+}
+
+function getListings(req, res) {
   console.log(req.session);
-
   if (req.session.loggedin == false || !(req.session.loggedin)) res.redirect('/users'); //if user info not loaded, redirect to users route
 
   if (req.query) {
     req.session.lastquery = queryString.stringify(req.query);
     console.log(req.session.lastquery);
   }
-
   var callback = function(listings) {
 
     //save search if not admin
-    if (!(req.session.isAdmin)){
+    if (!(req.session.isAdmin)) {
       if (req.query.search) {
         if (req.query.departments && req.query.departments != "Departments") {
-          postgresModel.saveSearch(req.query.search,req.query.departments, listings.length, shortHash(req.session.cas_user));
+          postgresModel.saveSearch(req.query.search, req.query.departments, listings.length, shortHash(req.session.cas_user));
         } else {
-          postgresModel.saveSearch(req.query.search,'', listings.length, shortHash(req.session.cas_user));
+          postgresModel.saveSearch(req.query.search, '', listings.length, shortHash(req.session.cas_user));
         }
       } else {
         if (req.query.departments && req.query.departments != "Departments") {
-          postgresModel.saveSearch('',req.query.departments, listings.length, shortHash(req.session.cas_user));
+          postgresModel.saveSearch('', req.query.departments, listings.length, shortHash(req.session.cas_user));
         }
       }
     }
 
+    // check if only favorites
+    if (req.query.favorites) {
+      favlistings = underscore.where(listings, {isfavorite: true});
+      renderPage(req,res,favlistings);
+    }
 
-    res.render('listings', {
-      isAdmin: req.session.isAdmin,
-      userIDhash: shortHash(req.session.cas_user),
-      title: 'Listings',
-      isListings: true,
-      searchPlaceholder: req.query.search || '',
-      deptPlaceholder: req.query.departments || 'Departments',
-      depts: depts,
-      listings: listings.slice((req.query.p - 1) * resultsPerPage || 0, req.query.p * resultsPerPage || resultsPerPage), //gets entries for current page
-      numberOfResults: listings.length,
-      url: req.url,
-      pagination: {
-        page: req.query.p || 1,
-        pageCount: Math.ceil(listings.length / resultsPerPage),
-      }
-    });
+    else{
+      renderPage(req, res, listings);
+    }
   };
 
-  var resultsPerPage = req.query.limit || 10;
-  var maxresultsPerPage = 50;
-  //set max resultsPerPage to 50
-  if (req.query.limit > maxresultsPerPage) {
-    resultsPerPage = maxresultsPerPage;
-  }
   if (req.query.search) {
     if (req.query.departments && req.query.departments != "Departments") {
       postgresModel.searchANDfilter(req.query.search.trim(), req.query.departments, req.session.cas_user, callback);
@@ -103,7 +109,8 @@ function listAll(req, res) {
 }
 
 //GET home page.
-router.get('/listings', listAll);
+
+router.get('/listings', getListings);
 
 router.post('/listings/addFavorite/:listingid/', function(req, res) {
   postgresModel.addFavorite(req.session.cas_user, req.params.listingid, function(log) {
