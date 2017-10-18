@@ -54,11 +54,11 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 @media (max-width: 767px) {
     .document-title>h1 {
-        font-size: 27px;
+        font-size: 26px;
     }
     #about {
         line-height: 29.7px;
-        font-size: 14px;
+        font-size: 13px;
     }
  }
 @media (max-width: 450px) {
@@ -76,7 +76,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     }
     #about {
         line-height: 18.7px;
-        font-size: 7px;
+        font-size: 8px;
     }
 }
 .background-secondary, .faq-item:before {
