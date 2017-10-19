@@ -28,17 +28,6 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 	text-align: left;
 	font-size: 32px;
 }
-/*#home-arrow {
-	margin-right: 10px;
-	margin-left: 10px;
-}
-#home-arrow-link {
-	border-radius: 6px;
-	background-color: rgba(255,255,255,0.1);
-}
-#home-arrow-link:hover {
-	background-color: rgba(255,255,255,0.2);
-}*/
 #about {
     text-align: right;
     width: auto;
@@ -50,7 +39,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     font-size: 16px;
 }
 #about>a {
-    color: rgba(240,245,255,0.4);
+    color: rgba(64, 155, 191, 0.8);
 }
 @media (max-width: 767px) {
     .document-title>h1 {

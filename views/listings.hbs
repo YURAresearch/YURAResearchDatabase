@@ -7,7 +7,6 @@
             <!-- Header -->
             <div class="document-title">
               <h1 id="home">
-                <!-- <a href="/" id="home-arrow-link"><i id="home-arrow" class="fa fa-chevron-left headout-chev"></i></a> -->
                 <a href="/listings">YURA Research Database</a>
               </h1>
               <h4 id="about">
@@ -83,6 +82,7 @@
                   <div class="col-sm-8" id="query-button-block">
                       <button id="letsgo" type="submit" class="btn btn-primary query-buttons"><i style="margin-right:10px;" class="fa fa-caret-right"></i> Search</button>
                       <a id="reset-button-id" href="/listings" class="btn query-buttons"><i style="margin-right:10px;" class="fa fa-close"></i> Clear</a>
+
                       {{#if favOnly}}
                       <button id="show-favs" type="submit" class="btn query-buttons"><i style="margin-right:10px;" class="fa fa-chevron-left"></i> All Listings</button>
                       {{else}}
