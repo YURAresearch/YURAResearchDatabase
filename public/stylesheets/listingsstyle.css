@@ -276,9 +276,19 @@ mark {
     box-shadow: none;
     margin-right: 20px;
     font-size: 15px;
+    padding: 6px 15px;
 }
-.query-buttons .fa, .query-buttons:hover, .query-buttons::selection {
-	color: #fff !important;
+#show-favs>.fa {
+    font-size: 21px;
+}
+.show-favs-turn-on {
+    color: #CE962A !important;
+}
+.show-favs-turn-off {
+    color: #279678 !important;
+}
+#query-button-block .query-buttons .fa, #query-button-block .query-buttons:hover, #query-button-block .query-buttons::selection {
+	color: #fff;
 }
 #reset-button-id::selection {
 	background-color: transparent;
