@@ -269,7 +269,11 @@ mark {
 	background-color: #208699 !important;
 }
 #show-favs {
-    background-color: #C08C00 !important;
+    background-color: transparent;
+    border: 0px;
+    position: relative;
+    outline: 0px !important;
+    box-shadow: none;
 }
 .query-buttons .fa, .query-buttons:hover, .query-buttons::selection {
 	color: #fff !important;
