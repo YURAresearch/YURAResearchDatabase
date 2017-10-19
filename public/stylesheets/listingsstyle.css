@@ -176,7 +176,7 @@ mark {
     clear: right;
     height: 37px;
 }
-@media (max-width: 1000px) and (min-width: 650px) {
+@media (max-width: 1200px) and (min-width: 650px) {
     .fav-form .remFav, .fav-form .addFav, .weblink-button {
         width: 40%;
     }
