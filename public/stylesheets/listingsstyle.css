@@ -250,7 +250,7 @@ mark {
         width: 100%;
     }
 }
-@media (max-width: 570px) {
+@media (max-width: 590px) {
     .query-buttons {
         clear: right;
     }
@@ -274,6 +274,8 @@ mark {
     position: relative;
     outline: 0px !important;
     box-shadow: none;
+    margin-right: 20px;
+    font-size: 15px;
 }
 .query-buttons .fa, .query-buttons:hover, .query-buttons::selection {
 	color: #fff !important;
