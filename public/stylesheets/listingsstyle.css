@@ -90,7 +90,7 @@ form#filter {
 }
 
 /* Loading and warning */
-#loader p {
+/*#loader p {
 	font-size: 26px;
 	font-weight: 400;
 	color: #009f8b;
@@ -100,7 +100,7 @@ form#filter {
 #login-warning {
 	font-size: 120%;
 	text-align: center;
-}
+}*/
 
 /* Head */
 #home>a {
@@ -186,10 +186,10 @@ mark {
 	border: none;
 }
 .fav-form .remFav {
-	background-color: #CE962A;
+	background-color: #e7b132;
 }
 .fav-form .addFav {
-	background-color: #279678;
+	background-color: #b08041;
 }
 .fav-form {
 	height: 40px;
@@ -243,7 +243,7 @@ mark {
 	transition: all 0.15s linear;
 }
 @media (max-width: 991px) and (min-width: 767px) {
-    .query-buttons {
+    #query-button-block .query-buttons {
         width: 140px !important;
     }
     #query-button-block, .query-buttons {
@@ -274,19 +274,20 @@ mark {
     position: relative;
     outline: 0px !important;
     box-shadow: none;
-    margin-right: 20px;
+    margin-right: 10px;
     font-size: 15px;
     padding: 6px 15px;
     color: #d8d8d8 !important;
+    width: 165px !important;
 }
 #show-favs>.fa {
     font-size: 21px;
 }
 .show-favs-turn-on {
-    color: #CE962A !important;
+    color: #af5b45 !important;
 }
 .show-favs-turn-off {
-    color: #279678 !important;
+    color: #12a902 !important;
 }
 #query-button-block .query-buttons .fa, #query-button-block .query-buttons:hover, #query-button-block .query-buttons::selection {
 	color: #fff;
