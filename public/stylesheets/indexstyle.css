@@ -27,7 +27,6 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 .hero-image-inner {
     box-shadow: 0 2px 8px rgba(0,0,0,0.8);
-    background-image: url('images/background.jpg');
 }
 @media (max-width: 600px) {
     .hero-image-content h1 {
