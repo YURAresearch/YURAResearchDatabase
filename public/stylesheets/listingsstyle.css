@@ -95,7 +95,7 @@ form#filter {
     text-align: center;
     display: none;
 }
-ul.list:empty + #noresults{
+ul.list>#noresults:only-child{
     display: block;
 }
 
