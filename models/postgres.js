@@ -33,7 +33,7 @@ function callbackData(query, callback) {
 //listing functions
 
 function searchHandler(searchString) {
-    searchString = searchString.replace(/[^a-zA-Z0-9]/g, '');
+    searchString = searchString.replace(/[^a-zA-Z0-9 ]/g, '');
     var searchArray = searchString.split(' ');
     var searchQuery = "";
     for (var i = 0; i < searchArray.length; i++) {
