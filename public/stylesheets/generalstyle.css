@@ -54,6 +54,9 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     -o-transition: box-shadow 0.15s linear;
     transition: box-shadow 0.15s linear;
 }
+#response-block .contact-info-item span {
+    color: #fff;
+}
 .contact-info a:hover .fa {
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
@@ -139,6 +142,9 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 }
 .nav>li>a:focus {
     background-color: transparent;
+}
+#YURA-logo {
+    height: 140px;
 }
 
 /* Back-to-top button */

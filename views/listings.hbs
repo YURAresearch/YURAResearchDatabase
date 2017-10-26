@@ -80,13 +80,12 @@
                     </h2>
                   </div>
                   <div class="col-sm-8" id="query-button-block">
-                      <button id="letsgo" type="submit" class="btn btn-primary query-buttons"><i style="margin-right:10px;" class="fa fa-caret-right"></i> Search</button>
-                      <a id="reset-button-id" href="/listings" class="btn query-buttons"><i style="margin-right:10px;" class="fa fa-close"></i> Clear</a>
-
+                      <button id="letsgo" type="submit" class="btn btn-primary query-buttons"><i class="fa fa-caret-right"></i> Search</button>
+                      <a id="reset-button-id" href="/listings" class="btn query-buttons"><i class="fa fa-close"></i> Clear</a>
                       {{#if favOnly}}
-                      <button id="show-favs" type="submit" class="query-buttons"><i style="margin-right:10px;" class="fa fa-toggle-on show-favs-turn-off"></i> Favorites only</button>
+                      <button id="show-favs" type="submit" class="query-buttons"><i class="fa fa-toggle-on show-favs-turn-off"></i> Favorites only</button>
                       {{else}}
-                      <button id="show-favs" name="favorites" value="true" type="submit" class="query-buttons"><i style="margin-right:10px;" class="fa fa-toggle-off show-favs-turn-on"></i> Favorites only</button>
+                      <button id="show-favs" name="favorites" value="true" type="submit" class="query-buttons"><i class="fa fa-toggle-off show-favs-turn-on"></i> Favorites only</button>
                       {{/if}}
                   </div>
                   <!-- /.col-* -->
@@ -105,7 +104,7 @@
                           <div class="card-row-body">
                             <h2 class="card-row-title"><a href='{{this.website}}' target="_blank">{{this.name}}</a>
                                 {{#if isfavorite}}
-                                <img src="images/star.png" alt="(favorite)" style="margin:0px;vertical-align:bottom;height:23px;width:23px"/>
+                                <img src="images/star.png" alt="(favorite)" class="star-icon" />
                                 {{/if}}
                             </h2>
                             <div class="card-row-content truncateme description">
@@ -186,24 +185,24 @@
 
                       <div class="contact-info">
                         <span class="contact-info-item">
-                                                    <a href="/feedback" target="_self">
-                                                        <i class="fa fa-paper-plane-o"></i>
-                                                        <span style="color:#fff">Send feedback</span>
+                        <a href="/feedback" target="_self">
+                            <i class="fa fa-paper-plane-o"></i>
+                            <span>Send feedback</span>
                         </a>
                         </span>
 
                         <span class="contact-info-item">
-                                                  <a href="mailto:yura@yale.edu" target="_blank">
-                                                        <i class="fa fa-at"></i>
-                                                        <span style="color:#fff">Email</span>
+                        <a href="mailto:yura@yale.edu" target="_blank">
+                              <i class="fa fa-at"></i>
+                              <span>Email</span>
                         </a>
                         </span>
                         <!-- /.contact-info-item -->
 
                         <span class="contact-info-item">
-                                                    <a href="https://www.facebook.com/yaleundergradresearch/" target="_blank">
-                                                        <i class="fa fa-facebook"></i>
-                                                        <span style="color:#fff">Facebook</span>
+                        <a href="https://www.facebook.com/yaleundergradresearch/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                            <span>Facebook</span>
                         </a>
                         </span>
                         <!-- /.contact-info-item -->

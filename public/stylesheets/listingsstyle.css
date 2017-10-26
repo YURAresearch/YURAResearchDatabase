@@ -99,19 +99,6 @@ ul.list>#noresults:only-child{
     display: block;
 }
 
-/* Loading and warning */
-/*#loader p {
-	font-size: 26px;
-	font-weight: 400;
-	color: #009f8b;
-	text-align: center;
-	line-height: 60px;
-}
-#login-warning {
-	font-size: 120%;
-	text-align: center;
-}*/
-
 /* Head */
 #home>a {
 	color: #fff;
@@ -170,6 +157,12 @@ dt span.departments > span, .email {
 }
 .headout-chev {
 	font-size: 80%;
+}
+.star-icon {
+    margin: 0px;
+    vertical-align: bottom;
+    height: 23px;
+    width: 23px;
 }
 mark {
   background-color: #a0f6fa;
@@ -268,6 +261,9 @@ mark {
         -webkit-transform: scaleY(-1);
         transform: scaleY(-1);
     }
+}
+#query-button-block button i {
+    margin-right: 10px;
 }
 .filter-actions {
 	height: 37px;
