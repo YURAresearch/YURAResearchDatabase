@@ -39,7 +39,8 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     display: block;
     line-height: 20px;
     font-weight: bold;
-    color: white;
+    color: #fff;
+    text-align: center;
 }
 
 /* General layout */
