@@ -20,7 +20,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Temporary welcome banner */
 #welcome-block {
-    background: rgba(30,180,130,0.7);
+    background: rgba(30,180,130,0.85);
     position: fixed;
     z-index: 999;
     top: 0;
@@ -57,6 +57,7 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
     right: 10px;
     top: 10px;
     color: #fff;
+    cursor: pointer;
 }
 
 /* General layout */
