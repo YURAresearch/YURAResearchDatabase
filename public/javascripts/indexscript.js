@@ -81,4 +81,9 @@ $(document).ready(function() {
 
     // Testimonials
     setInterval(changeTestimonial, 3000);
+
+    // Temporary welcome block
+    $('#close-welcome').click(function() {
+        $('#welcome-block').fadeOut(200);
+    });
 });

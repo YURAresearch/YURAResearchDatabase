@@ -35,12 +35,28 @@ along with the RDB code.  If not, see <http://www.gnu.org/licenses/>.
         height: 60px;
     }
 }
+@media (max-width: 400px) {
+    #welcome-block>p {
+        font-size: 13px;
+    }
+}
 #welcome-block>p {
     display: block;
     line-height: 20px;
     font-weight: bold;
     color: #fff;
     text-align: center;
+    margin-right: 25px;
+    margin-bottom: 0px;
+}
+#welcome-block>i {
+    margin: 5px;
+    width: 10px;
+    line-height: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #fff;
 }
 
 /* General layout */
