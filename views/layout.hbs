@@ -31,9 +31,6 @@ Nicole Eskow ('19), Peter Wang ('18), Surya Dutta ('18), and others
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-  <meta name="description=" content="The Research Database (RDB) is created by the Yale Undergraduate Research Association (YURA) as a cross-disciplinary database of Yale University research faculty with profile and research information">
 
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63178606-7"></script>
@@ -54,6 +51,24 @@ Nicole Eskow ('19), Peter Wang ('18), Surya Dutta ('18), and others
     gtag('config', 'UA-63178606-7');
   </script>
   {{/if}}
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="description=" content="The Research Database (RDB) is created by the Yale Undergraduate Research Association (YURA) as a cross-disciplinary database of Yale University research faculty with profile and research information">
+
+  <meta property="og:title" content="YURA Research Database" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://yura.yale.edu/database/" />
+  <meta property="og:image" content="images/RDB-image.png" />
+  <meta property="og:image:alt" content="Welcome to the Research Database (RDB) by YURA" />
+  <meta property="og:description" content="Explore Yale faculty research in a cross-disciplinary, searchable database" />
+
+  <link rel="manifest" href="images/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>RDB by YURA | {{title}}</title>
 
   {{#if isAdmin}}
   <script>
@@ -93,11 +108,6 @@ Nicole Eskow ('19), Peter Wang ('18), Surya Dutta ('18), and others
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-  <link rel="manifest" href="images/favicon/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <title>RDB by YURA | {{title}}</title>
 </head>
 
 <body>
