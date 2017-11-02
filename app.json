@@ -1,6 +1,10 @@
 {
-  "name": "YURAResearchDatabase",
-  "description": "",
+  "name": "YURA Research Database",
+  "short_name": "YURA RDB",
+  "background_color": "#415E6B",
+  "theme_color": "#314954",
+  "description": "Explore Yale faculty research in a cross-disciplinary, searchable database",
+
   "scripts": {
   },
   "env": {
