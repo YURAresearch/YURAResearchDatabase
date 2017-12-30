@@ -81,7 +81,7 @@ app.post('/listings/addFavorite/:listingid', listings);
 
 // letsencrypt ssl certificate confirmation
 app.get('/.well-known/acme-challenge/:content', function(req, res) {
-  res.send('_Vz9KLmSfZNgaOvmV2SP29dF3UYbRqnxs4u6zuA9nRs.eQwz2bF_dTl8qE6neOOeozqWGRcP-4Jiolfu9-s9xtA')
+  res.send('DBtVTOnKf8a5vzlIbcjb343FSN7yxESSHHCAeNozfpE.uMxqovhH1reseCsruIX-Ghl3InqsyDsfLIZwubOppL8')
 })
 
 // catch 404 and forward to error handler
