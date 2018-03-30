@@ -53,4 +53,4 @@ To run your local instance of RDB, just do `npm start` and go to [localhost:3000
 
 More info to come - Stay tuned!
 
-Hello friends.
+Hi Peter
