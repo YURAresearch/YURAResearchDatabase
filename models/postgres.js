@@ -48,7 +48,9 @@ function escapeRegExpDept(str) {
 }
 
 function saveSearch(searchQuery, deptFilter, countListings, netIDhash){
+  if (config.save_search){
     db.query("INSERT INTO searches (search_query, department_filter, datetime, listing_count, netid_hash) VALUES ('" + searchQuery + "', '" + deptFilter + "', CURRENT_TIMESTAMP, "+countListings+",'"+netIDhash+"');");
+  }
 }
 
 //(to_tsvector(coalesce(listings.name, '')) || to_tsvector(coalesce(listings.description, '')) || to_tsvector(coalesce(listings.keywords, '')) || to_tsvector(coalesce(listings.departments, '')))
